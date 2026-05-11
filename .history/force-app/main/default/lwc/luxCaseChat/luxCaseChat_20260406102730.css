@@ -1,0 +1,128 @@
+/* ── WRAPPER (Le conteneur principal) ── */
+.lux-chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* On utilise le beige très clair du fond de la carte détails */
+    background: #fdfaf5; 
+    border: 1px solid #e8dcc8; 
+    border-radius: 8px; /* Arrondi identique à la carte du haut */
+    overflow: hidden;
+    height: 520px;
+    font-family: "Georgia", serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ── HEADER ── */
+.lux-chat-header {
+    /* On reprend le marron foncé du titre principal pour le contraste */
+    background: #1e120a; 
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lux-chat-title {
+    font-size: 14px;
+    color: #c9a96e; /* Doré luxe */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+}
+
+/* ── BODY (La zone de messages) ── */
+.lux-chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background: #fdfaf5; /* Beige crème identique aux détails */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── BULLES DE MESSAGE ── */
+.lux-chat-bubble {
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Message Envoyé (Vous) - Marron doré comme le bouton */
+.lux-chat-row--own .lux-chat-bubble {
+    background: #a07840; 
+    color: #ffffff;
+}
+
+/* Message Reçu (Support) - Blanc avec bordure beige */
+.lux-chat-row--other .lux-chat-bubble {
+    background: #ffffff;
+    border: 1px solid #e8dcc8;
+    color: #1e120a;
+}
+
+/* ── META (Nom et Date) ── */
+.lux-chat-sender {
+    font-size: 11px;
+    font-weight: bold;
+    color: #a07840;
+    margin-bottom: 2px;
+}
+
+.lux-chat-date {
+    font-size: 10px;
+    color: #b0976e;
+}
+
+/* ── FOOTER (Zone de saisie) ── */
+.lux-chat-footer {
+    display: flex;
+    padding: 15px 20px;
+    background: #ffffff;
+    border-top: 1px solid #e8dcc8;
+    gap: 10px;
+}
+
+.lux-chat-input {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #e8dcc8;
+    border-radius: 2px;
+    padding: 12px;
+    font-size: 14px;
+    color: #1e120a;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.lux-chat-input:focus {
+    border-color: #a07840;
+}
+
+.lux-chat-send {
+    background: #a07840; /* Même couleur que le bouton ENVOYER de votre image */
+    border: none;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.lux-chat-send:hover {
+    background: #866435;
+}
+
+/* ── ÉTAT CHARGEMENT ── */
+.lux-chat-loading {
+    color: #a07840;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+    margin: auto;
+}

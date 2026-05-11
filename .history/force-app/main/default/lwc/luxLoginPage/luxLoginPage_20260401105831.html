@@ -1,0 +1,25 @@
+<template>
+    <div class="login-page">
+        <div class="login-card">
+
+            <!-- Bandeau noir -->
+            <div class="login-brand">
+                <div class="login-brand-name">MAISON LUXE</div>
+                <div class="login-brand-tag">ESPACE CLIENT PRIVÉ</div>
+            </div>
+
+            <!-- Formulaire standard Salesforce LWR -->
+            <div class="login-body">
+                <div class="login-title">Connexion</div>
+                <div class="login-sub">Accédez à votre espace personnel</div>
+
+                <forceCommunity:loginForm
+                    startUrl=""
+                    forgotPasswordLabel="Mot de passe oublié ?"
+                    logInLabel="Se connecter">
+                </forceCommunity:loginForm>
+
+            </div>
+        </div>
+    </div>
+</template>

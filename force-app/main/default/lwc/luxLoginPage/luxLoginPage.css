@@ -1,0 +1,56 @@
+/* Bannière */
+.login-banner {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: #24170f;
+    color: #c8a75c;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: pre-line;
+}
+
+/* Formulaire */
+.cLogin .login-form {
+    max-width: 500px;
+    margin: 160px auto 0; /* espace pour la bannière */
+    background: #ffffff;
+    padding: 40px 20px 20px;
+    border: 1px solid #e2ddd4;
+    border-radius: 4px;
+}
+
+/* Inputs */
+.cLogin input[type="text"],
+.cLogin input[type="password"] {
+    background: #fcfaf7;
+    border: 1px solid #dcd1bd;
+    height: 50px;
+    font-family: 'Lato', sans-serif;
+    border-radius: 2px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Bouton de connexion */
+.cLogin button[type="button"] {
+    background: #c8a75c;
+    height: 55px;
+    color: white;
+    width: 100%;
+    border: none;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* Message d’erreur */
+.error-msg {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}

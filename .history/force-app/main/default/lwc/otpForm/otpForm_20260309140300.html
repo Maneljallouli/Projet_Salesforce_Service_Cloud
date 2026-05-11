@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Connexion par OTP">
+        <div class="slds-p-around_medium">
+            <!-- Étape 1 : Saisir l'email -->
+            <template if:true={isOtpStep}>
+                <lightning-input 
+                    label="Email" 
+                    value={email} 
+                    onchange={handleEmailChange}
+                    class="slds-m-bottom_small">
+                </lightning-input>
+                <lightning-button 
+                    label="Envoyer OTP" 
+                    variant="brand"
+                    onclick={handleSendOtp} 
+                    class="slds-m-top_small">
+                </lightning-button>
+            </template>
+
+            <!-- Étape 2 : Saisir OTP -->
+            <template if:true={otpSent}>
+                <lightning-input 
+                    label="Code OTP (6 chiffres)" 
+                    value={otp} 
+                    onchange={handleOtpChange}
+                    class="slds-m-bottom_small">
+                </lightning-input>
+                <lightning-button 
+                    label="Valider OTP" 
+                    variant="brand"
+                    onclick={handleValidateOtp} 
+                    class="slds-m-top_small">
+                </lightning-button>
+            </template>
+
+            <!-- Erreurs -->
+            <template if:true={errorMsg}>
+                <div class="slds-text-color_error slds-m-top_small slds-p-around_small">
+                    {errorMsg}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

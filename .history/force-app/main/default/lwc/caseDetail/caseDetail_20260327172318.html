@@ -1,0 +1,47 @@
+<template>
+    <div class="lux-card">
+
+        <template if:true={isLoading}>
+            <div class="lux-loading">Chargement...</div>
+        </template>
+
+        <template if:true={record}>
+            <div class="lux-card-header">
+                <div class="header-top">
+                    <span class="case-num">{record.CaseNumber}</span>
+                    <span class={statusClass}>{record.Status}</span>
+                </div>
+                <h2 class="lux-title">{record.Subject}</h2>
+            </div>
+
+            <div class="lux-card-body">
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">Type</span>
+                        <span class="meta-value">{record.Category__c}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Sous-catégorie</span>
+                        <span class="meta-value">{record.Subcategory__c}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Priorité</span>
+                        <span class="meta-value">{record.Priority}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Créé le</span>
+                        <span class="meta-value">{formattedDate}</span>
+                    </div>
+                </div>
+
+                <div class="lux-divider"></div>
+
+                <div class="desc-section">
+                    <span class="meta-label">Description</span>
+                    <p class="desc-text">{record.Description}</p>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</template>

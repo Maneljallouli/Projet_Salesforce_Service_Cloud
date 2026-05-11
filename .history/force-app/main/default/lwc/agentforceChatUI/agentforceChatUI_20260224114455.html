@@ -1,0 +1,16 @@
+<template>
+    <div class="custom-message-bubble">
+        <!-- Avatar uniquement pour le bot -->
+        <template if:true={showAvatar}>
+            <div class="avatar-container">
+                <img src={logoUrl} class="msg-avatar" alt="Agentforce"/>
+            </div>
+        </template>
+        
+        <!-- Bulle de message -->
+        <div class="msg-bubble">
+            <slot name="message-content"></slot>
+            <slot name="message-time"></slot>
+        </div>
+    </div>
+</template>

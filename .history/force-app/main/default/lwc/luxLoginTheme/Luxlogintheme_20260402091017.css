@@ -1,0 +1,36 @@
+/* On cible le composant lui-même */
+:host {
+    display: block !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+}
+
+/* Le bandeau noir */
+.lux-banner {
+    background-color: #24170f !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+    border-radius: 4px 4px 0 0 !important;
+    display: block !important;
+}
+
+/* Texte principal doré */
+.lux-text-main {
+    color: #c8a75c !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    letter-spacing: 5px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+}
+
+/* Texte secondaire doré */
+.lux-text-sub {
+    color: #c8a75c !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 12px !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case__c</fullName>
+    <label>Case SAV</label>
+    <type>MasterDetail</type>
+    <referenceTo>Case</referenceTo>
+    <relationshipLabel>Interventions SAV</relationshipLabel>
+    <relationshipName>Interventions_SAV</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    <description>Lien Master-Detail vers le Case Salesforce standard. Remplace l'ancien champ Demande_SAV__c.</description>
+</CustomField>

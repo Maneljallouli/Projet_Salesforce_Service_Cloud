@@ -1,0 +1,31 @@
+<template>
+    <div class="luxury-discussion-container">
+        <h2 class="section-title">Espace d'Entraide</h2>
+        
+        <div class="input-section">
+            <lightning-textarea 
+                label="Votre question" 
+                value={message} 
+                placeholder="Comment pouvons-nous vous aider ?"
+                onchange={handleMessageChange}
+                variant="label-hidden">
+            </lightning-textarea>
+            <button class="gold-button" onclick={handlePost}>Publier la question</button>
+        </div>
+
+        <div class="feed-section">
+            <div class="message-card">
+                <div class="message-header">
+                    <span class="author-name">Client Or</span>
+                    <span class="date">Il y a 2 heures</span>
+                </div>
+                <p class="content">Comment entretenir le cuir de mon sac de voyage ?</p>
+                
+                <div class="reply-card agent-reply">
+                    <span class="agent-badge">Expert Maison</span>
+                    <p>Nous recommandons l'usage de notre baume de soin incolore...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <div class="lux-nav-container">
+        
+        <div class="lux-card" onclick={navigateToCreate}>
+            <div class="lux-icon-circle">+</div>
+            <h2>Nouvelle demande</h2>
+            <p>Réclamation, retour, échange ou information</p>
+            <span class="lux-link">Commencer <span class="lux-arrow">→</span></span>
+        </div>
+
+        <div class="lux-card" onclick={navigateToMyCases}>
+            <div class="lux-icon-circle">
+                <lightning-icon icon-name="utility:clock" size="small"></lightning-icon>
+            </div>
+            <h2>Suivi demandes</h2>
+            <p>Consultez l'état de vos demandes en cours</p>
+            <span class="lux-link">Voir <span class="lux-arrow">→</span></span>
+        </div>
+
+        <div class="lux-card" onclick={navigateToFAQ}>
+            <div class="lux-icon-circle">
+                <lightning-icon icon-name="utility:question" size="small"></lightning-icon>
+            </div>
+            <h2>FAQ</h2>
+            <p>Entretien, livraison, authenticité</p>
+            <span class="lux-link">Consulter <span class="lux-arrow">→</span></span>
+        </div>
+
+    </div>
+</template>

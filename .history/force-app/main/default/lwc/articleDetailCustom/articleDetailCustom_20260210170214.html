@@ -1,0 +1,26 @@
+<template>
+    <div class="luxury-container">
+        <template if:true={article.data}>
+            <h1 class="luxury-title">{title}</h1>
+            <div class="luxury-divider"></div>
+            <div class="luxury-content">
+                <lightning-formatted-rich-text value={bodyContent}>
+                </lightning-formatted-rich-text>
+            </div>
+        </template>
+
+        <template if:false={article.data}>
+            <template if:false={errorMessage}>
+                <div class="loading-state">
+                    <lightning-spinner alternative-text="Chargement..." size="medium"></lightning-spinner>
+                </div>
+            </template>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="error-box">
+                {errorMessage}
+            </div>
+        </template>
+    </div>
+</template>

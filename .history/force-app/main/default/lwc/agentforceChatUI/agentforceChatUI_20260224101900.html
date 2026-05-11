@@ -1,0 +1,20 @@
+<template>
+    <div class={messageClass}>
+        
+        <template if:true={isBot}>
+            <div class="avatar-container">
+                <img src={logoUrl} class="msg-avatar" alt="Agentforce Bot"/>
+            </div>
+        </template>
+
+        <div class="msg-bubble">
+            <div class="msg-content">
+                <p>{messageText}</p>
+            </div>
+            
+            <template if:true={formattedTime}>
+                <span class="time">{formattedTime}</span>
+            </template>
+        </div>
+    </div>
+</template>

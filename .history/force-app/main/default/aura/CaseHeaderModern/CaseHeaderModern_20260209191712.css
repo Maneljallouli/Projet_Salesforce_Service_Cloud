@@ -1,0 +1,73 @@
+.THIS.custom-wrapper {
+    background: white;
+    border: none !important;
+    padding: 24px 0 0 0;
+}
+
+.THIS .case-number {
+    color: #00396b;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.THIS .case-subject {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.THIS .info-banner {
+    display: flex;
+    align-items: center;
+    padding: 18px 28px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+}
+
+.THIS .info-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+.THIS .separator {
+    padding-left: 30px;
+    border-left: 1px solid #dddbda;
+}
+
+.THIS .info-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.THIS .info-value {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.THIS .btn-rouvrir {
+    margin-left: auto;
+    background: #ffffff;
+    border: 1px solid #0176d3;
+    color: #0176d3;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.THIS .btn-rouvrir:hover {
+    background-color: #0176d3;
+    color: white;
+}
+
+.THIS .tab-divider {
+    margin-top: 15px;
+    border-bottom: 1px solid #dddbda;
+}

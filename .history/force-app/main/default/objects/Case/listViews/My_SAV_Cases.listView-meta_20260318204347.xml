@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_SAV_Cases</fullName>
+    <columns>Case.CaseNumber</columns>
+    <columns>Subject</columns>
+    <columns>RecordType.Name</columns>
+    <columns>Status</columns>
+    <columns>Priority</columns>
+    <columns>Produit_Concerne__c</columns>
+    <columns>CreatedDate</columns>
+    <columns>LastModifiedDate</columns>
+    <filterScope>Mine</filterScope>
+    <label>Mes demandes SAV</label>
+    <language>fr</language>
+</ListView>

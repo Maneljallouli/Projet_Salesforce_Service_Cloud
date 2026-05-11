@@ -1,0 +1,32 @@
+<template>
+    <div class="luxury-card">
+        <h2 class="gold-title">Espace Discussions Dynamique</h2>
+        
+        <div class="input-container">
+            <lightning-textarea 
+                value={newMessage} 
+                onchange={handleTextChange}
+                placeholder="Posez votre question à nos experts...">
+            </lightning-textarea>
+            <button class="gold-btn" onclick={handlePost}>Publier</button>
+        </div>
+
+        <template if:true={discussions}>
+            <template for:each={discussions} for:item="dis">
+                <div key={dis.Id} class="message-item">
+                    <div class="header">
+                        <strong>{dis.CreatedBy.Name}</strong>
+                        <span>{dis.CreatedDate}</span>
+                    </div>
+                    <p class="body">{dis.Body}</p>
+                    
+                    <template for:each={dis.FeedComments} for:item="comment">
+                        <div key={comment.Id} class="reply-item">
+                            <strong>{comment.CreatedBy.Name}:</strong> {comment.CommentBody}
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

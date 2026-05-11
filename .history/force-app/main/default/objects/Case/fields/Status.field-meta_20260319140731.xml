@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Case__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Case Status</label>
+    <length>50</length>
+    <type>Text</type>
+    <unique>false</unique>
+    <description>API value of the Case Status picklist that triggers this notification. Must match exactly: New | In Progress | Waiting Client | Waiting Logistics | Resolved | Closed</description>
+</CustomField>

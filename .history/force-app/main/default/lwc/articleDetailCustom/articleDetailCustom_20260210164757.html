@@ -1,0 +1,16 @@
+<template>
+    <div class="luxury-container">
+        <template if:true={articleData}>
+            <h1 class="luxury-title">{title}</h1>
+            <div class="luxury-divider"></div>
+            <div class="luxury-content">
+                <lightning-formatted-rich-text value={bodyContent}>
+                </lightning-formatted-rich-text>
+            </div>
+        </template>
+        
+        <template if:false={articleData}>
+            <p>Chargement de votre article de luxe...</p>
+        </template>
+    </div>
+</template>

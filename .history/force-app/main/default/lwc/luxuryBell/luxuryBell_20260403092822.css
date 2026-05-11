@@ -1,0 +1,15 @@
+.notification-dot {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    height: 8px;
+    width: 8px;
+    background-color: #ff4b4b; /* Rouge élégant */
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.slds-is-relative {
+    display: inline-block;
+    cursor: pointer;
+}

@@ -1,0 +1,71 @@
+.THIS.list-container {
+    background: #ffffff !important;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0 !important;
+    margin: 20px 0;
+}
+
+.THIS .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 10px;
+}
+
+.THIS .list-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #001535;
+}
+
+.THIS .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.THIS .table-row:hover {
+    background-color: #f9f9f9; /* Effet de survol */
+}
+
+.THIS .custom-table th {
+    text-align: left;
+    padding: 10px;
+    color: #888;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.THIS .custom-table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+}
+
+.THIS .case-number-cell a {
+    color: #0176d3;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.THIS .status-badge {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.THIS .status-in-progress { background: #e0f2fe; color: #0369a1; }
+.THIS .status-new { background: #dcfce7; color: #15803d; }
+.THIS .status-waiting { background: #fef3c7; color: #b45309; }
+.THIS .status-closed { background: #f3f3f3; color: #666; }
+
+.THIS .view-all-btn {
+    color: #0176d3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}

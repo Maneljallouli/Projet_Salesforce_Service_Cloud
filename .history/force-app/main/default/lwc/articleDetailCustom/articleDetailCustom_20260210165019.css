@@ -1,0 +1,36 @@
+.luxury-container {
+    background: #ffffff;
+    padding: 40px;
+    max-width: 850px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.luxury-title {
+    font-size: 2.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a1a1a;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.luxury-divider {
+    height: 2px;
+    background: #d4af37; /* Couleur dorée pour le luxe */
+    width: 60px;
+    margin: 0 auto 30px auto;
+}
+
+.luxury-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 50px;
+    color: #999;
+}

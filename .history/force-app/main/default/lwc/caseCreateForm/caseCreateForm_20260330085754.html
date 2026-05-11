@@ -1,0 +1,75 @@
+<template>
+    <div class="lux-card">
+        <div class="lux-card-header">
+            <h2 class="lux-title">Nouvelle demande</h2>
+            <p class="lux-subtitle">L'excellence de la Maison MJ à votre service</p>
+        </div>
+
+        <div class="lux-card-body">
+            <template if:true={success}>
+                <div class="lux-success">
+                    <p>Votre demande a été transmise avec succès.</p>
+                    <p class="case-number">N° {createdCaseId}</p>
+                    <button class="lux-btn-ghost" onclick={reset}>Nouvelle demande</button>
+                </div>
+            </template>
+
+            <template if:false={success}>
+                <div class="lux-field">
+                    <label>Sujet *</label>
+                    <input type="text" value={subject} onchange={handleSubject} placeholder="Objet de votre message"/>
+                </div>
+
+                <div class="lux-field">
+                    <label>Numéro de commande (Optionnel)</label>
+                    <input type="text" value={orderNumber} onchange={handleOrderNumber} placeholder="Ex: MJ-2026-XXXX"/>
+                </div>
+
+                <div class="lux-field">
+                    <label>Type de demande *</label>
+                    <select onchange={handleCategory}>
+                        <option value="">-- Sélectionner --</option>
+                        <template for:each={categoryOptions} for:item="opt">
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        </template>
+                    </select>
+                </div>
+
+                <template if:true={hasSubcategories}>
+                    <div class="lux-field">
+                        <label>Détail de la demande</label>
+                        <select onchange={handleSubcategory}>
+                            <option value="">-- Sélectionner --</option>
+                            <template for:each={subcategoryOptions} for:item="opt">
+                                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                            </template>
+                        </select>
+                    </div>
+                </template>
+
+                <div class="lux-field">
+                    <label>Votre Segment</label>
+                    <select onchange={handleSegment}>
+                        <template for:each={segmentOptions} for:item="opt">
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        </template>
+                    </select>
+                </div>
+
+                <div class="lux-field">
+                    <label>Description *</label>
+                    <textarea value={description} onchange={handleDescription} placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                </div>
+
+                <template if:true={errorMsg}>
+                    <div class="lux-error">{errorMsg}</div>
+                </template>
+
+                <button class="lux-btn" onclick={handleSubmit} disabled={isLoading}>
+                    <template if:true={isLoading}>Transmission en cours...</template>
+                    <template if:false={isLoading}>Envoyer la demande</template>
+                </button>
+            </template>
+        </div>
+    </div>
+</template>

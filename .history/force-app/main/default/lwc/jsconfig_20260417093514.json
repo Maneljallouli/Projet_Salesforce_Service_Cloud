@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "ignoreDeprecations": "6.0",
+        "paths": {
+            "lwc": ["../../.sfdx/typings/lwc/engine.d.ts"],
+            "@salesforce/schema/*": ["../../.sfdx/typings/lwc/schema.d.ts"],
+            "@salesforce/apex/*": ["../../.sfdx/typings/lwc/apex.d.ts"]
+        }
+    }
+}

@@ -1,0 +1,36 @@
+public with sharing class DiscussionController {
+    
+    @AuraEnabled(cacheable=true)
+    public static List<FeedItem> getDiscussions(Id recordId) {
+        // Correction PMD : Ajout des accolades
+        if (recordId == null) {
+            return new List<FeedItem>();
+        }
+
+        return [
+            SELECT Id, Body, CreatedBy.Name, CreatedDate, 
+                   (SELECT Id, CommentBody, CreatedBy.Name, CreatedDate FROM FeedComments) 
+            FROM FeedItem 
+            WHERE ParentId = :recordId 
+            WITH USER_MODE
+            ORDER BY CreatedDate DESC
+        ];
+    }
+
+    @AuraEnabled
+    public static void postQuestion(Id recordId, String message) {
+        // Correction PMD : Ajout des accolades
+        if (String.isBlank(message)) {
+            throw new AuraHandledException('Le message ne peut pas être vide.');
+        }
+        
+        if (Schema.sObjectType.FeedItem.isCreateable()) {
+            FeedItem post = new FeedItem();
+            post.ParentId = recordId;
+            post.Body = message;
+            insert as user post;
+        } else {
+            throw new AuraHandledException('Permissions insuffisantes pour publier.');
+        }
+    }
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- SAV ERRORS -->
+    <customLabels>
+        <name>SAV_Error_NotFound</name>
+        <label>This repair request could not be found or you do not have access to it.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_InvalidInput</name>
+        <label>The request data is invalid or incomplete.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_ProductRequired</name>
+        <label>Please select an item from your collection to continue.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_CategoryRequired</name>
+        <label>Please select a repair category to continue.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_ProductNotOwned</name>
+        <label>This item does not belong to your collection.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_CannotValidate</name>
+        <label>Reception can only be confirmed once your item has been delivered.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_CannotApprove</name>
+        <label>A quote can only be approved once one has been submitted to you.</label>
+    </customLabels>
+    <customLabels>
+        <name>SAV_Error_CannotRefuse</name>
+        <label>A quote can only be declined once one has been submitted to you.</label>
+    </customLabels>
+
+    <!-- PRODUCT ERRORS -->
+    <customLabels>
+        <name>Product_Error_NotFound</name>
+        <label>This item could not be found in your collection.</label>
+    </customLabels>
+    <customLabels>
+        <name>Product_Error_InvalidInput</name>
+        <label>The product information is invalid or incomplete.</label>
+    </customLabels>
+    <customLabels>
+        <name>Product_Error_NameRequired</name>
+        <label>The item name is required.</label>
+    </customLabels>
+    <customLabels>
+        <name>Product_Error_DuplicateRef</name>
+        <label>An item with this reference already exists in your collection.</label>
+    </customLabels>
+    <customLabels>
+        <name>Product_Error_ActiveSav</name>
+        <label>This item cannot be removed: a repair request is currently in progress.</label>
+    </customLabels>
+
+    <!-- PAYMENT ERRORS -->
+    <customLabels>
+        <name>Payment_Error_NotFound</name>
+        <label>This payment request could not be found or you do not have access to it.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_AlreadyPaid</name>
+        <label>This request has already been paid.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_InvalidStatus</name>
+        <label>Payment is only possible after the quote has been approved.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_InvalidAmount</name>
+        <label>The request amount is invalid or zero.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_InvalidInput</name>
+        <label>The payment data is invalid or incomplete.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_NoIntent</name>
+        <label>No payment intent found. Please try again.</label>
+    </customLabels>
+    <customLabels>
+        <name>Payment_Error_NotSucceeded</name>
+        <label>The payment was not successful. Please check your bank details.</label>
+    </customLabels>
+
+    <!-- INVOICE ERRORS -->
+    <customLabels>
+        <name>Invoice_Error_NotFound</name>
+        <label>Your invoice is not yet available. It will be generated once your payment has been processed.</label>
+    </customLabels>
+
+    <!-- FAQ ERRORS -->
+    <customLabels>
+        <name>FAQ_Error_ArticleNotFound</name>
+        <label>This article could not be found or is not available in your language.</label>
+    </customLabels>
+    <customLabels>
+        <name>FAQ_Error_SearchTooShort</name>
+        <label>Please enter at least 2 characters to search.</label>
+    </customLabels>
+    <customLabels>
+        <name>FAQ_Error_SearchInvalid</name>
+        <label>Your search contains invalid characters. Please rephrase it.</label>
+    </customLabels>
+    <customLabels>
+        <name>FAQ_Error_InvalidArticle</name>
+        <label>Invalid article identifier.</label>
+    </customLabels>
+
+    <!-- PREFERENCES ERRORS -->
+    <customLabels>
+        <name>Prefs_Error_InvalidInput</name>
+        <label>The notification preferences are invalid or incomplete.</label>
+    </customLabels>
+    <customLabels>
+        <name>Prefs_Error_PhoneRequired</name>
+        <label>A phone number is required to enable SMS notifications.</label>
+    </customLabels>
+    <customLabels>
+        <name>Prefs_Error_InvalidPhone</name>
+        <label>The phone number must be in international format (e.g. +33612345678).</label>
+    </customLabels>
+
+    <!-- PORTAL ERRORS -->
+    <customLabels>
+        <name>Portal_Error_NoContactLinked</name>
+        <label>Your user account is not linked to a client profile. Please contact your advisor.</label>
+    </customLabels>
+    <customLabels>
+        <name>Portal_Error_Unauthorized</name>
+        <label>You do not have the required permissions to perform this action.</label>
+    </customLabels>
+
+</Translations>

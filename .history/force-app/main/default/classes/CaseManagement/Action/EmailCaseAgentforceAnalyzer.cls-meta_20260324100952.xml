@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <status>Active</status>
+    <description>Invocable Apex class to call Agentforce Prompt Builder and return JSON for Case classification and summary</description>
+</ApexClass>

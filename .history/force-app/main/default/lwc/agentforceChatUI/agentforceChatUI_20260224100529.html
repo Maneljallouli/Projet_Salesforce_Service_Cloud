@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-chat-window">
+        <header class="chat-header">
+            <div class="bot-identity">
+                <img src="/resource/AgentforceLogo" class="bot-icon" alt="Agentforce"/>
+                <span class="bot-name">Agentforce</span>
+            </div>
+            <lightning-button-icon icon-name="utility:minimize_window" variant="bare-white"></lightning-button-icon>
+        </header>
+
+        <div class="chat-content">
+            <template for:each={messages} for:item="msg">
+                <div key={msg.id} class={msg.class}>
+                    <template if:true={msg.isBot}>
+                        <img src="/resource/AgentforceIcon" class="msg-avatar" alt="bot"/>
+                    </template>
+                    <div class="msg-bubble">
+                        <p>{msg.text}</p>
+                        <span class="time">{msg.time}</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <footer class="chat-footer">
+            <input type="text" placeholder="Type your message..." class="chat-input" onkeyup={handleKeyUp}>
+            <lightning-button-icon icon-name="utility:send" variant="bare" onclick={handleSend}></lightning-button-icon>
+        </footer>
+    </div>
+</template>

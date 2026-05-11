@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <label>SAV Portail Payment</label>
+    <description>Permissions paiement pour le portail SAV. Complète PS_SAV_Portail_Base.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+
+    <!-- =========================================
+       APEX CLASS
+    ========================================== -->
+
+    <classAccesses>
+        <apexClass>PaymentController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+
+    <!-- =========================================
+       OBJECT PERMISSIONS
+    ========================================== -->
+
+    <!-- 🔴 OBLIGATOIRE car Facture dépend de Demande SAV -->
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Demande_SAV__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Facture_SAV__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+
+    <!-- =========================================
+       FIELD PERMISSIONS
+    ========================================== -->
+
+    <!-- Demande SAV -->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Demande_SAV__c.Statut_Paiement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Demande_SAV__c.Montant_Final__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <!-- Facture -->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.PDF_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.Montant_TTC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.Statut__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+</PermissionSet>

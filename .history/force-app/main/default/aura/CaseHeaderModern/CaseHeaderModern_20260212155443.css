@@ -1,0 +1,78 @@
+.THIS.custom-wrapper {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.THIS .header-text {
+    margin-bottom: 20px;
+}
+
+.THIS .case-number {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.THIS .case-subject {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}
+
+.THIS .info-banner {
+    display: flex;
+    padding: 15px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.THIS .info-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .separator {
+    border-left: 1px solid #d8dde6;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.THIS .info-label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.THIS .info-value {
+    font-size: 14px;
+    font-weight: bold;
+    color: #001535;
+}
+
+.THIS .action-container {
+    margin-left: auto;
+}
+
+.THIS .btn-rouvrir {
+    background: #0176d3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.THIS .btn-rouvrir:hover {
+    background: #014486;
+}
+
+.THIS .tab-divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin-top: 20px;
+}

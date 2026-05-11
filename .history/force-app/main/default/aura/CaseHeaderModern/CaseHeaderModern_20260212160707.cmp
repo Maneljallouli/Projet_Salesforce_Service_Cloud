@@ -1,0 +1,23 @@
+<aura:html tag="div"
+           HTMLAttributes="{ 'class': 'info-banner', 'style': 'background-color:' + v.bannerBackground }">
+
+    <div class="info-column">
+        <span class="info-label">Ouvert</span>
+        <span class="info-value">
+            <lightning:formattedDateTime 
+                value="{!v.caseRecord.CreatedDate}" 
+                year="numeric" 
+                month="numeric" 
+                day="numeric"/>
+        </span>
+    </div>
+
+    <!-- Séparateur vertical -->
+    <div class="info-divider"></div>
+
+    <div class="info-column">
+        <span class="info-label">Statut</span>
+        <span class="info-value">{!v.caseRecord.Status}</span>
+    </div>
+
+</aura:html>

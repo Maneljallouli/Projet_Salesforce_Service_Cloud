@@ -1,0 +1,67 @@
+.lux-nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.lux-card {
+    flex: 1;
+    background: #FFFFFF;
+    border: 1px solid #E8DFD0;
+    border-radius: 6px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lux-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(180, 150, 90, 0.1);
+}
+
+.lux-icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #C8A96A;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    font-size: 24px;
+    color: #C8A96A;
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2E2416;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #9A8A74;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.lux-link {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: #C8A96A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.lux-arrow {
+    font-size: 18px;
+    vertical-align: middle;
+}

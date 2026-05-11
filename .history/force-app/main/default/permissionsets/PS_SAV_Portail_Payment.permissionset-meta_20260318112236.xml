@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>SAV Portail Payment</label>
+    <description>Permissions de paiement pour les utilisateurs du portail SAV. Complète PS_SAV_Portail_Base — attribuer uniquement aux clients ayant un devis approuvé en cours. En pratique : attribuer à tous les portail users, le contrôle d'accès réel est géré dans PaymentController via ownership check.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <license>CustomerCommunityPlus</license>
+
+    <!-- ── APEX CLASSES ────────────────────────────────────────── -->
+    <classAccesses>
+        <apexClass>PaymentController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+
+    <!-- ── DEMANDE_SAV__C — champs paiement ──────────────────── -->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Demande_SAV__c.Statut_Paiement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Demande_SAV__c.Montant_Final__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <!-- ── FACTURE_SAV__C — lecture complète pour download ───── -->
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Facture_SAV__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.PDF_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.Montant_TTC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Facture_SAV__c.Statut__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+</PermissionSet>

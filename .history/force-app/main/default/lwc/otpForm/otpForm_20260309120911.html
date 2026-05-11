@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Connexion par OTP">
+        <!-- Etape 1 : Saisir l'email -->
+        <template if:true={!otpSent}>
+            <lightning-input label="Email" value={email} onchange={handleEmailChange}></lightning-input>
+            <lightning-button label="Envoyer OTP" onclick={handleSendOtp} class="slds-m-top_small"></lightning-button>
+        </template>
+
+        <!-- Etape 2 : Saisir OTP -->
+        <template if:true={otpSent}>
+            <lightning-input label="Entrez le code OTP" value={otp} onchange={handleOtpChange}></lightning-input>
+            <lightning-button label="Valider OTP" onclick={handleValidateOtp} class="slds-m-top_small"></lightning-button>
+        </template>
+
+        <!-- Affichage des erreurs -->
+        <template if:true={errorMsg}>
+            <div class="slds-text-color_error slds-m-top_small">{errorMsg}</div>
+        </template>
+    </lightning-card>
+</template>

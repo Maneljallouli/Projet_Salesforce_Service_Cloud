@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SAV ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>SAV_Error_NotFound</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Not Found</shortDescription>
+        <value>Cette demande SAV est introuvable ou vous n'y avez pas accès.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_InvalidInput</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Invalid Input</shortDescription>
+        <value>Les données de la demande sont invalides ou incomplètes.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_ProductRequired</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Product Required</shortDescription>
+        <value>Veuillez sélectionner une pièce de votre collection pour continuer.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_CategoryRequired</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Category Required</shortDescription>
+        <value>Veuillez sélectionner une catégorie de réparation pour continuer.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_ProductNotOwned</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Product Not Owned</shortDescription>
+        <value>Cette pièce n'appartient pas à votre collection.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_CannotValidate</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Cannot Validate</shortDescription>
+        <value>La validation de réception n'est possible que lorsque votre pièce a été livrée.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_CannotApprove</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Cannot Approve</shortDescription>
+        <value>L'approbation du devis n'est possible que lorsqu'un devis vous a été soumis.</value>
+    </labels>
+
+    <labels>
+        <fullName>SAV_Error_CannotRefuse</fullName>
+        <categories>SAV</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>SAV Error - Cannot Refuse</shortDescription>
+        <value>Le refus du devis n'est possible que lorsqu'un devis vous a été soumis.</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PRODUCT ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>Product_Error_NotFound</fullName>
+        <categories>Product</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Product Error - Not Found</shortDescription>
+        <value>Cette pièce est introuvable dans votre collection.</value>
+    </labels>
+
+    <labels>
+        <fullName>Product_Error_InvalidInput</fullName>
+        <categories>Product</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Product Error - Invalid Input</shortDescription>
+        <value>Les informations du produit sont invalides ou incomplètes.</value>
+    </labels>
+
+    <labels>
+        <fullName>Product_Error_NameRequired</fullName>
+        <categories>Product</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Product Error - Name Required</shortDescription>
+        <value>Le nom de la pièce est obligatoire.</value>
+    </labels>
+
+    <labels>
+        <fullName>Product_Error_DuplicateRef</fullName>
+        <categories>Product</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Product Error - Duplicate Reference</shortDescription>
+        <value>Une pièce avec cette référence existe déjà dans votre collection.</value>
+    </labels>
+
+    <labels>
+        <fullName>Product_Error_ActiveSav</fullName>
+        <categories>Product</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Product Error - Active SAV</shortDescription>
+        <value>Impossible de supprimer cette pièce : une demande SAV est en cours.</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PAYMENT ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>Payment_Error_NotFound</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Not Found</shortDescription>
+        <value>Cette demande de paiement est introuvable ou vous n'y avez pas accès.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_AlreadyPaid</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Already Paid</shortDescription>
+        <value>Cette demande a déjà été réglée.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_InvalidStatus</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Invalid Status</shortDescription>
+        <value>Le paiement n'est possible qu'après approbation du devis.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_InvalidAmount</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Invalid Amount</shortDescription>
+        <value>Le montant de la demande est invalide ou nul.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_InvalidInput</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Invalid Input</shortDescription>
+        <value>Les données de paiement sont invalides ou incomplètes.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_NoIntent</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - No Intent</shortDescription>
+        <value>Aucune intention de paiement trouvée. Veuillez recommencer.</value>
+    </labels>
+
+    <labels>
+        <fullName>Payment_Error_NotSucceeded</fullName>
+        <categories>Payment</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Payment Error - Not Succeeded</shortDescription>
+        <value>Le paiement n'a pas abouti. Veuillez vérifier vos informations bancaires.</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         INVOICE ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>Invoice_Error_NotFound</fullName>
+        <categories>Invoice</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Invoice Error - Not Found</shortDescription>
+        <value>La facture n'est pas encore disponible. Elle sera générée après traitement du paiement.</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FAQ ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>FAQ_Error_ArticleNotFound</fullName>
+        <categories>FAQ</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>FAQ Error - Article Not Found</shortDescription>
+        <value>Cet article est introuvable ou n'est pas disponible dans votre langue.</value>
+    </labels>
+
+    <labels>
+        <fullName>FAQ_Error_SearchTooShort</fullName>
+        <categories>FAQ</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>FAQ Error - Search Too Short</shortDescription>
+        <value>Veuillez saisir au moins 2 caractères pour lancer la recherche.</value>
+    </labels>
+
+    <labels>
+        <fullName>FAQ_Error_SearchInvalid</fullName>
+        <categories>FAQ</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>FAQ Error - Search Invalid</shortDescription>
+        <value>La recherche contient des caractères non valides. Veuillez la reformuler.</value>
+    </labels>
+
+    <labels>
+        <fullName>FAQ_Error_InvalidArticle</fullName>
+        <categories>FAQ</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>FAQ Error - Invalid Article</shortDescription>
+        <value>Identifiant d'article invalide.</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         NOTIFICATION PREFERENCES ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>Prefs_Error_InvalidInput</fullName>
+        <categories>Preferences</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Prefs Error - Invalid Input</shortDescription>
+        <value>Les préférences de notification sont invalides ou incomplètes.</value>
+    </labels>
+
+    <labels>
+        <fullName>Prefs_Error_PhoneRequired</fullName>
+        <categories>Preferences</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Prefs Error - Phone Required</shortDescription>
+        <value>Un numéro de téléphone est requis pour activer les notifications SMS.</value>
+    </labels>
+
+    <labels>
+        <fullName>Prefs_Error_InvalidPhone</fullName>
+        <categories>Preferences</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Prefs Error - Invalid Phone</shortDescription>
+        <value>Le numéro de téléphone doit être au format international (ex : +33612345678).</value>
+    </labels>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PORTAL ERRORS
+         ═══════════════════════════════════════════════════════════ -->
+
+    <labels>
+        <fullName>Portal_Error_NoContactLinked</fullName>
+        <categories>Portal</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Portal Error - No Contact Linked</shortDescription>
+        <value>Votre compte utilisateur n'est pas associé à un profil client. Veuillez contacter votre conseiller.</value>
+    </labels>
+
+    <labels>
+        <fullName>Portal_Error_Unauthorized</fullName>
+        <categories>Portal</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Portal Error - Unauthorized</shortDescription>
+        <value>Vous ne disposez pas des autorisations nécessaires pour effectuer cette action.</value>
+    </labels>
+
+</CustomLabels>

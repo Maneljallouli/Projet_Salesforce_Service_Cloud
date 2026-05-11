@@ -1,0 +1,45 @@
+<template>
+    <div class="lux-section">
+        <div class="lux-section-header">
+            <h2 class="lux-title">La Collection</h2>
+            <div class="filter-bar">
+                <template for:each={collectionOptions} for:item="col">
+                    <button key={col.value}
+                            class={col.btnClass}
+                            data-col={col.value}
+                            onclick={filterCollection}>
+                        {col.label}
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="lux-loading">Chargement de la collection...</div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:true={isEmpty}>
+                <div class="lux-empty">Aucun produit disponible.</div>
+            </template>
+            <div class="product-grid">
+                <template for:each={products} for:item="p">
+                    <div key={p.Id} class="product-card">
+                        <div class="product-img-wrap">
+                            <img src={p.Image_URL__c}
+                                 alt={p.Name}
+                                 class="product-img"
+                                 onerror={handleImgError}/>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-collection">{p.Collection__c}</span>
+                            <h3 class="product-name">{p.Name}</h3>
+                            <p class="product-price">{p.Price__c} €</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+    </div>
+</template>

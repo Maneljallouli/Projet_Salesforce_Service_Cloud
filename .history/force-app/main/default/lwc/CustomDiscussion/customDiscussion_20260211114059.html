@@ -1,0 +1,27 @@
+<template>
+    <div id="mon-espace" class="luxury-container">
+        <h2 class="title">Espace Discussions</h2>
+        
+        <div class="input-box">
+            <lightning-textarea 
+                value={newMessage} 
+                onchange={handleTextChange}
+                variant="label-hidden"
+                placeholder="Écrivez votre question ici...">
+            </lightning-textarea>
+            <button class="btn-gold" onclick={handlePost}>Publier la Question</button>
+        </div>
+
+        <div class="feed-list">
+            <template for:each={discussions} for:item="dis">
+                <div key={dis.Id} class="post-card">
+                    <div class="meta">
+                        <span class="user">{dis.CreatedBy.Name}</span>
+                        <span class="date">{dis.CreatedDate}</span>
+                    </div>
+                    <p class="content">{dis.Body}</p>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

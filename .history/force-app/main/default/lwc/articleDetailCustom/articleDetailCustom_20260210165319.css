@@ -1,0 +1,25 @@
+.luxury-container {
+    background: #ffffff;
+    padding: 40px;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+.luxury-title {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.luxury-divider {
+    height: 1px;
+    background: #e0e0e0;
+    width: 100px;
+    margin: 0 auto 30px auto;
+}
+.luxury-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333333;
+}

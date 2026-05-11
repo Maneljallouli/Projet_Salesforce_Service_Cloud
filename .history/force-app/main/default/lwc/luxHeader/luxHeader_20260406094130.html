@@ -1,0 +1,102 @@
+<template>
+    <header class="lux-nav">
+        <div class="lux-nav-inner">
+            <div class="lux-logo-section">
+                <a href="javascript:void(0);" class="lux-logo" data-page="home" onclick={setActive}>
+                    <span class="lux-logo-name">MAISON LUXE</span>
+                    <span class="lux-logo-tag">Espace client privé</span>
+                </a>
+            </div>
+
+            <nav class="lux-nav-links">
+                <a href="javascript:void(0);" class={linkHome}      data-page="home"      onclick={setActive}>Accueil</a>
+                <a href="javascript:void(0);" class={linkDemandes}  data-page="demandes"  onclick={setActive}>Mes demandes</a>
+                <a href="javascript:void(0);" class={linkNouvelle}  data-page="nouvelle"  onclick={setActive}>Nouvelle demande</a>
+                <a href="javascript:void(0);" class={linkFaq}       data-page="faq"       onclick={setActive}>FAQ</a>
+                <a href="javascript:void(0);" class={linkProduits}  data-page="produits"  onclick={setActive}>Collection</a>
+            </nav>
+
+            <div class="lux-right-actions">
+
+                <div class="lux-notification-section">
+                    <div class="lux-notification-trigger" onclick={toggleNotifDropdown}>
+                        <lightning-icon icon-name="utility:notification" size="small" class="lux-bell-icon"></lightning-icon>
+                        <template if:true={hasUnread}>
+                            <span class="lux-notif-dot">{unreadCount}</span>
+                        </template>
+                    </div>
+
+                    <template if:true={notifDropdownOpen}>
+                        <div class="lux-notif-dropdown">
+                            <div class="lux-notif-header">
+                                <span>Notifications</span>
+                                <template if:true={hasUnread}>
+                                    <span class="lux-notif-badge">{unreadCount} nouvelle(s)</span>
+                                </template>
+                            </div>
+                            <div class="lux-notif-body">
+                                <template if:true={hasNotifications}>
+                                    <template for:each={notifications} for:item="notif">
+                                        <div key={notif.id} class={notif.itemClass}>
+                                            <div class="lux-notif-top">
+                                                <span class="lux-notif-case">📋 Dossier #{notif.caseNumber}</span>
+                                                <span class="lux-notif-date">{notif.date}</span>
+                                            </div>
+                                            <p class="lux-notif-message">{notif.message}</p>
+                                            <template if:false={notif.isReadBool}>
+                                                <span class="lux-notif-new-tag">Nouveau</span>
+                                            </template>
+                                        </div>
+                                    </template>
+                                </template>
+                                <template if:false={hasNotifications}>
+                                    <div class="lux-notif-empty-state">
+                                        <p class="lux-notif-empty">Aucune notification pour le moment</p>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="lux-overlay" onclick={closeNotifDropdown}></div>
+                    </template>
+                </div>
+
+                <div class="lux-nav-user">
+                    <div class="lux-user-trigger" onclick={toggleDropdown}>
+                        <div class="lux-user-info-text">
+                            <span class="lux-user-welcome">Votre compte</span>
+                            <span class="lux-user-name">{userName}</span>
+                        </div>
+                        <div class="lux-avatar">{userInitials}</div>
+                    </div>
+
+                    <template if:true={dropdownOpen}>
+                        <div class="lux-dropdown">
+                            <div class="lux-dropdown-header">
+                                <div class="lux-dropdown-avatar">{userInitials}</div>
+                                <div class="lux-profile-meta">
+                                    <span class="lux-profile-name">{userName}</span>
+                                    <span class="lux-profile-email">{userEmail}</span>
+                                </div>
+                            </div>
+                            <div class="lux-dropdown-body">
+                                <div class="lux-info-row">
+                                    <span class="lux-info-label">Téléphone</span>
+                                    <span class="lux-info-value">{contactPhone}</span>
+                                </div>
+                                <div class="lux-info-row">
+                                    <span class="lux-info-label">Ville</span>
+                                    <span class="lux-info-value">{contactCity}</span>
+                                </div>
+                            </div>
+                            <div class="lux-dropdown-footer">
+                                <button class="lux-logout-action" onclick={handleLogout}>Se déconnecter</button>
+                            </div>
+                        </div>
+                        <div class="lux-overlay" onclick={closeDropdown}></div>
+                    </template>
+                </div>
+
+            </div>
+        </div>
+    </header>
+</template>

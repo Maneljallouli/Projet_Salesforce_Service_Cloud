@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- SAV ERRORS -->
+    <customLabels>
+        <n>SAV_Error_NotFound</n>
+        <value>لم يتم العثور على طلب الإصلاح هذا أو ليس لديك صلاحية الوصول إليه.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_InvalidInput</n>
+        <value>بيانات الطلب غير صالحة أو غير مكتملة.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_ProductRequired</n>
+        <value>يرجى اختيار قطعة من مجموعتك للمتابعة.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_CategoryRequired</n>
+        <value>يرجى اختيار فئة الإصلاح للمتابعة.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_ProductNotOwned</n>
+        <value>هذه القطعة لا تنتمي إلى مجموعتك.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_CannotValidate</n>
+        <value>لا يمكن تأكيد الاستلام إلا بعد تسليم قطعتك.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_CannotApprove</n>
+        <value>لا يمكن الموافقة على العرض إلا بعد تقديمه لك.</value>
+    </customLabels>
+    <customLabels>
+        <n>SAV_Error_CannotRefuse</n>
+        <value>لا يمكن رفض العرض إلا بعد تقديمه لك.</value>
+    </customLabels>
+
+    <!-- PRODUCT ERRORS -->
+    <customLabels>
+        <n>Product_Error_NotFound</n>
+        <value>لم يتم العثور على هذه القطعة في مجموعتك.</value>
+    </customLabels>
+    <customLabels>
+        <n>Product_Error_InvalidInput</n>
+        <value>معلومات المنتج غير صالحة أو غير مكتملة.</value>
+    </customLabels>
+    <customLabels>
+        <n>Product_Error_NameRequired</n>
+        <value>اسم القطعة مطلوب.</value>
+    </customLabels>
+    <customLabels>
+        <n>Product_Error_DuplicateRef</n>
+        <value>توجد قطعة بهذا المرجع بالفعل في مجموعتك.</value>
+    </customLabels>
+    <customLabels>
+        <n>Product_Error_ActiveSav</n>
+        <value>لا يمكن إزالة هذه القطعة: طلب إصلاح جارٍ حاليًا.</value>
+    </customLabels>
+
+    <!-- PAYMENT ERRORS -->
+    <customLabels>
+        <n>Payment_Error_NotFound</n>
+        <value>لم يتم العثور على طلب الدفع هذا أو ليس لديك صلاحية الوصول إليه.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_AlreadyPaid</n>
+        <value>تم دفع هذا الطلب بالفعل.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_InvalidStatus</n>
+        <value>الدفع ممكن فقط بعد الموافقة على العرض.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_InvalidAmount</n>
+        <value>مبلغ الطلب غير صالح أو صفر.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_InvalidInput</n>
+        <value>بيانات الدفع غير صالحة أو غير مكتملة.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_NoIntent</n>
+        <value>لم يتم العثور على نية الدفع. يرجى المحاولة مرة أخرى.</value>
+    </customLabels>
+    <customLabels>
+        <n>Payment_Error_NotSucceeded</n>
+        <value>لم تنجح عملية الدفع. يرجى التحقق من بياناتك البنكية.</value>
+    </customLabels>
+
+    <!-- INVOICE ERRORS -->
+    <customLabels>
+        <n>Invoice_Error_NotFound</n>
+        <value>فاتورتك غير متاحة بعد. ستُنشأ بعد معالجة دفعتك.</value>
+    </customLabels>
+
+    <!-- FAQ ERRORS -->
+    <customLabels>
+        <n>FAQ_Error_ArticleNotFound</n>
+        <value>لم يتم العثور على هذا المقال أو غير متاح بلغتك.</value>
+    </customLabels>
+    <customLabels>
+        <n>FAQ_Error_SearchTooShort</n>
+        <value>يرجى إدخال حرفين على الأقل لبدء البحث.</value>
+    </customLabels>
+    <customLabels>
+        <n>FAQ_Error_SearchInvalid</n>
+        <value>يحتوي البحث على أحرف غير صالحة. يرجى إعادة صياغته.</value>
+    </customLabels>
+    <customLabels>
+        <n>FAQ_Error_InvalidArticle</n>
+        <value>معرف المقال غير صالح.</value>
+    </customLabels>
+
+    <!-- PREFERENCES ERRORS -->
+    <customLabels>
+        <n>Prefs_Error_InvalidInput</n>
+        <value>تفضيلات الإشعارات غير صالحة أو غير مكتملة.</value>
+    </customLabels>
+    <customLabels>
+        <n>Prefs_Error_PhoneRequired</n>
+        <value>رقم هاتف مطلوب لتفعيل إشعارات الرسائل القصيرة.</value>
+    </customLabels>
+    <customLabels>
+        <n>Prefs_Error_InvalidPhone</n>
+        <value>يجب أن يكون رقم الهاتف بالتنسيق الدولي (مثال: ‎+33612345678).</value>
+    </customLabels>
+
+    <!-- PORTAL ERRORS -->
+    <customLabels>
+        <n>Portal_Error_NoContactLinked</n>
+        <value>حساب المستخدم الخاص بك غير مرتبط بملف عميل. يرجى التواصل مع مستشارك.</value>
+    </customLabels>
+    <customLabels>
+        <n>Portal_Error_Unauthorized</n>
+        <value>ليس لديك الصلاحيات اللازمة لتنفيذ هذا الإجراء.</value>
+    </customLabels>
+
+</Translations>

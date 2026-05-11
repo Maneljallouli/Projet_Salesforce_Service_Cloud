@@ -1,0 +1,44 @@
+<aura:component controller="CaseController" 
+                implements="forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" 
+                access="global">
+    
+    <aura:attribute name="cases" type="List" />
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-box list-container">
+        <div class="list-header">
+            <h2 class="list-title">MY CASES</h2>
+            <button class="view-all-btn" onclick="{!c.viewAll}">View All</button>
+        </div>
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Case Number</th>
+                    <th>Contact Name</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.cases}" var="item">
+                    <tr class="table-row">
+                        <td class="case-number-cell">
+                            <a href="javascript:void(0);" onclick="{!c.goToDetail}" data-id="{!item.Id}">
+                                {!item.CaseNumber}
+                            </a>
+                        </td>
+                        <td>{!item.ContactName}</td>
+                        <td class="subject-cell">{!item.Subject}</td>
+                        <td>
+                            <span class="{!'status-badge ' + item.StatusClass}">
+                                {!item.Status}
+                            </span>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-is-relative slds-p-around_small">
+        <lightning-button-icon 
+            icon-name="utility:notification" 
+            variant="bare" 
+            onclick={handleBellClick} 
+            alternative-text="Notifications"
+            size="medium">
+        </lightning-button-icon>
+
+        <template if:true={hasNotifications}>
+            <span class="notification-dot"></span>
+        </template>
+    </div>
+</template>

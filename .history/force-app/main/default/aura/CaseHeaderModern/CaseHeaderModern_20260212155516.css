@@ -1,0 +1,68 @@
+.THIS.custom-wrapper {
+    background: #ffffff !important;
+    padding: 20px;
+    border: none !important;
+}
+
+.THIS .header-text {
+    margin-bottom: 20px;
+}
+
+.THIS .case-number {
+    font-size: 14px;
+    color: #6a6a6a;
+    margin-bottom: 4px;
+}
+
+.THIS .case-subject {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.THIS .info-banner {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.THIS .info-column {
+    padding: 0 25px;
+}
+
+.THIS .separator {
+    border-left: 1px solid #d8dde6;
+}
+
+.THIS .info-label {
+    display: block;
+    font-size: 11px;
+    color: #6a6a6a;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.THIS .info-value {
+    font-weight: bold;
+    font-size: 14px;
+    color: #001535;
+}
+
+.THIS .btn-rouvrir {
+    background-color: #0176d3;
+    color: white;
+    border: 1px solid transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.THIS .tab-divider {
+    border-bottom: 3px solid #0176d3;
+    margin-top: 25px;
+    width: 100px;
+}

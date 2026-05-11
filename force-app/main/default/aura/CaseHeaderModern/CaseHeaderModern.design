@@ -1,0 +1,4 @@
+<design:component label="Custom Case Header">
+    <design:attribute name="titleColor" label="Title Color" default="#001535" />
+    <design:attribute name="bannerBackground" label="Banner Background Color" default="#f8f8f8" />
+</design:component>

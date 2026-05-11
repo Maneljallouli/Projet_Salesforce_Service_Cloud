@@ -1,0 +1,72 @@
+<template>
+    <article class="slds-card chat-card">
+
+        <!-- HEADER -->
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:case" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <strong>Case Activity & Discussion</strong>
+                    </h2>
+                </div>
+            </header>
+        </div>
+
+        <!-- BODY -->
+        <div class="slds-card__body slds-p-around_medium">
+
+            <template if:true={historyData}>
+                <ul class="slds-timeline">
+                    <template for:each={historyData} for:item="item">
+                        <li key={item.id} class="slds-timeline__item">
+
+                            <span class="slds-assistive-text">
+                                {item.author}
+                            </span>
+
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <lightning-icon
+                                        icon-name={item.icon}
+                                        size="x-small">
+                                    </lightning-icon>
+                                </div>
+
+                                <div class="slds-media__body">
+                                    <div class="slds-text-title_caps">
+                                        {item.author}
+                                    </div>
+
+                                    <div class="slds-text-body_regular">
+                                        {item.body}
+                                    </div>
+
+                                    <div class="slds-text-color_weak slds-text-body_small">
+                                        <lightning-formatted-date-time
+                                            value={item.createdDate}
+                                            year="numeric"
+                                            month="short"
+                                            day="2-digit"
+                                            hour="2-digit"
+                                            minute="2-digit">
+                                        </lightning-formatted-date-time>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <template if:false={historyData}>
+                <p class="slds-text-color_weak">No activity yet</p>
+            </template>
+
+        </div>
+
+    </article>
+</template>

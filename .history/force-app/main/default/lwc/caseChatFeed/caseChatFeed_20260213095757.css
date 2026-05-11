@@ -1,0 +1,39 @@
+.custom-card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.feed-container {
+    max-height: 450px;
+    overflow-y: auto;
+    background-color: #f9fafb;
+}
+
+.chat-bubble {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #eceef1;
+}
+
+.user-name {
+    font-weight: 700;
+    color: #0070d2;
+    font-size: 0.85rem;
+}
+
+.time-stamp {
+    font-size: 0.75rem;
+    color: #747474;
+}
+
+.detail-text {
+    margin-top: 4px;
+    color: #2b2826;
+    line-height: 1.4;
+}
+
+.reply-section {
+    background: white;
+    border-top: 1px solid #dddbda;
+}

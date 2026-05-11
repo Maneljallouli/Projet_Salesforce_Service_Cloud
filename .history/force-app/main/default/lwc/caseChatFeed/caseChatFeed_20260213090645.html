@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Historique des échanges" icon-name="standard:case_comment">
+        <div class="slds-p-around_medium feed-container">
+            <template for:each={comments.data} for:item="comment">
+                <div key={comment.Id} class="comment-bubble">
+                    <div class="comment-header">
+                        <strong>{comment.CreatedBy.Name}</strong>
+                        <span class="comment-date">{comment.CreatedDate}</span>
+                    </div>
+                    <div class="comment-body">
+                        {comment.CommentBody}
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

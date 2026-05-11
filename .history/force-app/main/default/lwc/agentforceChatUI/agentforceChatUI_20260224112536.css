@@ -1,0 +1,80 @@
+:host {
+    display: block;
+    margin-bottom: 12px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Conteneur principal du message */
+.msg-user, .msg-bot {
+    display: flex;
+    margin-bottom: 12px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Alignement à droite pour l'utilisateur */
+.msg-user {
+    flex-direction: row-reverse;
+}
+
+/* Alignement à gauche pour le bot */
+.msg-bot {
+    flex-direction: row;
+}
+
+/* Style de l'Avatar Agentforce */
+.avatar-container {
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+.msg-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #d8dde6;
+    background-color: white;
+}
+
+/* Bulle de message */
+.msg-bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Couleurs spécifiques : Bot (Gris clair) vs Utilisateur (Bleu Salesforce) */
+.msg-bot .msg-bubble {
+    background-color: #F3F3F3;
+    color: #16325C;
+    border-bottom-left-radius: 2px;
+}
+
+.msg-user .msg-bubble {
+    background-color: #0070D2;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+/* Contenu du texte */
+.msg-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Horodatage sous la bulle */
+.time {
+    display: block;
+    font-size: 10px;
+    margin-top: 4px;
+    color: #706e6b;
+}
+
+.msg-user .time {
+    text-align: right;
+    color: #ecebea;
+}

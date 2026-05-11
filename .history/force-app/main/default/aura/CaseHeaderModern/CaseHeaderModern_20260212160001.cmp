@@ -1,0 +1,48 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="titleColor" type="String" default="#001535"/>
+    <aura:attribute name="bannerBackground" type="String" default="#ffffff"/>
+
+    <force:recordData aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="CaseNumber,Subject,Status,CreatedDate"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordError}"
+    />
+
+    <aura:if isTrue="{!not(empty(v.caseRecord))}">
+        <div class="slds-box custom-wrapper">
+            
+            <div class="header-area">
+                <p class="case-number-text">Requête numéro {!v.caseRecord.CaseNumber}</p>
+                <h1 class="case-subject" style="{! 'color: ' + v.titleColor + ';' }">
+                    {!v.caseRecord.Subject}
+                </h1>
+            </div>
+
+            <div class="info-section" style="{! 'background-color: ' + v.bannerBackground + ';' }">
+                <div class="info-block">
+                    <span class="info-label">Ouvert</span>
+                    <span class="info-value">
+                        <lightning:formattedDateTime 
+                            value="{!v.caseRecord.CreatedDate}" 
+                            year="numeric" month="numeric" day="numeric"/>
+                    </span>
+                </div>
+                
+                <div class="info-block separator">
+                    <span class="info-label">Statut</span>
+                    <span class="info-value">{!v.caseRecord.Status}</span>
+                </div>
+
+                <aura:if isTrue="{!v.caseRecord.Status == 'Closed'}">
+                    <div class="action-slot">
+                        <button class="btn-rouvrir">Reopen</button>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

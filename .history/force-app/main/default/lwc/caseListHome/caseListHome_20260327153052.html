@@ -1,0 +1,21 @@
+<template>
+    <div class="lux-case-list-container">
+        <h3 class="lux-case-title">DERNIÈRES DEMANDES</h3>
+        <template if:true={cases}>
+            <div class="lux-case-items">
+                <template for:each={cases} for:item="caseRecord">
+                    <div key={caseRecord.Id} class="lux-case-row" onclick={navigateToDetail} data-id={caseRecord.Id}>
+                        <div class="lux-case-id">{caseRecord.CaseNumber}</div>
+                        <div class="lux-case-subject">{caseRecord.Subject}</div>
+                        <div class="lux-case-status">
+                            <span class={caseRecord.statusClass}>{caseRecord.Status}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="lux-error">Erreur lors de la récupération des demandes.</div>
+        </template>
+    </div>
+</template>

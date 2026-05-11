@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Activité de la requête" icon-name="standard:case_log">
+        <div class="slds-p-around_medium feed-container">
+            <template if:true={hasData}>
+                <template for:each={history.data} for:item="item">
+                    <div key={item.id} class="feed-item">
+                        <div class="feed-header">
+                            <strong>{item.author}</strong>
+                            <span class="date">{item.createdDate}</span>
+                        </div>
+                        <div class="feed-body">
+                            {item.body}
+                        </div>
+                    </div>
+                </template>
+            </template>
+            
+            <template if:false={hasData}>
+                <p class="slds-text-align_center">Aucune activité enregistrée.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

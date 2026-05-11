@@ -1,0 +1,23 @@
+<template>
+    <div class="lux-case-list-container">
+        <h3 class="lux-case-title">DERNIÈRES DEMANDES</h3>
+        
+        <template if:true={hasCases}>
+            <div class="lux-case-items">
+                <template for:each={enrichedCases} for:item="c">
+                    <div key={c.Id} class="lux-case-row" onclick={openDetail} data-id={c.Id}>
+                        <div class="lux-case-id">{c.CaseNumber}</div>
+                        <div class="lux-case-subject">{c.Subject}</div>
+                        <div class="lux-case-status">
+                            <span class={c.statusClass}>{c.Status}</span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:false={hasCases}>
+            <p class="lux-empty-message">Aucune demande récente.</p>
+        </template>
+    </div>
+</template>

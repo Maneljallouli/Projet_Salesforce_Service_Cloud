@@ -1,0 +1,58 @@
+.THIS.custom-wrapper {
+    background: white;
+    padding: 1.5rem;
+    border: none !important;
+}
+
+.THIS .case-number {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.THIS .case-subject {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.THIS .info-banner {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.THIS .info-column {
+    padding: 0 20px;
+}
+
+.THIS .separator {
+    border-left: 1px solid #ddd;
+}
+
+.THIS .info-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.THIS .info-value {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.THIS .btn-rouvrir {
+    background-color: #0176d3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.THIS .tab-divider {
+    border-bottom: 2px solid #0176d3;
+    margin-top: 20px;
+}

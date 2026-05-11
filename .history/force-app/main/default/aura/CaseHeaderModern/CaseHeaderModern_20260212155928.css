@@ -1,0 +1,80 @@
+.THIS.custom-wrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+}
+
+/* Zone du titre */
+.THIS .header-area {
+    margin-bottom: 32px;
+}
+
+.THIS .case-number-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #003a78; /* Bleu typique Salesforce */
+    margin-bottom: 8px;
+}
+
+.THIS .case-subject {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #001535;
+}
+
+/* Bannière d'information style "Card" */
+.THIS .info-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.THIS .info-block {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+.THIS .separator {
+    padding-left: 40px;
+    border-left: 1px solid #e5e5e5;
+}
+
+.THIS .info-label {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.THIS .info-value {
+    font-size: 18px;
+    font-weight: 400;
+    color: #111;
+}
+
+/* Alignement du bouton à l'extrémité droite */
+.THIS .action-slot {
+    margin-left: auto;
+}
+
+.THIS .btn-rouvrir {
+    background-color: #0176d3;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.THIS .btn-rouvrir:hover {
+    background-color: #014486;
+    cursor: pointer;
+}

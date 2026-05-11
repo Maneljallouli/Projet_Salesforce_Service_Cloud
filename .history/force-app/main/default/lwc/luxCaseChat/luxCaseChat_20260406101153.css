@@ -1,0 +1,180 @@
+/* ── WRAPPER ── */
+.lux-chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e8dcc8;
+    border-radius: 2px;
+    overflow: hidden;
+    height: 520px;
+    font-family: Arial, sans-serif;
+}
+
+/* ── HEADER ── */
+.lux-chat-header {
+    background: #1e120a;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lux-chat-title {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: #c9a96e;
+    letter-spacing: 0.06em;
+}
+
+.lux-chat-subtitle {
+    font-size: 11px;
+    color: #8a7355;
+    letter-spacing: 0.04em;
+}
+
+/* ── BODY ── */
+.lux-chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f9f6f0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── LIGNE DE MESSAGE ── */
+.lux-chat-row {
+    display: flex;
+    flex-direction: column;
+    max-width: 72%;
+}
+
+/* Message envoyé par l'utilisateur connecté — droite */
+.lux-chat-row--own {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+/* Message reçu — gauche */
+.lux-chat-row--other {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+/* ── BULLE ── */
+.lux-chat-bubble {
+    padding: 12px 16px;
+    border-radius: 2px;
+    word-break: break-word;
+}
+
+.lux-chat-row--own .lux-chat-bubble {
+    background: #a07840;
+    color: #ffffff;
+}
+
+.lux-chat-row--other .lux-chat-bubble {
+    background: #ffffff;
+    border: 1px solid #e8dcc8;
+    color: #1a1008;
+}
+
+.lux-chat-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ── META (nom + date) ── */
+.lux-chat-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    align-items: center;
+}
+
+.lux-chat-sender {
+    font-size: 11px;
+    font-weight: 700;
+    color: #5c4a2a;
+    letter-spacing: 0.04em;
+}
+
+.lux-chat-date {
+    font-size: 11px;
+    color: #b0976e;
+}
+
+/* ── ÉTATS ── */
+.lux-chat-empty {
+    text-align: center;
+    color: #b0976e;
+    font-size: 13px;
+    margin: auto;
+    line-height: 2;
+}
+
+.lux-chat-loading {
+    text-align: center;
+    color: #b0976e;
+    font-size: 13px;
+    margin: auto;
+}
+
+/* ── FOOTER ── */
+.lux-chat-footer {
+    display: flex;
+    gap: 10px;
+    padding: 14px 16px;
+    background: #ffffff;
+    border-top: 1px solid #e8dcc8;
+    align-items: flex-end;
+}
+
+.lux-chat-input {
+    flex: 1;
+    border: 1px solid #c9b99a;
+    border-radius: 0;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #1a1008;
+    resize: none;
+    outline: none;
+    line-height: 1.5;
+}
+
+.lux-chat-input:focus {
+    border-color: #8a6a30;
+}
+
+.lux-chat-send {
+    background: #a07840;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+    align-self: stretch;
+}
+
+.lux-chat-send:hover    { background: #8a6530; }
+.lux-chat-send:disabled { background: #c9b99a; cursor: not-allowed; }
+
+/* ── ERREUR ── */
+.lux-chat-error {
+    background: #fdf0f0;
+    border-left: 3px solid #8b3a3a;
+    color: #8b3a3a;
+    font-size: 12px;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+}

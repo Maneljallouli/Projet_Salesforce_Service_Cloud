@@ -1,0 +1,37 @@
+<template>
+    <div class="lux-card">
+        <div class="lux-card-header">
+            <h2 class="lux-title">Questions fréquentes</h2>
+            <div class="lang-toggle">
+                <button class={btnFr} data-lang="fr" onclick={setLang}>FR</button>
+                <button class={btnEn} data-lang="en" onclick={setLang}>EN</button>
+            </div>
+        </div>
+
+        <div class="lux-card-body">
+            <template for:each={groupedFaqs} for:item="group">
+                <div key={group.name} class="faq-group">
+                    <div class="faq-group-title">{group.name}</div>
+                    <template for:each={group.faqs} for:item="faq">
+                        <div key={faq.Id}
+                             class="faq-item"
+                             data-id={faq.Id}
+                             onclick={toggle}>
+                            <div class="faq-question">
+                                <span>{faq.Question__c}</span>
+                                <span class="faq-icon">{faq.icon}</span>
+                            </div>
+                            <template if:true={faq.isOpen}>
+                                <div class="faq-answer">{faq.Answer__c}</div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={isEmpty}>
+                <div class="lux-empty">Aucune FAQ disponible.</div>
+            </template>
+        </div>
+    </div>
+</template>

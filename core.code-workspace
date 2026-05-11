@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "c:/Users/PC/service-cloud-project"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      "c:/Users/PC/service-cloud-project"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+    "eslint.options": {
+      "overrideConfigFile": "c:\\Users\\PC\\service-cloud-project\\.eslintrc.json"
+    }
+  }
+}

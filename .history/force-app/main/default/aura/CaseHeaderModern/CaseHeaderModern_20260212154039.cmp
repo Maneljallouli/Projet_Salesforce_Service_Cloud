@@ -1,0 +1,52 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    <aura:attribute name="titleColor" type="String" default="#001535"/>
+    <aura:attribute name="bannerBackground" type="String" default="#f8f8f8"/>
+
+    <force:recordData aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="CaseNumber,Subject,Status,CreatedDate"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordError}"
+    />
+
+    <aura:if isTrue="{!not(empty(v.caseRecord))}">
+        <div class="slds-box custom-wrapper">
+            <div class="header-text">
+                <p class="case-number">Case Number {!v.caseRecord.CaseNumber}</p>
+                <h1 class="case-subject" style="{!'color:' + v.titleColor + ';'}">{!v.caseRecord.Subject}</h1>
+            </div>
+
+            <div class="info-banner" style="{!'background-color:' + v.bannerBackground + ';'}">
+                <div class="info-column">
+                    <span class="info-label">Opened</span>
+                    <span class="info-value">
+                        <lightning:formattedDateTime value="{!v.caseRecord.CreatedDate}" year="numeric" month="numeric" day="numeric"/>
+                    </span>
+                </div>
+                
+                <div class="info-column separator">
+                    <span class="info-label">Status</span>
+                    <span class="info-value">{!v.caseRecord.Status}</span>
+                </div>
+
+                <div class="action-container">
+                    <aura:if isTrue="{!v.caseRecord.Status == 'Closed'}">
+                        <button class="slds-button slds-button_brand btn-rouvrir">
+                            Reopen
+                        </button>
+                    </aura:if>
+                </div>
+            </div>
+            <div class="tab-divider"></div>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="slds-text-color_error">
+            {!v.recordError}
+        </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,31 @@
+/* Couleur personnalisée pour le bouton Send Message comme sur l'image */
+.custom-button {
+    --slds-c-button-brand-color-background: #b68d40;
+    --slds-c-button-brand-color-border: #b68d40;
+}
+
+/* Style du titre de la carte */
+.slds-card__header-title {
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+}
+
+/* Bulles de discussion */
+.comment-bubble {
+    background-color: #ffffff;
+    border: 1px solid #dddbda;
+    border-left: 4px solid #0070d2;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.author-name {
+    font-weight: bold;
+    color: #0070d2;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #747474;
+}

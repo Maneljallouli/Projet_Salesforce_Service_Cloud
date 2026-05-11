@@ -1,0 +1,40 @@
+.luxury-container {
+    background: #ffffff;
+    padding: 50px;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 2px;
+    min-height: 400px;
+}
+
+.luxury-title {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.luxury-divider {
+    height: 1px;
+    background: #d4af37;
+    width: 80px;
+    margin: 0 auto 40px auto;
+}
+
+.luxury-content {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: #333;
+    font-family: 'Georgia', serif;
+}
+
+.error-box {
+    color: red;
+    background: #fff0f0;
+    padding: 15px;
+    border: 1px solid red;
+    margin-top: 20px;
+}

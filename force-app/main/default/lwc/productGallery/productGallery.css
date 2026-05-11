@@ -1,0 +1,97 @@
+.lux-section {
+    padding: 40px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.lux-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.lux-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #2E2416;
+    letter-spacing: .03em;
+}
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+    background: #FFFFFF;
+    border: 1px solid #DDD4C0;
+    color: #9A8A74;
+    padding: 8px 20px;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: .07em;
+    cursor: pointer;
+    transition: all .2s;
+    font-family: 'Lato', sans-serif;
+}
+.filter-btn:hover  { border-color: #C4A35A; color: #8A7040; }
+.filter-btn.active {
+    border-color: #C4A35A;
+    color: #C4A35A;
+    background: rgba(196,163,90,.08);
+    font-weight: 600;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+.product-card {
+    background: #FFFFFF;
+    border: 1px solid #E8DFD0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow .25s, border-color .25s;
+    box-shadow: 0 1px 6px rgba(180,150,90,.06);
+}
+.product-card:hover {
+    border-color: #C4A35A;
+    box-shadow: 0 6px 24px rgba(196,163,90,.15);
+}
+.product-img-wrap { aspect-ratio: 4/3; overflow: hidden; background: #F7F2EA; }
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+    display: block;
+}
+.product-card:hover .product-img { transform: scale(1.04); }
+.product-info    { padding: 20px; background: #FFFFFF; }
+.product-collection {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: #C4A35A;
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+}
+.product-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #2E2416;
+    margin: 0 0 8px;
+}
+.product-price {
+    font-size: 14px;
+    color: #9A8A74;
+    font-family: 'Lato', sans-serif;
+}
+.lux-loading,
+.lux-empty {
+    padding: 60px;
+    text-align: center;
+    color: #B0A090;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}

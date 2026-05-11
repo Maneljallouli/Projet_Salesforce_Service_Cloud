@@ -1,0 +1,20 @@
+<apex:page id="InvoicePDF" 
+           renderAs="pdf" 
+           applyHtmlTag="false" 
+           showHeader="false" 
+           cache="true" 
+           readOnly="true"
+           standardStylesheets="false">
+    <html>
+        <head>
+            <style>
+                body { font-family: 'Arial Unicode MS'; font-size: 12px; }
+                .header { text-align: center; font-size: 20px; font-weight: bold; }
+            </style>
+        </head>
+        <body>
+            <div class="header">FACTURE SAV</div>
+            <p>Facture ID: {!$CurrentPage.parameters.factureId}</p>
+            </body>
+    </html>
+</apex:page>

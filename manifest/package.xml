@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- CODE -->
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+
+    <!-- FRONT -->
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+
+    <!-- AUTOMATION -->
+    <types>
+        <members>*</members>
+        <name>Flow</name>
+    </types>
+
+    <!-- DATA MODEL -->
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+
+    <!-- SECURITY -->
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <!-- SERVICE CLOUD CORE -->
+    <types>
+        <members>*</members>
+        <name>Queue</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>AssignmentRule</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>AutoResponseRule</name>
+    </types>
+
+    <!-- EMAIL -->
+    <types>
+        <members>*</members>
+        <name>EmailTemplate</name>
+    </types>
+
+    <!-- UI -->
+    <types>
+        <members>*</members>
+        <name>CustomTab</name>
+    </types>
+
+    <!-- ⚠️ OPTIONNEL (à éviter en prod si possible) -->
+    <!-- <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types> -->
+
+    <!-- <types>
+        <members>*</members>
+        <name>Profile</name>
+    </types> -->
+
+    <version>60.0</version>
+</Package>

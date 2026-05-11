@@ -1,0 +1,73 @@
+<template>
+    <div class="lux-chat-wrapper">
+
+        <div class="lux-chat-header">
+            <span class="lux-chat-title">💬 Messagerie</span>
+            <span class="lux-chat-subtitle">Échangez avec notre équipe support</span>
+        </div>
+
+        <div class="lux-chat-body" lwc:ref="chatBody">
+            <template if:true={isLoading}>
+                <div class="lux-chat-loading">Chargement des messages...</div>
+            </template>
+
+            <template if:false={isLoading}>
+                <template if:true={hasMessages}>
+                    <template for:each={messages} for:item="msg">
+                        <div key={msg.id} class={msg.bubbleClass}>
+
+                            <!-- Nom affiché au-dessus du message -->
+                            <div class="lux-chat-sender-top">
+                                {msg.senderLabel}
+                            </div>
+
+                            <div class="lux-chat-bubble">
+                                <p class="lux-chat-text">{msg.body}</p>
+                            </div>
+
+                            <div class="lux-chat-meta">
+                                <span class="lux-chat-date">{msg.formattedDate}</span>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+                <template if:false={hasMessages}>
+                    <div class="lux-chat-empty">
+                        <p>Aucun message pour le moment.</p>
+                        <p>Envoyez un message pour démarrer la conversation.</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <div class="lux-chat-footer">
+            <textarea
+                class="lux-chat-input"
+                placeholder="Écrivez votre message..."
+                value={newMessage}
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                rows="2"
+            ></textarea>
+
+            <button
+                class="lux-chat-send"
+                onclick={handleSend}
+                disabled={isSending}
+            >
+                <template if:true={isSending}>
+                    <span>...</span>
+                </template>
+                <template if:false={isSending}>
+                    <span>Envoyer</span>
+                </template>
+            </button>
+        </div>
+
+        <template if:true={errorMessage}>
+            <div class="lux-chat-error">{errorMessage}</div>
+        </template>
+
+    </div>
+</template>

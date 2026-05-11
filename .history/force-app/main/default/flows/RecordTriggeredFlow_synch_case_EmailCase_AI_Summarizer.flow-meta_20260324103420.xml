@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <status>Active</status>
+    <description>Flow automatique pour enrichir les Cases Email via Einstein et Agentforce avec résumé IA</description>
+    <label>Email Case AI Summarizer</label>
+    <triggerType>RecordTriggered</triggerType>
+    <processType>AutolaunchedFlow</processType>
+    <recordTrigger>
+        <object>Case</object>
+        <triggerOrder>After</triggerOrder>
+        <triggerType>Created</triggerType>
+        <conditions>
+            <condition>
+                <field>Origin</field>
+                <operator>equals</operator>
+                <value>Email</value>
+                <valueDataType>String</valueDataType>
+            </condition>
+        </conditions>
+        <actions/>
+    </recordTrigger>
+    <elements>
+        <!-- Étape 1 : Vérifier les champs Einstein -->
+        <sobjectCollectionVariable name="Get_Case" dataType="Case" isInput="false" isOutput="true"/>
+        
+        <!-- Étape 2 : Decision — Einstein rempli ? -->
+        <decision name="CheckEinstein">
+            <label>Einstein Fields Present?</label>
+            <defaultOutcomeName>NoEinsteinValues</defaultOutcomeName>
+            <outcomes>
+                <outcome name="EinsteinFilled">
+                    <label>Einstein Has Values</label>
+                    <conditionLogic>AND</conditionLogic>
+                    <conditions>
+                        <condition>
+                            <field>Category__c</field>
+                            <operator>IsNull</operator>
+                            <value>false</value>
+                        </condition>
+                        <condition>
+                            <field>Subcategory__c</field>
+                            <operator>IsNull</operator>
+                            <value>false</value>
+                        </condition>
+                    </conditions>
+                    <connector>UpdateRecordDirectly</connector>
+                </outcome>
+            </outcomes>
+        </decision>
+
+        <!-- Étape 3 : Appel Apex Agentforce si Einstein vide -->
+        <action name="CallAgentforceApex">
+            <label>Analyze Email via Agentforce</label>
+            <actionType>InvocableAction</actionType>
+            <apexClassName>EmailCaseAgentforceAnalyzer</apexClassName>
+            <inputAssignments>
+                <inputAssignment>
+                    <name>caseId</name>
+                    <value>{!$Record.Id}</value>
+                </inputAssignment>
+            </inputAssignments>
+        </action>
+
+        <!-- Étape 4 : Decision si succès et confiance >= 0.6 -->
+        <decision name="CheckAgentforceSuccess">
+            <label>Agentforce Success?</label>
+            <defaultOutcomeName>Fail</defaultOutcomeName>
+            <outcomes>
+                <outcome name="Success">
+                    <label>Success</label>
+                    <conditionLogic>AND</conditionLogic>
+                    <conditions>
+                        <condition>
+                            <field>Analyze_Result.success</field>
+                            <operator>equals</operator>
+                            <value>true</value>
+                        </condition>
+                        <condition>
+                            <field>Analyze_Result.confidence</field>
+                            <operator>GreaterThanOrEqual</operator>
+                            <value>0.6</value>
+                        </condition>
+                    </conditions>
+                </outcome>
+            </outcomes>
+        </decision>
+
+        <!-- Étape 5 : Mettre à jour le Case avec les valeurs d’Agentforce -->
+        <updateRecords name="UpdateCaseWithAgentforce">
+            <label>Update Case Fields</label>
+            <inputReference>{!$Record.Id}</inputReference>
+            <fieldValues>
+                <fieldValue>
+                    <field>Category__c</field>
+                    <value>{!Analyze_Result.category}</value>
+                </fieldValue>
+                <fieldValue>
+                    <field>Subcategory__c</field>
+                    <value>{!Analyze_Result.subcategory}</value>
+                </fieldValue>
+                <fieldValue>
+                    <field>Priority</field>
+                    <value>{!Analyze_Result.priority}</value>
+                </fieldValue>
+                <fieldValue>
+                    <field>Description</field>
+                    <value>{!Analyze_Result.summary}</value>
+                </fieldValue>
+            </fieldValues>
+        </updateRecords>
+    </elements>
+</Flow>

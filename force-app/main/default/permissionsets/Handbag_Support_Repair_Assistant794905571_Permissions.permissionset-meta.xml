@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows custom permissions for Agentforce Agent : Handbag_Support_Repair_Assistant&apos;s agent user : handbag_support_repair_assistant@00daw00000nf9fc1107536711.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Handbag_Support_Repair_Assistant794905571 Permissions</label>
+    <license>Einstein Agent</license>
+</PermissionSet>

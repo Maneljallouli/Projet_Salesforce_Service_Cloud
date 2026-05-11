@@ -1,0 +1,59 @@
+<template>
+    <div class="panel">
+        <div class="panel-header">
+            <div class="header-left">
+                <span class="dot"></span>
+                <span class="panel-title">Agent IA — Réponse suggérée</span>
+            </div>
+            <template if:true={isDraftReady}>
+                <span class="badge-pret">Prêt</span>
+            </template>
+        </div>
+
+        <template if:true={hasData}>
+            <div class="analyse-box">
+                <p class="analyse-label">Analyse IA</p>
+                <p class="analyse-text">{analyse}</p>
+            </div>
+
+            <div class="draft-section">
+                <div class="draft-header">
+                    <span class="draft-label">Brouillon — modifiable</span>
+                </div>
+                <template if:false={isEditing}>
+                    <div class="draft-body" lwc:dom="manual" data-id="preview"></div>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="apercu" onclick={handleTab}>Aperçu</button>
+                        <button class="tab" data-tab="modifier" onclick={handleTab}>Modifier</button>
+                        <button class="tab" data-tab="regenerer" onclick={handleTab}>Régénérer</button>
+                    </div>
+                </template>
+                <template if:true={isEditing}>
+                    <lightning-input-rich-text
+                        value={draftBody}
+                        onchange={handleTextChange}>
+                    </lightning-input-rich-text>
+                    <div class="tabs">
+                        <button class="tab" data-tab="apercu" onclick={handleTab}>Aperçu</button>
+                        <button class="tab active" data-tab="modifier" onclick={handleTab}>Modifier</button>
+                        <button class="tab" data-tab="regenerer" onclick={handleTab}>Régénérer</button>
+                    </div>
+                </template>
+            </div>
+
+            <div class="actions">
+                <button class="btn-ignorer" onclick={handleIgnore}>Ignorer</button>
+                <button class="btn-valider" onclick={handleSend}>Valider et envoyer</button>
+            </div>
+        </template>
+
+        <template if:false={hasData}>
+            <div class="empty-state">
+                <div class="slds-m-bottom_small">
+                    <lightning-spinner if:true={loading} size="small" variant="brand"></lightning-spinner>
+                </div>
+                <p>En attente de la réponse IA...</p>
+            </div>
+        </template>
+    </div>
+</template>

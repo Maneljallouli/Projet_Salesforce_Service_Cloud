@@ -1,0 +1,76 @@
+.THIS.custom-wrapper {
+    background: #ffffff;
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+    font-family: "Salesforce Sans", Arial, sans-serif;
+}
+
+.THIS .header-text {
+    margin-bottom: 20px;
+}
+
+.THIS .case-number {
+    font-size: 14px;
+    color: #54698d;
+    margin-bottom: 4px;
+}
+
+.THIS .case-subject {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    color: #001535;
+}
+
+.THIS .info-banner {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-top: 15px;
+    background-color: #f8f8f8;
+}
+
+.THIS .info-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+}
+
+.THIS .separator {
+    border-left: 1px solid #d8dde6;
+    padding-left: 25px;
+    margin-left: 10px;
+}
+
+.THIS .info-label {
+    font-size: 11px;
+    color: #6a6a6a;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.THIS .info-value {
+    font-weight: 600;
+    font-size: 14px;
+    color: #001535;
+}
+
+.THIS .btn-rouvrir {
+    background-color: #0176d3;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.THIS .tab-divider {
+    border-bottom: 3px solid #0176d3;
+    margin-top: 25px;
+    width: 100px;
+}

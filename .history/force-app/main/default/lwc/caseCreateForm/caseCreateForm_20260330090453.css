@@ -1,0 +1,191 @@
+/* caseCreateForm.css */
+
+/* --- DÉFINITION DES VARIABLES (Couleurs exactes Maison MJ) --- */
+:host {
+    --mj-dark: #3C3C3B;      /* Titre & Texte Principal */
+    --mj-muted: #9A8A74;     /* Subtitle, Labels, Bordures Input */
+    --mj-gold-btn: #C4A35A;  /* Couleur principale du bouton */
+    --mj-gold-btn-hover: #B8960C; /* Hover du bouton */
+    --mj-ivory-bg: #FFFFFF;  /* Fond des Inputs, Textarea, Select */
+    --mj-card-bg: #FFFFFF;   /* Fond de la carte */
+    --mj-card-border: #E8DFD0; /* Bordure de la carte */
+}
+
+/* --- CARTE PRINCIPALE --- */
+.lux-card {
+    background: var(--mj-card-bg);
+    border: 1px solid var(--mj-card-border);
+    border-radius: 6px;
+    max-width: 640px;
+    margin: 40px auto;
+    box-shadow: 0 4px 16px rgba(180,150,90,.08); /* Ombre très légère */
+}
+
+/* --- HEADER --- */
+.lux-card-header {
+    padding: 36px 40px 24px;
+    border-bottom: 1px solid var(--mj-card-border);
+}
+
+.lux-title {
+    font-family: 'Playfair Display', Georgia, serif; /* Police de Luxe */
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--mj-dark);
+    letter-spacing: .03em;
+    margin-bottom: 6px;
+}
+
+.lux-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: var(--mj-muted);
+    letter-spacing: .03em;
+}
+
+/* Les barres de style horizontales sous le titre */
+.lux-style-lines {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.lux-style-lines span {
+    height: 3px;
+    border-radius: 2px;
+}
+
+.lux-style-lines .line-gold {
+    width: 140px;
+    background-color: var(--mj-gold-btn);
+}
+
+.lux-style-lines .line-beige {
+    flex: 1; /* Remplir le reste de l'espace */
+    background-color: var(--mj-card-border);
+}
+
+/* --- CORPS --- */
+.lux-card-body {
+    padding: 32px 40px 40px;
+}
+
+/* --- CHAMPS DE FORMULAIRE (Labels) --- */
+.lux-field label {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 600; /* Légèrement plus gras pour correspondre */
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--mj-muted);
+    margin-bottom: 8px;
+}
+
+/* --- CHAMPS DE FORMULAIRE (Saisie) --- */
+.lux-field { margin-bottom: 24px; }
+
+.lux-field input,
+.lux-field select,
+.lux-field textarea {
+    width: 100%;
+    background: var(--mj-ivory-bg);
+    border: 1px solid var(--mj-card-border); /* Bordure discrète */
+    border-radius: 3px;
+    color: var(--mj-dark);
+    font-size: 14px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Focus : On change la bordure pour le doré */
+.lux-field input:focus,
+.lux-field select:focus,
+.lux-field textarea:focus {
+    border-color: var(--mj-gold-btn);
+    box-shadow: 0 0 0 3px rgba(196,163,90,.10);
+    background: var(--mj-ivory-bg);
+}
+
+/* --- SELECT (Menus déroulants personnalisés) --- */
+.lux-field select {
+    appearance: none; /* Cache la flèche par défaut du navigateur */
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4A35A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+/* --- TEXTAREA --- */
+.lux-field textarea {
+    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+    min-height: 120px;
+    line-height: 1.6; /* Meilleure lisibilité */
+}
+
+/* --- BOUTON PRINCIPAL --- */
+.lux-btn {
+    width: 100%;
+    padding: 16px; /* Plus grand pour correspondre à la maquette */
+    background: var(--mj-gold-btn);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s;
+    margin-top: 8px;
+    font-family: 'Lato', sans-serif;
+}
+
+.lux-btn:hover:not([disabled]) {
+    background: var(--mj-gold-btn-hover);
+    box-shadow: 0 4px 12px rgba(196,163,90,.30); /* Ombre au survol */
+}
+
+/* État désactivé (isLoading) */
+.lux-btn[disabled] { opacity: .5; cursor: not-allowed; }
+
+/* --- ÉCRAN DE SUCCÈS (Autres éléments de style) --- */
+.lux-success { text-align: center; padding: 48px 0; }
+.lux-success p { color: var(--mj-muted); font-size: 14px; font-family: 'Lato', sans-serif; }
+.case-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    color: var(--mj-gold-btn);
+    margin: 12px 0;
+    letter-spacing: .06em;
+}
+
+/* Bouton fantôme pour réinitialiser */
+.lux-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--mj-card-border);
+    color: var(--mj-gold-btn);
+    padding: 10px 28px;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: .10em;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: border-color .2s;
+}
+.lux-btn-ghost:hover { border-color: var(--mj-gold-btn); }
+
+/* Erreur */
+.lux-error {
+    color: #A0392B;
+    font-size: 13px;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: rgba(160,57,43,.06);
+    border-radius: 3px;
+    border-left: 2px solid #C0392B;
+}

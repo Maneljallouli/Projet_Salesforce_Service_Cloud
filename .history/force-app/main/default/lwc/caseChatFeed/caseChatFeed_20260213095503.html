@@ -1,0 +1,49 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:case" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">Discussion & Activité</h2>
+                </div>
+            </header>
+        </div>
+
+        <div class="slds-card__body slds-p-around_medium feed-container">
+            <template if:true={history.data}>
+                <template for:each={history.data} for:item="item">
+                    <div key={item.id} class="slds-feed__item slds-box slds-m-bottom_small chat-bubble">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name={item.icon} size="x-small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-grid slds-grid_align-spread">
+                                    <span class="author-name">{item.author}</span>
+                                    <lightning-formatted-date-time value={item.createdDate} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                </div>
+                                <p class="message-body">{item.body}</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <footer class="slds-card__footer">
+            <div class="slds-form-element">
+                <lightning-textarea 
+                    placeholder="Écrivez votre réponse ici..." 
+                    value={userInput}
+                    onchange={handleInputChange}
+                    variant="label-hidden">
+                </lightning-textarea>
+                <div class="slds-text-align_right slds-m-top_small">
+                    <lightning-button label="Envoyer" variant="brand" onclick={handleSend}></lightning-button>
+                </div>
+            </div>
+        </footer>
+    </article>
+</template>

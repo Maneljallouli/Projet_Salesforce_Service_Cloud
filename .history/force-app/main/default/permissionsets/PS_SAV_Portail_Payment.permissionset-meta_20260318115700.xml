@@ -1,0 +1,13 @@
+[{
+	"resource": "/c:/Users/PC/service-cloud-project/force-app/main/default/permissionsets/PS_SAV_Portail_Payment.permissionset-meta.xml",
+	"owner": "deploy-errors",
+	"severity": 8,
+	"message": "Permission Read Demande_SAV__c depends on permission(s): Read Contact",
+	"source": "PermissionSet",
+	"startLineNumber": 1,
+	"startColumn": 1,
+	"endLineNumber": 1,
+	"endColumn": 1,
+	"modelVersionId": 6,
+	"origin": "extHost1"
+}]

@@ -1,0 +1,50 @@
+<template>
+    <header class="lux-nav">
+        <div class="lux-nav-inner">
+
+            <a href="javascript:void(0);" class="lux-logo" data-page="home" onclick={setActive}>
+                <span class="lux-logo-name">MAISON LUXE</span>
+                <span class="lux-logo-tag">Espace client privé</span>
+            </a>
+
+            <nav class="lux-nav-links">
+                <a href="javascript:void(0);" class={linkHome} data-page="home" onclick={setActive}>Accueil</a>
+                <a href="javascript:void(0);" class={linkDemandes} data-page="demandes" onclick={setActive}>Mes demandes</a>
+                <a href="javascript:void(0);" class={linkNouvelle} data-page="nouvelle" onclick={setActive}>Nouvelle demande</a>
+                <a href="javascript:void(0);" class={linkFaq} data-page="faq" onclick={setActive}>FAQ</a>
+                <a href="javascript:void(0);" class={linkProduits} data-page="produits" onclick={setActive}>Collection</a>
+            </nav>
+
+            <div class="lux-nav-user">
+                <div class="lux-user-trigger" onclick={toggleDropdown}>
+                    <span class="lux-user-name">{userName}</span>
+                    <div class="lux-avatar">{userInitials}</div>
+                </div>
+
+                <template if:true={dropdownOpen}>
+                    <div class="lux-dropdown">
+                        <div class="lux-dropdown-header">
+                            <div class="lux-dropdown-info">
+                                <span class="lux-dropdown-name">{userName}</span>
+                                <span class="lux-dropdown-email">{userEmail}</span>
+                            </div>
+                        </div>
+                        <div class="lux-dropdown-divider"></div>
+                        <div class="lux-dropdown-section">
+                            <p if:true={contactCity}>📍 {contactCity}</p>
+                            <p if:true={contactPhone}>📞 {contactPhone}</p>
+                        </div>
+                        <div class="lux-dropdown-divider"></div>
+                        <div class="lux-dropdown-actions">
+                            <button class="lux-dropdown-item lux-logout" onclick={handleLogout}>
+                                SE DÉCONNECTER
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lux-overlay" onclick={closeDropdown}></div>
+                </template>
+            </div>
+
+        </div>
+    </header>
+</template>

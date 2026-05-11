@@ -1,0 +1,50 @@
+<template>
+    <div class="login-page">
+        <div class="login-card">
+
+            <div class="login-brand">
+                <div class="login-brand-name">MAISON LUXE</div>
+                <div class="login-brand-tag">ESPACE CLIENT PRIVÉ</div>
+            </div>
+
+            <div class="login-body">
+                <div class="login-title">Connexion</div>
+                <div class="login-sub">Accédez à votre espace personnel</div>
+
+                <template if:true={errorMsg}>
+                    <div class="login-error">{errorMsg}</div>
+                </template>
+
+                <div class="lf">
+                    <label>Adresse email</label>
+                    <input type="email"
+                           value={username}
+                           onchange={handleUsername}
+                           placeholder="votre@email.com"/>
+                </div>
+
+                <div class="lf">
+                    <label>Mot de passe</label>
+                    <input type="password"
+                           value={password}
+                           onchange={handlePassword}
+                           placeholder="••••••••"/>
+                </div>
+
+                <button class="login-btn"
+                        onclick={handleLogin}
+                        disabled={isLoading}>
+                    <template if:true={isLoading}>Connexion...</template>
+                    <template if:false={isLoading}>Se connecter</template>
+                </button>
+
+                <div class="login-forgot">
+                    <a href="/luxportail/ForgotPassword">
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

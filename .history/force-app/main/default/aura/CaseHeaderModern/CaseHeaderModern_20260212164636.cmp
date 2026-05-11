@@ -1,0 +1,49 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    <force:recordData aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="CaseNumber,Subject,Status,CreatedDate"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordError}"
+    />
+
+    <div class="slds-box custom-wrapper">
+        <div class="header-section">
+            <p class="case-meta">Requête numéro {!v.caseRecord.CaseNumber}</p>
+            <h1 class="case-title">{!v.caseRecord.Subject}</h1>
+        </div>
+
+        <div class="info-banner">
+            <div class="info-group">
+                <div class="info-column">
+                    <span class="info-label">Ouvert</span>
+                    <span class="info-value">
+                        <lightning:formattedDateTime 
+                            value="{!v.caseRecord.CreatedDate}" 
+                            year="numeric" month="numeric" day="numeric"/>
+                    </span>
+                </div>
+                
+                <div class="info-column separator">
+                    <span class="info-label">Statut</span>
+                    <span class="info-value status-badge">{!v.caseRecord.Status}</span>
+                </div>
+            </div>
+
+            <div class="action-container">
+                <aura:if isTrue="{!v.caseRecord.Status == 'Closed'}">
+                    <lightning:button label="Rouvrir" 
+                                      variant="neutral" 
+                                      class="btn-custom-outline" 
+                                      onclick="{!c.handleReopen}"/>
+                </aura:if>
+            </div>
+        </div>
+
+        <div class="tab-navigation">
+            <span class="active-tab">Détails</span>
+        </div>
+    </div>
+</aura:component>

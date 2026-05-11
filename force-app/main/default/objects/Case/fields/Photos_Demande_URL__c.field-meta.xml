@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Photos_Demande_URL__c</fullName>
+    <label>Photos de la demande (JSON)</label>
+    <type>LongTextArea</type>
+    <length>32768</length>
+    <visibleLines>3</visibleLines>
+    <description>Tableau JSON des URLs des photos uploadées par le client lors de la création du Case. Format : ["url1","url2"]</description>
+</CustomField>

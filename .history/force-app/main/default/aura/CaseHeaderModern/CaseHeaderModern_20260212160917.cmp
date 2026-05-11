@@ -1,0 +1,51 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+                access="global">
+
+    <!-- ATTRIBUTS -->
+    <aura:attribute name="caseRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="bannerBackground" type="String" default="#ffffff"/>
+
+    <!-- DATA -->
+    <force:recordData
+        aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="CaseNumber,Subject,Status,CreatedDate"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordError}" />
+
+    <!-- CONTENU -->
+    <div class="slds-box custom-wrapper">
+
+        <!-- HEADER -->
+        <div class="header-text">
+            <p class="case-number">Requête numéro {!v.caseRecord.CaseNumber}</p>
+            <h1 class="case-subject">{!v.caseRecord.Subject}</h1>
+        </div>
+
+        <!-- BANNIÈRE INFO -->
+        <aura:html tag="div"
+                   HTMLAttributes="{ 'class': 'info-banner', 'style': 'background-color:' + v.bannerBackground }">
+
+            <div class="info-column">
+                <span class="info-label">Ouvert</span>
+                <span class="info-value">
+                    <lightning:formattedDateTime
+                        value="{!v.caseRecord.CreatedDate}"
+                        year="numeric"
+                        month="numeric"
+                        day="numeric"/>
+                </span>
+            </div>
+
+            <div class="info-divider"></div>
+
+            <div class="info-column">
+                <span class="info-label">Statut</span>
+                <span class="info-value">{!v.caseRecord.Status}</span>
+            </div>
+
+        </aura:html>
+
+    </div>
+</aura:component>
