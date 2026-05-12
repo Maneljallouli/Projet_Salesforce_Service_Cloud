@@ -8,6 +8,7 @@
         <actionName>Service_Client_AI</actionName>
         <actionType>generateAiAgentResponse</actionType>
         <dataTypeMappings>
+            <apexClass>AgentInvAction__AIAgentCompositeDefault</apexClass>
             <typeName>U__agentResponseApex</typeName>
         </dataTypeMappings>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -18,7 +19,9 @@
             </value>
         </inputParameters>
         <nameSegment>Service_Client_AI</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionString>1.1.0</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <environments>Default</environments>

@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Canal_Retour__c</fullName>
     <description>Mode de restitution du produit après traitement SAV.</description>
-    <externalId>false</externalId>
     <label>Canal de retour souhaité</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

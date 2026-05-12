@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Statut_Paiement__c</fullName>
-    <externalId>false</externalId>
     <label>Statut Paiement</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

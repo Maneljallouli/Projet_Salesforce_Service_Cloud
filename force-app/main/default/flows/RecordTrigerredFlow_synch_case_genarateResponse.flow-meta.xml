@@ -30,6 +30,7 @@
             </value>
         </inputParameters>
         <nameSegment>Auto_choix_emailTemplate</nameSegment>
+        <offset>0</offset>
         <outputParameters>
             <assignToReference>IA_Response</assignToReference>
             <name>promptResponse</name>

@@ -45,6 +45,7 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Send_Overdue_Tasky_Notification</name>
@@ -88,6 +89,7 @@
             </value>
         </inputParameters>
         <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>

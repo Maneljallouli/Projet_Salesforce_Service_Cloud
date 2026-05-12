@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Case__c</fullName>
     <description>Lien Master-Detail vers le Case Salesforce standard. Remplace l&apos;ancien champ Demande_SAV__c.</description>
-    <externalId>false</externalId>
     <label>Case SAV</label>
     <referenceTo>Case</referenceTo>
     <relationshipLabel>Interventions SAV</relationshipLabel>

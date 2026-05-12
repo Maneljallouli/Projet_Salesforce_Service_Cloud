@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Email_Case_Analyzer</developerName>
+    <masterLabel>Email_Case_Analyzer</masterLabel>
+    <relatedEntity>Case</relatedEntity>
+    <relatedField>Case.Description</relatedField>
+    <templateVersions>
+        <content>You are a customer service AI assistant for a luxury retail brand.
+Analyze the following customer email and respond ONLY with a valid 
+JSON object, no explanation, no markdown.
+
+EMAIL SUBJECT: {!$Input:Case.Subject}
+EMAIL BODY: {!$Input:Case.Description}
+
+Respond with exactly this JSON structure:
+{
+ &quot;category&quot;: &quot;&lt;Demande information|Echange produit|Réclamation|Retour produit&gt;&quot;,
+ &quot;subcategory&quot;: &quot;&lt;one of the valid subcategories below&gt;&quot;,
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|VIP&gt;&quot;,
+ &quot;summary&quot;: &quot;&lt;professional 2-sentence summary in French&gt;&quot;,
+ &quot;confidence&quot;: &lt;0.0 to 1.0&gt;
+}
+
+VALID SUBCATEGORIES per category:
+- Demande information: Disponibilité produit, Suivi commande, 
+ Information sur prix / promotion, Informations sur personnalisation
+- Echange produit: Taille / ajustement, Couleur / modèle, 
+ Produit défectueux, Produit non conforme à la commande
+- Réclamation: Produit endommagé / défectueux, Livraison retardée, 
+ Erreur de facturation, Mauvais produit livré
+- Retour produit: Remboursement demandé, Retour pour non-conformité
+
+PRIORITY RULES:
+- VIP: email mentions VIP, priority client, or very urgent tone
+- High: frustrated tone, damaged product, billing error
+- Medium: neutral tone, standard request
+- Low: simple information request, polite tone
+
+SUMMARY RULES:
+- Always write the summary in French
+- 3 sentences maximum
+- Professional luxury retail tone
+- Never mention the client name
+- Focus on the main request only
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>You are analyzing emails for internal case processing, not replying to customers.
+Analyze the following customer email and respond ONLY with a valid 
+JSON object, no explanation, no markdown.
+
+EMAIL SUBJECT: {!$Input:Case.Subject}
+EMAIL BODY: {!$Input:Case.Description}
+
+Respond with exactly this JSON structure:
+{
+ &quot;category&quot;: &quot;&lt;Demande information|Echange produit|Réclamation|Retour produit&gt;&quot;,
+ &quot;subcategory&quot;: &quot;&lt;one of the valid subcategories below&gt;&quot;,
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|VIP&gt;&quot;,
+ &quot;summary&quot;: &quot;&lt;professional 2-sentence summary in French&gt;&quot;,
+ &quot;confidence&quot;: &lt;0.0 to 1.0&gt;
+}
+
+VALID SUBCATEGORIES per category:
+- Demande information: Disponibilité produit, Suivi commande, 
+ Information sur prix / promotion, Informations sur personnalisation
+- Echange produit: Taille / ajustement, Couleur / modèle, 
+ Produit défectueux, Produit non conforme à la commande
+- Réclamation: Produit endommagé / défectueux, Livraison retardée, 
+ Erreur de facturation, Mauvais produit livré
+- Retour produit: Remboursement demandé, Retour pour non-conformité
+
+PRIORITY RULES:
+- VIP: email mentions VIP, priority client, or very urgent tone
+- High: frustrated tone, damaged product, billing error
+- Medium: neutral tone, standard request
+- Low: simple information request, polite tone
+
+SUMMARY RULES:
+- Write an INTERNAL summary, not a response to the customer
+- Do NOT address the customer
+- Do NOT use &quot;nous&quot;, &quot;merci&quot;, or polite expressions
+- Do NOT write as a reply
+- Describe what the customer wants or problem they have
+- Write in French
+- Maximum 3 sentences
+- Neutral and factual tone
+- Focus only on the main issue
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>You are analyzing emails for internal case processing, not replying to customers.
+Analyze the following customer email and respond ONLY with a valid 
+JSON object, no explanation, no markdown.
+
+EMAIL SUBJECT: {!$Input:Case.Subject}
+EMAIL BODY: {!$Input:Case.Description}
+
+Respond with exactly this JSON structure:
+{
+ &quot;category&quot;: &quot;&lt;Demande information|Echange produit|Réclamation|Retour produit&gt;&quot;,
+ &quot;subcategory&quot;: &quot;&lt;one of the valid subcategories below&gt;&quot;,
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|VIP&gt;&quot;,
+ &quot;summary&quot;: &quot;&lt;professional 2-sentence summary in French&gt;&quot;,
+ &quot;confidence&quot;: &lt;0.0 to 1.0&gt;
+}
+
+VALID SUBCATEGORIES per category:
+- Demande information: Disponibilité produit, Suivi commande, 
+ Information sur prix / promotion, Informations sur personnalisation
+- Echange produit: Taille / ajustement, Couleur / modèle, 
+ Produit défectueux, Produit non conforme à la commande
+- Réclamation: Produit endommagé / défectueux, Livraison retardée, 
+ Erreur de facturation, Mauvais produit livré
+- Retour produit: Remboursement demandé, Retour pour non-conformité, Comment faire un retour ?
+
+PRIORITY RULES:
+- VIP: email mentions VIP, priority client, or very urgent tone
+- High: frustrated tone, damaged product, billing error
+- Medium: neutral tone, standard request
+- Low: simple information request, polite tone
+
+SUMMARY RULES:
+- Write an INTERNAL summary, not a response to the customer
+- Do NOT address the customer
+- Do NOT use &quot;nous&quot;, &quot;merci&quot;, or polite expressions
+- Do NOT write as a reply
+- Describe what the customer wants or problem they have
+- Write in French
+- Maximum 3 sentences
+- Neutral and factual tone
+- Focus only on the main issue
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>You are analyzing emails for internal case processing, not replying to customers.
+Analyze the following customer email and respond ONLY with a valid 
+JSON object, no explanation, no markdown.
+
+EMAIL SUBJECT: {!$Input:Case.Subject}
+EMAIL BODY: {!$Input:Case.Description}
+
+Respond with exactly this JSON structure:
+{
+ &quot;category&quot;: &quot;&lt;Demande information|Echange produit|Réclamation|Retour produit&gt;&quot;,
+ &quot;subcategory&quot;: &quot;&lt;one of the valid subcategories below&gt;&quot;,
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|VIP&gt;&quot;,
+ &quot;summary&quot;: &quot;&lt;professional 2-sentence summary in French&gt;&quot;,
+ &quot;confidence&quot;: &lt;0.0 to 1.0&gt;
+}
+
+VALID SUBCATEGORIES per category:
+- Demande information: Disponibilité produit, Suivi commande, 
+ Information sur prix / promotion, Informations sur personnalisation
+- Echange produit: Taille / ajustement, Couleur / modèle, 
+ Produit défectueux, Produit non conforme à la commande
+- Réclamation: Produit endommagé / défectueux, Livraison retardée, 
+ Erreur de facturation, Mauvais produit livré
+- Retour produit: Remboursement demandé, Retour pour non-conformité, Comment faire un retour
+
+PRIORITY RULES:
+- VIP: email mentions VIP, priority client, or very urgent tone
+- High: frustrated tone, damaged product, billing error
+- Medium: neutral tone, standard request
+- Low: simple information request, polite tone
+
+SUMMARY RULES:
+- Write an INTERNAL summary, not a response to the customer
+- Do NOT address the customer
+- Do NOT use &quot;nous&quot;, &quot;merci&quot;, or polite expressions
+- Do NOT write as a reply
+- Describe what the customer wants or problem they have
+- Write in French
+- Maximum 3 sentences
+- Neutral and factual tone
+- Focus only on the main issue
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>You are analyzing emails for internal case processing, not replying to customers.
+Analyze the following customer email and respond ONLY with a valid 
+JSON object, no explanation, no markdown.
+
+EMAIL SUBJECT: {!$Input:Case.Subject}
+EMAIL BODY: {!$Input:Case.Description}
+
+Respond with exactly this JSON structure:
+{
+ &quot;category&quot;: &quot;&lt;Demande information|Echange produit|Réclamation|Retour produit&gt;&quot;,
+ &quot;subcategory&quot;: &quot;&lt;one of the valid subcategories below&gt;&quot;,
+ &quot;priority&quot;: &quot;&lt;Low|Medium|High|VIP&gt;&quot;,
+ &quot;summary&quot;: &quot;&lt;professional 2-sentence summary in French&gt;&quot;,
+ &quot;confidence&quot;: &lt;0.0 to 1.0&gt;
+}
+
+VALID SUBCATEGORIES per category:
+- Demande information: Disponibilité produit, Suivi commande, 
+ Information sur prix / promotion, Informations sur personnalisation, Comment faire un retour
+- Echange produit: Taille / ajustement, Couleur / modèle, 
+ Produit défectueux, Produit non conforme à la commande
+- Réclamation: Produit endommagé / défectueux, Livraison retardée, 
+ Erreur de facturation, Mauvais produit livré
+- Retour produit: Remboursement demandé, Retour pour non-conformité
+
+PRIORITY RULES:
+- VIP: email mentions VIP, priority client, or very urgent tone
+- High: frustrated tone, damaged product, billing error
+- Medium: neutral tone, standard request
+- Low: simple information request, polite tone
+
+SUMMARY RULES:
+- Write an INTERNAL summary, not a response to the customer
+- Do NOT address the customer
+- Do NOT use &quot;nous&quot;, &quot;merci&quot;, or polite expressions
+- Do NOT write as a reply
+- Describe what the customer wants or problem they have
+- Write in French
+- Maximum 3 sentences
+- Neutral and factual tone
+- Focus only on the main issue
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

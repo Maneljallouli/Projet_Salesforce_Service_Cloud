@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Langue_Client__c</fullName>
     <description>Langue préférée du client pour les communications liées à ce Case.</description>
-    <externalId>false</externalId>
     <label>Langue client</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

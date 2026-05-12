@@ -55,6 +55,8 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <environments>Default</environments>

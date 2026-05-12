@@ -15,6 +15,7 @@
             </value>
         </inputParameters>
         <nameSegment>AgentforceEnqueuer</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <environments>Default</environments>

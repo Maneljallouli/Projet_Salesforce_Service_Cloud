@@ -24,6 +24,7 @@
             </value>
         </inputParameters>
         <nameSegment>EmailTemplateRenderer</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>66.0</apiVersion>

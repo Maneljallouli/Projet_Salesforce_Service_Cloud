@@ -15,6 +15,7 @@
             </value>
         </inputParameters>
         <nameSegment>ApplyCaseAssignmentRule</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Case_assign_to_queue</name>
@@ -71,6 +72,8 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
     <environments>Default</environments>

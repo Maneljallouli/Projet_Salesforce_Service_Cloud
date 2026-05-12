@@ -18,6 +18,7 @@
             </value>
         </inputParameters>
         <nameSegment>ApplyCaseAssignmentRule</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Parse_JSON_Response</name>
@@ -37,6 +38,7 @@
             </value>
         </inputParameters>
         <nameSegment>EmailCaseJsonParser</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
@@ -57,6 +59,7 @@
             </value>
         </inputParameters>
         <nameSegment>Email_Case_Analyzer</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
@@ -114,6 +117,8 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <decisions>

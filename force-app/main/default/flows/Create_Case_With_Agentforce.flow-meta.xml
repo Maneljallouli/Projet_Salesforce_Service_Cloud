@@ -18,6 +18,7 @@
             </value>
         </inputParameters>
         <nameSegment>ApplyCaseAssignmentRule</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Apply_Case_Assignment_Rule_Action_2</name>
@@ -37,6 +38,7 @@
             </value>
         </inputParameters>
         <nameSegment>ApplyCaseAssignmentRule</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <decisions>

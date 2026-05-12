@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>This topic is selected when customers inquire about the progress of their handbag repairs.</description>
+    <developerName>p_16jAW0000003GTF_Repair_Status_Tracking</developerName>
+    <genAiFunctions>
+        <functionName>SvcCopilotTmpl__GetCaseByCaseNumber</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>AutoLaunchedFlow_Agent_Get_Case_Status_179AW0000001m7R</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the customer provides a case number, use SvcCopilotTmpl__GetCaseByCaseNumber to retrieve the repair status.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer provides their email address, use SvcCopilotTmpl__IdentifyCustomerByEmail to locate their contact record.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once the contact record is identified, use SvcCopilotTmpl__GetCaseByVerifiedCaseNumber to fetch the repair case details.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Repair Status Tracking</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only provide updates on the status of handbag repairs using the customer&apos;s contact information or repair case number. You cannot initiate new repair requests or provide unrelated assistance.</scope>
+</GenAiPlugin>

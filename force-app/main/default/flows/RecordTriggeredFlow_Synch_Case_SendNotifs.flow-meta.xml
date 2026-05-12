@@ -39,6 +39,7 @@
             </value>
         </inputParameters>
         <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <assignments>

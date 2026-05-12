@@ -42,6 +42,7 @@
             </value>
         </inputParameters>
         <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Send_Email_Action_2</name>
@@ -91,6 +92,7 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>

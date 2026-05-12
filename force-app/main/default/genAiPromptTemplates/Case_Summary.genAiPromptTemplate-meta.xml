@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Génère un résumé automatique du problème client pour l&apos;agent.</description>
+    <developerName>Case_Summary</developerName>
+    <masterLabel>Case_Summary</masterLabel>
+    <relatedEntity>Case</relatedEntity>
+    <templateVersions>
+        <content>Tu es un assistant de support client de luxe. Résume les points clés de ce dossier (Case) en te basant sur le sujet, la description et les commentaires récents. Identifie le problème principal et le sentiment du client.
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>Tu es un assistant de support client de luxe. Résume les points clés de ce dossier (Case) en te basant sur {!$Input:Case.Subject} et {!$Input:Case.Description}. Identifie le problème principal et le sentiment du client.
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>Tu es un assistant de support client de luxe. Résume les points clés de ce dossier (Case) en te basant sur {!$Input:Case.Subject} et {!$Input:Case.Description}. Identifie le problème principal et le sentiment du client.
+Réponds impérativement dans la même langue que celle utilisée par le client dans le sujet et la description du dossier (si c&apos;est en français, résume en français ; si c&apos;est en anglais, résume en anglais).
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__nlNlLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__deDeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__itItLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__ptBrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esMxLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__svSeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frMaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frChLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM INSTRUCTION: Detect the language of the {!$Input:Case.Subject}your {!$Input:Case.Description}.
+CONTEXT: Tu es un assistant de luxe. Résume ce dossier Salesforce.
+DATA :
+- Sujet : 
+{!$Input:Case.Subject}
+- Description : 
+{!$Input:Case.Description}
+TASK : Produis un résumé court (problème + sentiment). Si lesais, ton résumé doit être en français. If the data is in English, your summary must be in English.
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frChLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frMaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__svSeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esMxLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__ptBrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__itItLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__deDeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__nlNlLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM INSTRUCTION: Détecte précisément le langage principal du sujet ({!$Input:Case.Subject}) et de la description ({!$Input:Case.Description}). Si le sujet ET la description sont principalement en français, produis le résumé EN FRANÇAIS. Si le sujet ET la description sont principalement en anglais, produis le résumé EN ANGLAIS.
+
+CONTEXT: Tu es un assistant de luxe pour résumer des dossiers Salesforce.
+
+DATA :
+- Sujet : {!$Input:Case.Subject}
+- Description : {!$Input:Case.Description}
+
+TASK : Produis un résumé court (problème + sentiment). Respecte strictement la langue détectée : français si les données sont en français, anglais si en anglais. Ne mélange pas les langues.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__nlNlLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__deDeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__itItLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__ptBrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esMxLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__svSeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frMaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frChLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM INSTRUCTION: Détecte précisément le langage principal du sujet ({!$Input:Case.Subject}) et de la description ({!$Input:Case.Description}). Si le sujet ET la description sont principalement en français, produis le résumé EN FRANÇAIS. Si le sujet ET la description sont principalement en anglais, produis le résumé EN ANGLAIS.
+
+CONTEXT: Tu es un assistant de luxe pour résumer des dossiers Salesforce.
+
+DATA :
+- Sujet : {!$Input:Case.Subject}
+- Description : {!$Input:Case.Description}
+
+TASK : Produis un résumé court (problème + sentiment). Respecte strictement la langue détectée : français si les données sont en français, anglais si en anglais. Ne mélange pas les langues.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frChLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frMaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__svSeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esMxLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__esEsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__ptBrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__jaJpLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__itItLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__deDeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__nlNlLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM INSTRUCTION: Détecte précisément le langage principal du sujet ({!$Input:Case.Subject}) et de la description ({!$Input:Case.Description}). Si le sujet ET la description sont principalement en français, produis le résumé EN FRANÇAIS. Si le sujet ET la description sont principalement en anglais, produis le résumé EN ANGLAIS.
+
+CONTEXT: Tu es un assistant de luxe pour résumer des dossiers Salesforce.
+
+DATA :
+- Sujet : {!$Input:Case.Subject}
+- Description : {!$Input:Case.Description}
+
+TASK : Produis un résumé court (problème + sentiment). Respecte strictement la langue détectée : français si les données sont en français, anglais si en anglais. Ne mélange pas les langues.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM: ANALYSE {!$Input:Case.Subject} ET {!$Input:Case.Description}.
+
+SI CES DEUX TEXTES SONT EN FRANÇAIS :
+Résumé EN FRANÇAIS uniquement : Problème + Sentiment (max 50 mots)
+
+SINON :
+Summary IN ENGLISH only: Issue + Sentiment (max 50 words)
+
+NE JAMAIS mélanger les langues. ZÉRO ANGLAIS si données françaises.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frLuLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frCaLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frBeLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM: ANALYSE {!$Input:Case.Subject} ET {!$Input:Case.Description}.
+
+SI CES DEUX TEXTES SONT EN FRANÇAIS :
+Résumé EN FRANÇAIS uniquement : Problème + Sentiment (max 50 mots)
+
+SINON :
+Summary IN ENGLISH only: Issue + Sentiment (max 50 words)
+
+NE JAMAIS mélanger les langues. ZÉRO ANGLAIS si données françaises.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM: ANALYSE {!$Input:Case.Subject} ET {!$Input:Case.Description}.
+
+SI CES DEUX TEXTES SONT EN FRANÇAIS :
+Résumé EN FRANÇAIS uniquement : Problème + Sentiment (max 50 mots)
+
+SINON :
+Summary IN ENGLISH only: Issue + Sentiment (max 50 words)
+
+NE JAMAIS mélanger les langues. ZÉRO ANGLAIS si données françaises.
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM:
+Tu es un assistant Salesforce Service Cloud.
+
+ÉTAPE 1 – Détection de langue
+Analyse le Sujet et la Description ci-dessous et détermine la langue principale.
+Réponds uniquement par l’un des mots suivants :
+- FR
+- EN
+
+Sujet :
+{!$Input:Case.Subject}
+
+Description :
+{!$Input:Case.Description}
+
+ÉTAPE 2 – Résumé
+SI la langue détectée est FR :
+Rédige un résumé UNIQUEMENT EN FRANÇAIS (zéro mot anglais).
+Format :
+- Problème
+- Sentiment
+Maximum 50 mots.
+
+SI la langue détectée est EN :
+Write the summary ONLY IN ENGLISH.
+Format:
+- Issue
+- Sentiment
+Maximum 50 words.
+
+Règle absolue :
+Ne jamais mélanger les langues.
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM:
+Tu es un assistant Salesforce Service Cloud chargé de résumer des tickets.
+
+INSTRUCTIONS GÉNÉRALES (OBLIGATOIRES) :
+- Tu dois détecter la langue principale à partir du Sujet et de la Description.
+- Les seules langues possibles sont FR (français) ou EN (anglais).
+- Tu dois produire un résumé dans UNE SEULE langue.
+- Ne jamais mélanger les langues.
+- Si les données sont majoritairement en français, considère la langue comme FR.
+
+=====================
+ÉTAPE 1 – DÉTECTION DE LANGUE
+=====================
+Analyse le Sujet et la Description ci-dessous.
+
+Réponds mentalement par FR ou EN selon la langue dominante.
+N’écris PAS le résultat de cette détection dans la sortie finale.
+
+Sujet :
+{!$Input:Case.Subject}
+
+Description :
+{!$Input:Case.Description}
+
+=====================
+ÉTAPE 2 – GÉNÉRATION DU RÉSUMÉ
+=====================
+
+SI la langue détectée est FR :
+Rédige un résumé UNIQUEMENT EN FRANÇAIS (zéro mot anglais).
+Format strict :
+- Problème :
+- Sentiment :
+Maximum 50 mots au total.
+
+SI la langue détectée est EN :
+Write a summary ONLY IN ENGLISH.
+Strict format:
+- Issue:
+- Sentiment:
+Maximum 50 words total.
+
+=====================
+RÈGLES ABSOLUES
+=====================
+- ZÉRO mélange de langues
+- Ne jamais traduire
+- Ne jamais expliquer
+- Ne jamais ajouter de méta-commentaires
+- Ne produire QUE le résumé final
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>IMPORTANT: Détecte la langue de CHAQUE {!$Input:Case.Subject} + {!$Input:Case.Description} INDIVIDUELLEMENT.
+
+POUR CETTE CASE SPÉCIFIQUE:
+- Si français → Résumé FRANÇAIS (problème + sentiment, 25 mots)
+- Si anglais → Summary ENGLISH (issue + sentiment, 25 words)
+
+NE JAMAIS supposer. ANALYSE les données de CETTE case UNIQUEMENT.
+
+DATA:
+Sujet: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>SYSTEM: Détecte la langue du sujet ET description.
+
+SI LES DEUX SONT EN FRANÇAIS:
+Résumé EN FRANÇAIS: Problème + Sentiment (30 mots max).
+
+SI LES DEUX SONT EN ANGLAIS:
+Summary IN ENGLISH: Issue + Sentiment (30 words max).
+
+NE JAMAIS mélanger les langues.
+
+DATA:
+Sujet: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>IMPORTANT: Détecte la langue de {!$Input:Case.Subject} + {!$Input:Case.Description}.
+
+POUR CETTE CASE:
+- Français → Résumé FRANÇAIS UNIQUEMENT (problème + sentiment, 25 mots)
+- Anglais → Summary ENGLISH (issue + sentiment, 25 words)
+
+NE mentionne JAMAIS &quot;Language detected&quot;. Résumé direct seulement.
+
+DATA:
+Sujet: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>ANALYSE {!$Input:Case.Subject} et {!$Input:Case.Description}.
+
+SI EN FRANÇAIS → Résumé FRANÇAIS : Problème + Sentiment (30 mots max)
+
+SI EN ANGLAIS → Summary ENGLISH : Issue + Sentiment (30 words)
+
+Résumé direct, SANS mentionner la langue détectée.
+
+DATA :
+Sujet : {!$Input:Case.Subject}
+Description : {!$Input:Case.Description}
+
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>TASK
+Analyze the language of this specific Case using BOTH Subject and Description.
+
+RULES
+- If the language is French → write the summary in French.
+- If the language is English → write the summary in English.
+- Use about 25 words.
+- Include: the issue + customer sentiment.
+- Do NOT mention the language.
+- Do NOT explain your reasoning.
+- Output ONLY the summary.
+
+CASE DATA
+Subject: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>TASK
+Determine the language of the Case using BOTH Subject and Description.
+
+DECISION
+- If BOTH are mostly French → write the summary in French.
+- If BOTH are mostly English → write the summary in English.
+
+SUMMARY RULES
+- Around 25 words
+- Include: customer issue + customer sentiment
+- Use the SAME language as the Case
+- Never mix languages
+
+OUTPUT FORMAT
+Return ONLY the summary text.
+Do not show the detected language.
+Do not add labels.
+Do not explain anything.
+
+CASE DATA
+Subject: {!$Input:Case.Subject}
+Description: {!$Input:Case.Description}
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <templateVersions>
+        <content>TASK
+Summarize the Case using BOTH Subject and Description.
+
+DECISION
+Always write the summary in French, regardless of the input language.
+SUMMARY RULES
+
+Around 25 words.
+Include: customer issue + customer sentiment.
+Language: French only.
+Never mix languages.
+
+OUTPUT FORMAT 
+Return ONLY the summary text in French. Do not show the detected language. Do not add labels. Do not explain anything.
+
+CASE DATA 
+Subject: {!$Input:Case.Subject}t:Case.Descrip{!$Input:Case.Description}
+</content>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__frFrLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <generationTemplateConfigs>
+            <generationConfigDeveloperName>einstein_gpt__enUsLanguageStyle</generationConfigDeveloperName>
+        </generationTemplateConfigs>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Case</definition>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT41</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

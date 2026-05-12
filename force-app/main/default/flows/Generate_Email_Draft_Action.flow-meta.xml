@@ -30,6 +30,7 @@
             </value>
         </inputParameters>
         <nameSegment>Choix_Du_Template</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
