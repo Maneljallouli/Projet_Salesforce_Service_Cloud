@@ -19,7 +19,7 @@
     <excludeButtons>SearchInventory</excludeButtons>
     <excludeButtons>SendSurveyInvitation</excludeButtons>
     <excludeButtons>Share</excludeButtons>
-    
+    <excludeButtons>SourceProduct</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
