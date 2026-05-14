@@ -3,25 +3,21 @@
     <autoResponseRule>
         <fullName>Sample Case Auto-Response Rule</fullName>
         <active>true</active>
-
         <ruleEntry>
             <criteriaItems>
                 <field>Case.Origin</field>
                 <operation>equals</operation>
                 <value>Email</value>
             </criteriaItems>
-
             <criteriaItems>
                 <field>Case.Subject</field>
                 <operation>contains</operation>
                 <value>[SAMPLE CASE SUBJECT]</value>
             </criteriaItems>
-
             <notifyCcRecipients>false</notifyCcRecipients>
             <senderEmail>manel.jallouli@olivesoft.fr</senderEmail>
             <senderName>Manel Jallouli</senderName>
-
-            <!-- REMOVED TEMPLATE FOR CI/CD SAFETY -->
+            <template>unfiled$public/E_mail_vers_requ_te_exemple_1771259450113</template>
         </ruleEntry>
     </autoResponseRule>
 </AutoResponseRules>
