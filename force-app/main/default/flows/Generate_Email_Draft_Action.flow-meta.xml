@@ -59,7 +59,7 @@
             <assignToReference>SelectedTemplate</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Choix_Du_Template.promptResponse</elementReference>
+                <elementReference>Choix_Du_Template.Response</elementReference>
             </value>
         </assignmentItems>
     </assignments>
