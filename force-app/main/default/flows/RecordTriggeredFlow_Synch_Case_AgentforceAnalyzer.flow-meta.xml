@@ -72,7 +72,9 @@
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recipientAddresses</name>
-            <value/>
+            <value>
+                <elementReference>$Record.Contact.Email</elementReference>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>senderType</name>
