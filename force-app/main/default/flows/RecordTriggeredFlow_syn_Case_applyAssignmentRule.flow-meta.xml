@@ -28,7 +28,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <elementReference>recipientList</elementReference>
+                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
