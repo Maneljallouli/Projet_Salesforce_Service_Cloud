@@ -27,7 +27,9 @@
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recipientAddresses</name>
-            <value/>
+            <value>
+                <elementReference>$Record.Owner:Queue.Email</elementReference>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>senderType</name>
