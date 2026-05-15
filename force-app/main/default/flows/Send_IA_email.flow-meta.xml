@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_Recipient</name>
+        <label>Set Recipient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recipientList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Case.Contact.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_IA_email</targetReference>
+        </connector>
+    </assignments>
     <actionCalls>
         <name>Send_IA_email</name>
         <label>Send IA email</label>
@@ -11,7 +27,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+                <elementReference>recipientList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -90,7 +106,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Send_IA_email</targetReference>
+            <targetReference>Set_Recipient</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_Recipient</name>
+        <label>Set Recipient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recipientList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Owner:Queue.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_assign_to_queue</targetReference>
+        </connector>
+    </assignments>
     <actionCalls>
         <name>Apply_assignment_rule</name>
         <label>Apply assignment rule</label>
@@ -28,7 +44,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+                <elementReference>recipientList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -77,7 +93,7 @@
         <offset>0</offset>
         <versionString>2.0.1</versionString>
     </actionCalls>
-    <apiVersion>65.0</apiVersion>
+    <apiVersion>66.0</apiVersion>
     <environments>Default</environments>
     <interviewLabel>RecordTriggeredFlow_syn_Case_applyAssignmentRule {!$Flow.CurrentDateTime}</interviewLabel>
     <label>RecordTriggeredFlow_syn_Case_applyAssignmentRule</label>
@@ -110,7 +126,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <scheduledPaths>
             <connector>
-                <targetReference>Case_assign_to_queue</targetReference>
+                <targetReference>Set_Recipient</targetReference>
             </connector>
             <pathType>AsyncAfterCommit</pathType>
         </scheduledPaths>
