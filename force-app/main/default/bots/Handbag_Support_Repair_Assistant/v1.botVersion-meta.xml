@@ -62,7 +62,7 @@
     <citationsEnabled>false</citationsEnabled>
     <company>MJ Leatherworks</company>
     <conversationDefinitionPlanners>
-        <genAiPlannerName>Handbag_Support_Repair_Assistant</genAiPlannerName>
+        <genAiPlannerName>Agentforce_Service_Agent</genAiPlannerName>
     </conversationDefinitionPlanners>
     <conversationVariables>
         <dataType>Text</dataType>
