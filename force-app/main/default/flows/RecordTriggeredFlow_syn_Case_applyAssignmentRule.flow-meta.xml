@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <assignments>
-        <name>Set_Recipient</name>
-        <label>Set Recipient</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>recipientList</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Case_assign_to_queue</targetReference>
-        </connector>
-    </assignments>
     <actionCalls>
         <name>Apply_assignment_rule</name>
         <label>Apply assignment rule</label>
@@ -44,7 +28,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <elementReference>recipientList</elementReference>
+                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -108,7 +92,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <scheduledPaths>
             <connector>
-                <targetReference>Set_Recipient</targetReference>
+                <targetReference>Case_assign_to_queue</targetReference>
             </connector>
             <pathType>AsyncAfterCommit</pathType>
         </scheduledPaths>
@@ -120,11 +104,4 @@
         <isViewedAsPlainText>true</isViewedAsPlainText>
         <text>Nouveau Case {!$Record.CaseNumber} : {!$Record.Subject} (Priorité {!$Record.Priority})</text>
     </textTemplates>
-    <variables>
-        <name>recipientList</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
 </Flow>

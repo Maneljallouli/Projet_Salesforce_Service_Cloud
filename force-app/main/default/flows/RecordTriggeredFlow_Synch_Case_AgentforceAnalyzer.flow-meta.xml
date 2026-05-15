@@ -34,7 +34,7 @@
         <inputParameters>
             <name>jsonResponse</name>
             <value>
-                <elementReference>Run_prompt_template.promptResponse</elementReference>
+                <elementReference>Run_prompt_template.Response</elementReference>
             </value>
         </inputParameters>
         <nameSegment>EmailCaseJsonParser</nameSegment>
@@ -353,7 +353,7 @@
     </start>
     <status>Active</status>
     <variables>
-        <description>Stocke la sortie de l’Apex Invocable Action</description>
+        <description>Stocke la sortie de l'Apex Invocable Action</description>
         <name>Agentforce_Result</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
