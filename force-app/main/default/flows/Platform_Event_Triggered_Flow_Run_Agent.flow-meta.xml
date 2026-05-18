@@ -7,10 +7,6 @@
         <locationY>0</locationY>
         <actionName>Service_Client_AI</actionName>
         <actionType>generateAiAgentResponse</actionType>
-        <dataTypeMappings>
-            <apexClass>AgentInvAction__AIAgentCompositeDefault</apexClass>
-            <typeName>U__agentResponseApex</typeName>
-        </dataTypeMappings>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>userMessage</name>
