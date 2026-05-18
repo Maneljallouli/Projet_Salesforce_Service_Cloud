@@ -54,5 +54,5 @@ Description: {!$Record.CaseDescription__c}</stringValue>
         <object>Case_Created_Event__e</object>
         <triggerType>PlatformEvent</triggerType>
     </start>
-    <status>Inactive</status>
+    <status>Draft</status>
 </Flow>

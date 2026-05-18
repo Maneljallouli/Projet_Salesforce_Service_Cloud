@@ -119,7 +119,7 @@
             <targetReference>Get_Email_Template</targetReference>
         </connector>
     </start>
-    <status>Inactive</status>
+    <status>Draft</status>
     <variables>
         <name>caseDescription</name>
         <dataType>String</dataType>

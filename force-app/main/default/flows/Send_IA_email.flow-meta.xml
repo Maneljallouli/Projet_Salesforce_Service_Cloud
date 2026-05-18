@@ -109,7 +109,7 @@
             <targetReference>Get_Case</targetReference>
         </connector>
     </start>
-    <status>Inactive</status>
+    <status>Draft</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>
