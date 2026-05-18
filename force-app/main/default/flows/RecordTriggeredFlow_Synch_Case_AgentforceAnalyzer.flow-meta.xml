@@ -34,7 +34,7 @@
         <inputParameters>
             <name>jsonResponse</name>
             <value>
-                <elementReference>Run_prompt_template.Response</elementReference>
+                <elementReference>Run_prompt_template.promptResponse</elementReference>
             </value>
         </inputParameters>
         <nameSegment>EmailCaseJsonParser</nameSegment>

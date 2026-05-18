@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_Recipient</name>
+        <label>Set Recipient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recipientList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>send_ia_email</targetReference>
+        </connector>
+    </assignments>
     <actionCalls>
         <name>send_ia_email</name>
         <label>send ia email</label>
@@ -14,7 +30,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+                <elementReference>recipientList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -26,7 +42,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Réponse à votre demande - Case {!Get_Case.CaseNumber}</stringValue>
+                <stringValue>Reponse a votre demande</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -75,7 +91,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>send_ia_email</targetReference>
+            <targetReference>Set_Recipient</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -105,7 +121,7 @@
         <inputAssignments>
             <field>Statut_du_brouillon__c</field>
             <value>
-                <stringValue>Approuvé</stringValue>
+                <stringValue>Approuve</stringValue>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -123,10 +139,10 @@
         </connector>
         <fields>
             <name>Message</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Email envoyé avec succès !&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Email envoye avec succes !&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <nextOrFinishButtonLabel>Terminé</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Termine</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -143,6 +159,13 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>recipientList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
 </Flow>

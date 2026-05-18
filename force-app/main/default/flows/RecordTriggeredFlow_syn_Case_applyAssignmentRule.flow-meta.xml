@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_Recipient</name>
+        <label>Set Recipient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>recipientList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_assign_to_queue</targetReference>
+        </connector>
+    </assignments>
     <actionCalls>
         <name>Apply_assignment_rule</name>
         <label>Apply assignment rule</label>
@@ -19,7 +35,7 @@
     </actionCalls>
     <actionCalls>
         <name>Case_assign_to_queue</name>
-        <label>Case assigné to queue</label>
+        <label>Case assigne to queue</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <actionName>emailSimple</actionName>
@@ -28,7 +44,7 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <stringValue>manel.jallouli@olivesoft.fr</stringValue>
+                <elementReference>recipientList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -46,7 +62,7 @@
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <stringValue>&lt;p&gt;Bonjour,&lt;/p&gt;&lt;p&gt;Un nouveau Case a été assigné à votre Queue :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Numéro du Case :&lt;/strong&gt;&amp;nbsp;{!$Record.CaseNumber}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sujet :&lt;/strong&gt;&amp;nbsp;{!$Record.Subject}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Priorité :&lt;/strong&gt;&amp;nbsp;{!$Record.Priority}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Merci,&lt;/p&gt;</stringValue>
+                <stringValue>&lt;p&gt;Bonjour,&lt;/p&gt;&lt;p&gt;Un nouveau Case a ete assigne.&lt;/p&gt;</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -92,7 +108,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <scheduledPaths>
             <connector>
-                <targetReference>Case_assign_to_queue</targetReference>
+                <targetReference>Set_Recipient</targetReference>
             </connector>
             <pathType>AsyncAfterCommit</pathType>
         </scheduledPaths>
@@ -102,6 +118,13 @@
     <textTemplates>
         <name>Subject</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Nouveau Case {!$Record.CaseNumber} : {!$Record.Subject} (Priorité {!$Record.Priority})</text>
+        <text>Nouveau Case {!$Record.CaseNumber} : {!$Record.Subject}</text>
     </textTemplates>
+    <variables>
+        <name>recipientList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
 </Flow>
