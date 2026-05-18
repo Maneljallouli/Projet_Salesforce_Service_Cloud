@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://sforce.com" xmlns:xsi="http://w3.org">
+    <description>Planner for ReAct-based Employee copilot.</description>
+    <masterLabel>Employee Copilot Planner</masterLabel>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jAW0000003MaH</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralCRM_16jAW0000003MaH</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>GeneralCRM_16jAW0000003MaH</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Engages and interacts with the user about any request that could be CRM data related.</description>
+        <developerName>GeneralCRM_16jAW0000003MaH</developerName>
+        <genAiPluginInstructions>
+            <description>Identify the object type (i.e., leads, opportunities, accounts) the user asks about.</description>
+            <developerName>identifyobjecttype</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>identify-object-type</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <localDeveloperName>GeneralCRM_16jAW0000003MaH</localDeveloperName>
+        <masterLabel>General CRM</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Interact with CRM data related tasks.</scope>
+    </localTopics>
+</GenAiPlannerBundle>

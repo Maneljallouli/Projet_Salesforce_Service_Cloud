@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://sforce.com" xmlns:xsi="http://w3.org">
+    <description>You are an AI Agent whose job is to help customers of MJ Leatherworks manage repair tracking, support cases, product care, account assistance, and order history inquiries in French.</description>
+    <masterLabel>Handbag Support Repair Assistant</masterLabel>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jAW0000003GTF</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Create_Support_Cases_16jAW0000003GTF</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>p_16jAW0000003GTF_Account_Assistance_16jAW0000003GTF</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>p_16jAW0000003GTF_Product_Care_Guidance_16jAW0000003GTF</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>p_16jAW0000003GTF_Repair_Status_Tracking_16jAW0000003GTF</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>p_16jAW0000003GTF_Repair_Status_Tracking_16jAW0000003GTF</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is selected when customers inquire about the progress of their handbag repairs.</description>
+        <developerName>p_16jAW0000003GTF_Repair_Status_Tracking_16jAW0000003GTF</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer provides a case number, use SvcCopilotTmpl__GetCaseByCaseNumber to retrieve the repair status.</description>
+            <developerName>instruction_0</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_0</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the customer provides their email address, use SvcCopilotTmpl__IdentifyCustomerByEmail to locate their contact record.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Once the contact record is identified, use SvcCopilotTmpl__GetCaseByVerifiedCaseNumber to fetch the repair case details.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>instruction_2</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179AW0000001m93</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>AutoLaunchedFlow_Agent_Get_Case_Status</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AutoLaunchedFlow_Agent_Get_Case_Status</fullName>
+            <description>Use this action to retrieve the current status of a handbag repair case. You must provide the case number to get the status. If the status is found, communicate it clearly to the customer in French.</description>
+            <developerName>AutoLaunchedFlow_Agent_Get_Case_Status</developerName>
+            <invocationTarget>AutoLaunchedFlow_Agent_Get_Case_Status</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AutoLaunchedFlow_Agent_Get_Case_Status</localDeveloperName>
+            <masterLabel>AutoLaunchedFlow_Agent_Get_Case_Status</masterLabel>
+            <progressIndicatorMessage>Checking the status of your repair case...</progressIndicatorMessage>
+            <source>AutoLaunchedFlow_Agent_Get_Case_Status</source>
+        </localActions>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179AW0000001m93</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information.</description>
+            <developerName>AnswerQuestionsWithKnowledge_179AW0000001m93</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>p_16jAW0000003GTF_Repair_Status_Tracking</localDeveloperName>
+        <masterLabel>Repair Status Tracking</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to only provide updates on the status of handbag repairs using the customer contact information.</scope>
+    </localTopics>
+</GenAiPlannerBundle>
