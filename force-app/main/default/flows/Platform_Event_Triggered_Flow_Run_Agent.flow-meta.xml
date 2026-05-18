@@ -19,7 +19,6 @@ Description: {!$Record.CaseDescription__c}</stringValue>
         <nameSegment>Service_Client_AI</nameSegment>
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionString>1.1.0</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
     <environments>Default</environments>
