@@ -114,7 +114,7 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Inactive</status>
     <textTemplates>
         <name>Subject</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
