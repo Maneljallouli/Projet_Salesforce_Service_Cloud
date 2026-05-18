@@ -5,7 +5,7 @@
         <label>Run Agent</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <actionName>Agentforce_Service_Agent</actionName>
+        <actionName>Service_Client_AI</actionName>
         <actionType>generateAiAgentResponse</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -16,7 +16,7 @@ Subject: {!$Record.CaseSubject__c}
 Description: {!$Record.CaseDescription__c}</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>Agentforce_Service_Agent</nameSegment>
+        <nameSegment>Service_Client_AI</nameSegment>
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionString>1.1.0</versionString>
