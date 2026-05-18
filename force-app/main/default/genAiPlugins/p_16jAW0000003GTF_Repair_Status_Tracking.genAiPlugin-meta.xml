@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
     <description>This topic is selected when customers inquire about the progress of their handbag repairs.</description>
     <developerName>p_16jAW0000003GTF_Repair_Status_Tracking</developerName>
     <genAiFunctions>
@@ -16,20 +17,24 @@
         <developerName>instruction_0</developerName>
         <language xsi:nil="true"/>
         <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
     </genAiPluginInstructions>
     <genAiPluginInstructions>
         <description>If the customer provides their email address, use SvcCopilotTmpl__IdentifyCustomerByEmail to locate their contact record.</description>
         <developerName>instruction_1</developerName>
         <language xsi:nil="true"/>
         <masterLabel>instruction_1</masterLabel>
+        <sortOrder>1</sortOrder>
     </genAiPluginInstructions>
     <genAiPluginInstructions>
         <description>Once the contact record is identified, use SvcCopilotTmpl__GetCaseByVerifiedCaseNumber to fetch the repair case details.</description>
         <developerName>instruction_2</developerName>
         <language xsi:nil="true"/>
         <masterLabel>instruction_2</masterLabel>
+        <sortOrder>2</sortOrder>
     </genAiPluginInstructions>
     <language>en_US</language>
+    <localDeveloperName>p_16jAW0000003GTF_Repair_Status_Tracking</localDeveloperName>
     <masterLabel>Repair Status Tracking</masterLabel>
     <pluginType>Topic</pluginType>
     <scope>Your job is to only provide updates on the status of handbag repairs using the customer&apos;s contact information or repair case number. You cannot initiate new repair requests or provide unrelated assistance.</scope>

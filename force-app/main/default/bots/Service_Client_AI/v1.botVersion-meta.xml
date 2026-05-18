@@ -62,7 +62,7 @@
     <citationsEnabled>false</citationsEnabled>
     <company>Company : MJ</company>
     <conversationDefinitionPlanners>
-        <genAiPlannerName>Agentforce_Service_Agent</genAiPlannerName>
+        <genAiPlannerName>Service_Client_AI</genAiPlannerName>
     </conversationDefinitionPlanners>
     <conversationVariables>
         <dataType>Text</dataType>

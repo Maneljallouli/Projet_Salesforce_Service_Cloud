@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>false</agentDSLEnabled>
+    <agentTemplate>AiCopilot__AgentforceAgent</agentTemplate>
     <agentType>EinsteinServiceAgent</agentType>
     <botMlDomain>
         <label>Handbag Support &amp; Repair Assistant</label>
         <name>Handbag_Support_Repair_Assistant</name>
     </botMlDomain>
+    <botSource>None</botSource>
     <botUser>handbag_support_repair_assistant@00daw00000nf9fc1107536711.ext</botUser>
     <contextVariables>
         <contextVariableMappings>
@@ -43,7 +46,9 @@
             <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingEndUser ContactId</description>
         <developerName>ContactId</developerName>
+        <includeInPrompt>false</includeInPrompt>
         <label>Contact Id</label>
     </contextVariables>
     <contextVariables>
@@ -83,7 +88,9 @@
             <messageType>Text</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingEndUser Id</description>
         <developerName>EndUserId</developerName>
+        <includeInPrompt>true</includeInPrompt>
         <label>End User Id</label>
     </contextVariables>
     <contextVariables>
@@ -123,7 +130,9 @@
             <messageType>WhatsApp</messageType>
         </contextVariableMappings>
         <dataType>Text</dataType>
+        <description>This variable may also be referred to as MessagingSession EndUserLanguage</description>
         <developerName>EndUserLanguage</developerName>
+        <includeInPrompt>false</includeInPrompt>
         <label>End User Language</label>
     </contextVariables>
     <contextVariables>
@@ -163,7 +172,9 @@
             <messageType>AppleBusinessChat</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingSession Id</description>
         <developerName>RoutableId</developerName>
+        <includeInPrompt>true</includeInPrompt>
         <label>Routable Id</label>
     </contextVariables>
     <contextVariables>
@@ -203,7 +214,9 @@
             <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
+        <description>This variable may also be referred to as VoiceCall Id</description>
         <developerName>VoiceCallId</developerName>
+        <includeInPrompt>true</includeInPrompt>
         <label>Voice Call Id</label>
     </contextVariables>
     <description>You are an AI Agent whose job is to help customers of MJ Leatherworks manage repair tracking, support cases, product care, account assistance, and order history inquiries in French.</description>
