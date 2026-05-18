@@ -49,7 +49,6 @@
             <sortOrder>2</sortOrder>
         </genAiPluginInstructions>
         <genAiPluginInstructions>
-            <description>When only the name of a record is mentioned in the user request, you MUST call the IdentifyRecordByName action to get the necessary IDs.</description>
             <developerName>identifyrecord</developerName>
             <language xsi:nil="true"/>
             <masterLabel>identify-record</masterLabel>
@@ -155,10 +154,8 @@
             <functionName>GetActivityDetails_179AW0000001rQT</functionName>
         </localActionLinks>
         <localActionLinks>
-            <functionName>IdentifyObjectByName_179AW0000001rQT</functionName>
         </localActionLinks>
         <localActionLinks>
-            <functionName>IdentifyRecordByName_179AW0000001rQT</functionName>
         </localActionLinks>
         <localActionLinks>
             <functionName>DraftOrReviseEmail_179AW0000001rQT</functionName>
@@ -180,16 +177,12 @@
             <source>EmployeeCopilot__GetActivityDetails</source>
         </localActions>
         <localActions>
-            <fullName>IdentifyObjectByName_179AW0000001rQT</fullName>
             <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
-            <developerName>IdentifyObjectByName_179AW0000001rQT</developerName>
             <invocationTarget>identifyObject</invocationTarget>
             <invocationTargetType>standardInvocableAction</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
             <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
-            <localDeveloperName>IdentifyObjectByName</localDeveloperName>
             <masterLabel>Identify Object by Name</masterLabel>
-            <source>EmployeeCopilot__IdentifyObjectByName</source>
         </localActions>
         <localActions>
             <fullName>AnswerQuestionsWithKnowledge_179AW0000001rQT</fullName>
@@ -230,16 +223,11 @@
             <source>EmployeeCopilot__ExtractFieldsAndValuesFromUserInput</source>
         </localActions>
         <localActions>
-            <fullName>IdentifyRecordByName_179AW0000001rQT</fullName>
             <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
-            <developerName>IdentifyRecordByName_179AW0000001rQT</developerName>
-            <invocationTarget>identifyRecordByName</invocationTarget>
             <invocationTargetType>standardInvocableAction</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
             <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
-            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
             <masterLabel>Identify Record by Name</masterLabel>
-            <source>EmployeeCopilot__IdentifyRecordByName</source>
         </localActions>
         <localActions>
             <fullName>DraftOrReviseEmail_179AW0000001rQT</fullName>
@@ -343,13 +331,11 @@
         </genAiPluginInstructions>
         <language>en_US</language>
         <localActionLinks>
-            <functionName>IdentifyRecordByName_179AW0000001rQU</functionName>
         </localActionLinks>
         <localActionLinks>
             <functionName>SummarizeRecord_179AW0000001rQU</functionName>
         </localActionLinks>
         <localActionLinks>
-            <functionName>IdentifyObjectByName_179AW0000001rQU</functionName>
         </localActionLinks>
         <localActionLinks>
             <functionName>QueryRecordsWithAggregate_179AW0000001rQU</functionName>
@@ -358,16 +344,11 @@
             <functionName>QueryRecords_179AW0000001rQU</functionName>
         </localActionLinks>
         <localActions>
-            <fullName>IdentifyRecordByName_179AW0000001rQU</fullName>
             <description>Searches for Salesforce CRM records by name and returns a list of matching Salesforce CRM record IDs.</description>
-            <developerName>IdentifyRecordByName_179AW0000001rQU</developerName>
-            <invocationTarget>identifyRecordByName</invocationTarget>
             <invocationTargetType>standardInvocableAction</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
             <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
-            <localDeveloperName>IdentifyRecordByName</localDeveloperName>
             <masterLabel>Identify Record by Name</masterLabel>
-            <source>EmployeeCopilot__IdentifyRecordByName</source>
         </localActions>
         <localActions>
             <fullName>QueryRecordsWithAggregate_179AW0000001rQU</fullName>
@@ -407,16 +388,12 @@
             <source>EmployeeCopilot__SummarizeRecord</source>
         </localActions>
         <localActions>
-            <fullName>IdentifyObjectByName_179AW0000001rQU</fullName>
             <description>Finds the Salesforce object API name by extracting an object name from the user input.</description>
-            <developerName>IdentifyObjectByName_179AW0000001rQU</developerName>
             <invocationTarget>identifyObject</invocationTarget>
             <invocationTargetType>standardInvocableAction</invocationTargetType>
             <isConfirmationRequired>false</isConfirmationRequired>
             <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
-            <localDeveloperName>IdentifyObjectByName</localDeveloperName>
             <masterLabel>Identify Object by Name</masterLabel>
-            <source>EmployeeCopilot__IdentifyObjectByName</source>
         </localActions>
         <localDeveloperName>OOTBSingleRecordSummary</localDeveloperName>
         <masterLabel>Single Record Summary</masterLabel>

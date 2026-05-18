@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><GenAiFunction xmlns="http://sforce.com"><developerName>IdentifyObjectByName</developerName><masterLabel>Identify Object by Name</masterLabel><invocationTarget>identifyObject</invocationTarget><invocationTargetType>standardInvocableAction</invocationTargetType><isConfirmationRequired>false</isConfirmationRequired></GenAiFunction>
