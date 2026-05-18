@@ -148,6 +148,14 @@
             <functionName>AnswerQuestionsWithKnowledge_179AW0000001rQT</functionName>
         </localActionLinks>
         <localActionLinks>
+            <functionName>QueryRecords_179AW0000001rQT</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>GetActivityDetails_179AW0000001rQT</functionName>
+        </localActionLinks>
+        <localActionLinks>
+        </localActionLinks>
+        <localActionLinks>
         </localActionLinks>
         <localActionLinks>
             <functionName>DraftOrReviseEmail_179AW0000001rQT</functionName>
