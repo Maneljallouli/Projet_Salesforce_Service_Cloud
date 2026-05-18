@@ -7,6 +7,10 @@
         <locationY>0</locationY>
         <actionName>Service_Client_AI</actionName>
         <actionType>generateAiAgentResponse</actionType>
+        <dataTypeMappings>
+            <apexClass>AgentInvAction__AIAgentCompositeDefault</apexClass>
+            <typeName>U__agentResponseApex</typeName>
+        </dataTypeMappings>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>userMessage</name>
@@ -19,8 +23,10 @@ Description: {!$Record.CaseDescription__c}</stringValue>
         <nameSegment>Service_Client_AI</nameSegment>
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionString>1.1.0</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <environments>Default</environments>
     <interviewLabel>Platform Event-Triggered Flow Run Agent {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Platform Event-Triggered Flow Run Agent</label>
