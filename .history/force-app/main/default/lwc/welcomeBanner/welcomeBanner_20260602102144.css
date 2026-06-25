@@ -1,0 +1,165 @@
+/* ============================================
+   🎯 WELCOME BANNER COMPACT - EFFET WOW
+   ============================================ */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmerText {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes lineExpand {
+    from { width: 0; }
+    to { width: 40px; }
+}
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.lux-welcome-banner {
+    position: relative;
+    background: linear-gradient(135deg, #FAF7F2 0%, #F3EDE3 100%);
+    padding: 36px 40px;
+    overflow: hidden;
+}
+
+/* Halo doré subtil en arrière-plan */
+.lux-welcome-banner::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(196,163,90,0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lux-welcome-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* --- BLOC TEXTE GAUCHE --- */
+.lux-welcome-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.lux-subtitle-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    color: #C4A35A;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+}
+
+.lux-title-banner {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #2E2416;
+    margin: 0;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.25s forwards;
+}
+
+.lux-user-highlight {
+    background: linear-gradient(90deg, #C4A35A, #D4B86A, #E8D5A0, #D4B86A, #C4A35A);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerText 4s linear infinite;
+    font-weight: 600;
+}
+
+.lux-description-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #9A8A74;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.4s forwards;
+}
+
+/* --- SÉPARATEUR VERTICAL DORÉ --- */
+.lux-divider-v {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(180deg, transparent, #C4A35A, transparent);
+    flex-shrink: 0;
+    opacity: 0;
+    animation: fadeUp 0.5s ease 0.35s forwards;
+}
+
+/* --- BLOC STATS / RACCOURCIS DROITE --- */
+.lux-welcome-actions {
+    display: flex;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.5s forwards;
+}
+
+.lux-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: default;
+}
+
+.lux-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #2E2416;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.lux-stat-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #9A8A74;
+    font-weight: 500;
+}
+
+/* --- LIGNE DORÉE EN BAS --- */
+.lux-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #C4A35A 30%, #D4B86A 50%, #C4A35A 70%, transparent 100%);
+    animation: lineExpand 1s ease 0.6s forwards;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lux-bottom-line.active {
+    width: 100%;
+}

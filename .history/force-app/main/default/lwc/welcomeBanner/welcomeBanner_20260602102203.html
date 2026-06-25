@@ -1,0 +1,38 @@
+<template>
+    <section class="lux-welcome-banner">
+
+        <div class="lux-welcome-container">
+
+            <!-- Gauche : Texte -->
+            <div class="lux-welcome-text">
+                <p class="lux-subtitle-banner">Espace client privé</p>
+                <h1 class="lux-title-banner">
+                    Bienvenue, <span class="lux-user-highlight">{userName}</span>
+                </h1>
+                <p class="lux-description-banner">
+                    Comment pouvons-nous vous accompagner aujourd'hui ?
+                </p>
+            </div>
+
+            <!-- Centre : Séparateur -->
+            <div class="lux-divider-v"></div>
+
+            <!-- Droite : Mini stats -->
+            <div class="lux-welcome-actions">
+                <div class="lux-stat">
+                    <span class="lux-stat-number">{openCasesCount}</span>
+                    <span class="lux-stat-label">Demandes ouvertes</span>
+                </div>
+                <div class="lux-stat">
+                    <span class="lux-stat-number">{unreadCount}</span>
+                    <span class="lux-stat-label">Notifications</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Ligne dorée animée en bas -->
+        <div class="lux-bottom-line active"></div>
+
+    </section>
+</template>

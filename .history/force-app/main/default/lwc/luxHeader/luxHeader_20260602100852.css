@@ -1,0 +1,308 @@
+/* --- VARIABLES GLOBALES (Luxe) --- */
+:root {
+    --lux-gold: #C4A35A;
+    --lux-gold-light: #DFCDA3;
+    --lux-dark: #1A1510; /* Un noir légèrement chaud, plus élégant que le #000 pur */
+    --lux-beige: #9A8A74;
+    --lux-bg: #FAF7F2;
+    --lux-border: rgba(232, 223, 208, 0.6);
+}
+
+/* --- BASE NAV STYLES (Effet Glassmorphism) --- */
+.lux-nav { 
+    background: rgba(255, 255, 255, 0.92); 
+    backdrop-filter: blur(12px); /* L'effet WOW : floute le contenu au scroll */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--lux-border); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    transition: all 0.3s ease;
+}
+
+.lux-nav-inner { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 40px; 
+    height: 84px; /* Légèrement plus haut pour respirer */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+/* --- LOGO SECTION --- */
+.lux-logo-section { flex: 1; }
+
+.lux-logo { 
+    display: flex; 
+    flex-direction: column; 
+    text-decoration: none; 
+    width: fit-content;
+    transition: opacity 0.3s ease;
+}
+
+.lux-logo:hover { opacity: 0.8; }
+
+.lux-logo-name { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 20px; 
+    color: var(--lux-dark); 
+    letter-spacing: 0.18em; 
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.lux-logo-tag { 
+    font-family: 'Lato', sans-serif;
+    font-size: 9px; 
+    letter-spacing: 0.25em; 
+    text-transform: uppercase; 
+    color: var(--lux-beige); 
+    margin-top: 4px;
+}
+
+/* --- NAV LINKS (Effet de soulignement fluide) --- */
+.lux-nav-links { 
+    flex: 2; 
+    display: flex; 
+    justify-content: center; 
+    gap: 45px; 
+}
+
+.lux-link { 
+    position: relative;
+    font-family: 'Lato', sans-serif; 
+    font-size: 11px; 
+    letter-spacing: 0.15em; 
+    text-transform: uppercase; 
+    color: var(--lux-beige); 
+    text-decoration: none; 
+    white-space: nowrap;
+    padding: 8px 0;
+    transition: color 0.4s ease; 
+}
+
+.lux-link:hover { color: var(--lux-dark); }
+
+/* La ligne animée en dessous */
+.lux-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--lux-gold);
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.lux-link:hover::after,
+.lux-link.active::after { width: 100%; }
+.lux-link.active { color: var(--lux-dark); font-weight: 600; }
+
+/* --- RIGHT ACTIONS --- */
+.lux-right-actions {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    gap: 32px; /* Plus d'espace entre profil et cloche */
+}
+
+/* --- NOTIFICATIONS --- */
+.lux-notification-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    order: 2;
+}
+
+.lux-notification-trigger {
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.lux-notification-trigger:hover {
+    background: rgba(196, 163, 90, 0.08); /* Halo doré très subtil */
+}
+
+.lux-bell-icon { --slds-c-icon-color-foreground: var(--lux-dark); }
+
+/* Pastille rouge/or avec animation de pulsation */
+.lux-notif-dot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 14px;
+    height: 14px;
+    padding: 0 4px;
+    background: var(--lux-gold);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(196, 163, 90, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(196, 163, 90, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(196, 163, 90, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(196, 163, 90, 0); }
+}
+
+/* --- USER SECTION --- */
+.lux-nav-user { position: relative; order: 1; }
+
+.lux-user-trigger { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    cursor: pointer; 
+    padding: 4px 12px 4px 4px;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+}
+
+.lux-user-trigger:hover { background: rgba(0,0,0,0.03); }
+
+.lux-user-info-text { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+}
+
+.lux-user-welcome { 
+    font-family: 'Lato', sans-serif;
+    font-size: 8px; 
+    letter-spacing: 0.1em;
+    text-transform: uppercase; 
+    color: var(--lux-beige); 
+}
+
+.lux-user-name { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 13px; 
+    color: var(--lux-dark); 
+    font-weight: 600;
+}
+
+.lux-avatar { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    background: var(--lux-bg); 
+    border: 1px solid var(--lux-gold-light);
+    color: var(--lux-gold); 
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* --- DROPDOWNS (Ombres douces et coins arrondis) --- */
+.lux-dropdown, .lux-notif-dropdown {
+    position: absolute; 
+    top: calc(100% + 15px); 
+    right: 0; 
+    background: #FFFFFF; 
+    border: 1px solid var(--lux-border); 
+    /* L'ombre WOW : ultra diffuse */
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08), 0 0 10px rgba(0,0,0,0.02); 
+    border-radius: 12px;
+    z-index: 1000; 
+    overflow: hidden; /* Garde les coins arrondis propres */
+    animation: slideDownFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+    transform-origin: top right;
+}
+
+.lux-dropdown { width: 320px; }
+.lux-notif-dropdown { width: 340px; }
+.lux-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 900; }
+
+@keyframes slideDownFade { 
+    from { opacity: 0; transform: translateY(-10px) scale(0.98); } 
+    to { opacity: 1; transform: translateY(0) scale(1); } 
+}
+
+/* Inner dropdown styles */
+.lux-notif-header, .lux-dropdown-header { 
+    padding: 20px 24px; 
+    background: var(--lux-bg); 
+    border-bottom: 1px solid var(--lux-border); 
+}
+
+.lux-notif-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display', serif; 
+    font-size: 16px; 
+    color: var(--lux-dark);
+}
+
+.lux-notif-badge {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    background: var(--lux-gold);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.lux-notif-body { max-height: 300px; overflow-y: auto; }
+.lux-notif-item { 
+    padding: 16px 24px; 
+    border-bottom: 1px solid var(--lux-border); 
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.lux-notif-item:hover { background: #fafafa; }
+
+.lux-notif-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.lux-notif-case { font-size: 10px; font-weight: bold; color: var(--lux-gold); text-transform: uppercase; letter-spacing: 0.05em; }
+.lux-notif-date { font-size: 10px; color: var(--lux-beige); }
+.lux-notif-message { font-size: 13px; color: var(--lux-dark); margin: 0; line-height: 1.5; font-family: 'Lato', sans-serif;}
+
+.lux-dropdown-header { display: flex; align-items: center; gap: 16px; }
+.lux-dropdown-avatar { width: 48px; height: 48px; background: var(--lux-dark); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-family: 'Playfair Display', serif; }
+.lux-profile-name { display: block; font-family: 'Playfair Display', serif; font-size: 18px; color: var(--lux-dark); font-weight: 600;}
+.lux-profile-email { font-family: 'Lato', sans-serif; font-size: 11px; color: var(--lux-beige); }
+
+.lux-dropdown-body { padding: 24px; }
+.lux-info-row { margin-bottom: 16px; }
+.lux-info-row:last-child { margin-bottom: 0; }
+.lux-info-label { display: block; font-family: 'Lato', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lux-beige); margin-bottom: 4px; }
+.lux-info-value { font-family: 'Lato', sans-serif; font-size: 14px; color: var(--lux-dark); }
+
+.lux-dropdown-footer { padding: 16px 24px 24px; }
+.lux-logout-action { 
+    width: 100%; 
+    padding: 14px; 
+    background: transparent; 
+    border: 1px solid var(--lux-dark); 
+    color: var(--lux-dark); 
+    font-family: 'Lato', sans-serif;
+    font-size: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.2em; 
+    cursor: pointer; 
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+    border-radius: 4px;
+}
+.lux-logout-action:hover { 
+    background: var(--lux-dark); 
+    color: #FFFFFF; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

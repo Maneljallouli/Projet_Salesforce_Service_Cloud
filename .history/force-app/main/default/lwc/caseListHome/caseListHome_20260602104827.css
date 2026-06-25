@@ -1,0 +1,162 @@
+/* ============================================
+   CASE LIST - VERSION PRO & IMPRESSIONNANTE
+   ============================================ */
+
+.lux-case-list-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    background: #FFFFFF;
+    border: 1px solid #E8DFD0;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(46, 36, 22, 0.06);
+    overflow: hidden;
+}
+
+/* Header */
+.lux-case-header {
+    padding: 18px 28px;
+    background: linear-gradient(180deg, #FAF7F2 0%, #F5F0E8 100%);
+    border-bottom: 1px solid #EDE6D8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lux-case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #2E2416;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Compteur */
+.lux-case-count {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #C4A35A;
+    background: #F5F2EC;
+    padding: 5px 13px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    border: 1px solid #E8DFD0;
+}
+
+/* Lignes */
+.lux-case-items {
+    background: #FFFFFF;
+}
+
+.lux-case-row {
+    display: grid;
+    grid-template-columns: 95px 1fr 135px 30px;
+    align-items: center;
+    padding: 15px 28px;
+    border-bottom: 1px solid #F0EAE0;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.lux-case-row:hover {
+    background: #FBF8F3;
+}
+
+.lux-case-row:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(#C4A35A, #D4B86A);
+}
+
+.lux-case-row:last-child {
+    border-bottom: none;
+}
+
+/* Contenu */
+.lux-case-id {
+    font-family: 'Playfair Display', serif;
+    color: #C4A35A;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.lux-case-subject {
+    font-family: 'Lato', sans-serif;
+    color: #2E2416;
+    font-size: 14px;
+    padding-right: 15px;
+}
+
+/* Badges */
+.lux-badge {
+    display: inline-block;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid transparent;
+}
+
+.lux-badge-nouveau   { background: #F0F7F0; color: #2D7A2D; border-color: #C8E6C8; }
+.lux-badge-en-cours  { background: #FDF8EC; color: #8A6800; border-color: #EDD98A; }
+.lux-badge-waiting   { background: #EBF3FB; color: #2B5A8A; border-color: #C5D9ED; }
+.lux-badge-resolved  { background: #E8F5E9; color: #1B5E20; border-color: #C8E6C9; }
+.lux-badge-cloture   { background: #F5F2EC; color: #9A8A74; border-color: #DDD4C0; }
+
+/* Flèche */
+.lux-case-arrow {
+    text-align: right;
+    color: #C4A35A;
+    transition: transform 0.3s ease;
+}
+
+.lux-case-row:hover .lux-case-arrow {
+    transform: translateX(4px);
+}
+
+/* Footer */
+.lux-case-footer {
+    padding: 16px 28px;
+    background: #FAF7F2;
+    border-top: 1px solid #EDE6D8;
+    text-align: right;
+}
+
+.lux-view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #C4A35A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.lux-view-all-link:hover {
+    color: #2E2416;
+    gap: 9px;
+}
+
+/* Empty State */
+.lux-empty-state {
+    padding: 45px 30px;
+    text-align: center;
+    color: #9A8A74;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+}

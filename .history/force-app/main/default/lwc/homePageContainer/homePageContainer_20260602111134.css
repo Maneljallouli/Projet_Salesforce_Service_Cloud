@@ -1,0 +1,47 @@
+:host {
+    display: block;
+    background: #FCFAF7;
+    min-height: 100vh;
+}
+
+.lux-page {
+    width: 100%;
+}
+
+.lux-shell {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.lux-section {
+    width: 100%;
+}
+
+.lux-section-head {
+    margin-bottom: 14px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lux-section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #E8DFD0, transparent);
+}
+
+.lux-kicker {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #C4A35A;
+    white-space: nowrap;
+}

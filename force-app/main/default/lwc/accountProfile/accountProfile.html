@@ -1,0 +1,168 @@
+<template>
+    <section class="lux-account-page">
+
+        <div class="lux-page-header">
+            <p class="lux-kicker">Espace privé</p>
+            <h1 class="lux-title">Mon compte</h1>
+            <p class="lux-subtitle">
+                Gérez vos informations personnelles et vos préférences de contact.
+            </p>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="lux-state-card">
+                <div class="lux-loader"></div>
+                <p>Chargement de votre profil...</p>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="lux-error-card">
+                {errorMessage}
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <div class="lux-account-card">
+
+                <div class="lux-profile-header">
+                    <div class="lux-avatar">{initials}</div>
+
+                    <div>
+                        <h2>{fullName}</h2>
+                        <p>{accountLabel}</p>
+                    </div>
+                </div>
+
+                <template if:true={successMessage}>
+                    <div class="lux-success-card">
+                        {successMessage}
+                    </div>
+                </template>
+
+                <div class="lux-form-section">
+                    <div class="lux-section-title">
+                        Informations personnelles
+                    </div>
+
+                    <div class="lux-grid">
+                        <div class="lux-field">
+                            <label>Prénom</label>
+                            <input
+                                type="text"
+                                data-field="firstName"
+                                value={form.firstName}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Nom</label>
+                            <input
+                                type="text"
+                                data-field="lastName"
+                                value={form.lastName}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                data-field="email"
+                                value={form.email}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Téléphone</label>
+                            <input
+                                type="tel"
+                                data-field="phone"
+                                value={form.phone}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Mobile</label>
+                            <input
+                                type="tel"
+                                data-field="mobilePhone"
+                                value={form.mobilePhone}
+                                oninput={handleChange}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lux-form-section">
+                    <div class="lux-section-title">
+                        Adresse
+                    </div>
+
+                    <div class="lux-field lux-full">
+                        <label>Rue</label>
+                        <input
+                            type="text"
+                            data-field="mailingStreet"
+                            value={form.mailingStreet}
+                            oninput={handleChange}
+                        />
+                    </div>
+
+                    <div class="lux-grid">
+                        <div class="lux-field">
+                            <label>Ville</label>
+                            <input
+                                type="text"
+                                data-field="mailingCity"
+                                value={form.mailingCity}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Code postal</label>
+                            <input
+                                type="text"
+                                data-field="mailingPostalCode"
+                                value={form.mailingPostalCode}
+                                oninput={handleChange}
+                            />
+                        </div>
+
+                        <div class="lux-field">
+                            <label>Pays</label>
+                            <input
+                                type="text"
+                                data-field="mailingCountry"
+                                value={form.mailingCountry}
+                                oninput={handleChange}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lux-actions">
+                    <button class="lux-btn-secondary" onclick={handleReset}>
+                        Annuler
+                    </button>
+
+                    <button class="lux-btn-primary" onclick={handleSave} disabled={isSaving}>
+                        <template if:true={isSaving}>
+                            Enregistrement...
+                        </template>
+                        <template if:false={isSaving}>
+                            Enregistrer les modifications
+                        </template>
+                    </button>
+                </div>
+
+            </div>
+        </template>
+
+    </section>
+</template>

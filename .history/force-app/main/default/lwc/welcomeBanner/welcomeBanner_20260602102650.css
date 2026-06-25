@@ -1,0 +1,105 @@
+/* ============================================
+   🎯 WELCOME BANNER - CENTRÉ & COMPACT
+   ============================================ */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes lineGrow {
+    from { width: 0; }
+    to { width: 40px; }
+}
+
+@keyframes bottomLine {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* --- SECTION --- */
+.lux-welcome-banner {
+    position: relative;
+    background: linear-gradient(170deg, #FAF7F2, #F5EFE6 50%, #FAF7F2);
+    padding: 40px 20px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* --- CONTAINER --- */
+.lux-welcome-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* --- TEXTE --- */
+.lux-welcome-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lux-subtitle-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    color: #C4A35A;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.lux-title-banner {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #2E2416;
+    margin: 0 0 8px;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.lux-user-highlight {
+    color: #C4A35A;
+    font-style: italic;
+}
+
+.lux-description-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #9A8A74;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* --- DIVIDER (masqué en mode centré) --- */
+.lux-divider-v {
+    display: none;
+}
+
+/* --- LIGNE DORÉE EN BAS --- */
+.lux-bottom-line {
+    display: block;
+    height: 1.5px;
+    margin: 28px auto 0;
+    background: linear-gradient(90deg, transparent, #C4A35A, transparent);
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-bottom-line.active {
+    width: 40px;
+}

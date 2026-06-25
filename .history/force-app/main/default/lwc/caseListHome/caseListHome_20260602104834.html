@@ -1,0 +1,56 @@
+<template>
+    <div class="lux-case-list-container">
+        
+        <!-- Header -->
+        <div class="lux-case-header">
+            <h3 class="lux-case-title">Dernières demandes</h3>
+            <template if:true={hasCases}>
+                <span class="lux-case-count">{caseCount} demande{caseCount > 1 ? 's' : ''}</span>
+            </template>
+        </div>
+        
+        <!-- Liste -->
+        <template if:true={hasCases}>
+            <div class="lux-case-items">
+                <template for:each={enrichedCases} for:item="c">
+                    <div key={c.Id} 
+                         class="lux-case-row" 
+                         onclick={openDetail} 
+                         data-id={c.Id}>
+                        
+                        <div class="lux-case-id">{c.CaseNumber}</div>
+                        
+                        <div class="lux-case-subject">{c.Subject}</div>
+                        
+                        <div class="lux-case-status">
+                            <span class={c.statusClass}>{c.Status}</span>
+                        </div>
+                        
+                        <div class="lux-case-arrow">
+                            <lightning-icon 
+                                icon-name="utility:chevronright" 
+                                size="xx-small">
+                            </lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Footer -->
+            <div class="lux-case-footer">
+                <a class="lux-view-all-link" onclick={navigateToAllCases}>
+                    Voir toutes les demandes 
+                    <lightning-icon icon-name="utility:chevronright" size="xx-small"></lightning-icon>
+                </a>
+            </div>
+        </template>
+
+        <!-- Empty State -->
+        <template if:false={hasCases}>
+            <div class="lux-empty-state">
+                <p>Aucune demande active pour le moment.</p>
+            </div>
+        </template>
+
+    </div>
+</template>

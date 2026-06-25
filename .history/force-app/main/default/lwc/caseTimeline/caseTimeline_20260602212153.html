@@ -1,0 +1,46 @@
+<template>
+    <section class="lux-timeline-card">
+
+        <div class="lux-timeline-header">
+            <div>
+                <p class="lux-kicker">Suivi du dossier</p>
+                <h2>Timeline</h2>
+            </div>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="lux-timeline-state">
+                <div class="lux-loader"></div>
+                <p>Chargement du suivi...</p>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="lux-timeline-error">
+                {errorMessage}
+            </div>
+        </template>
+
+        <template if:true={hasItems}>
+            <ol class="lux-timeline">
+                <template for:each={items} for:item="item">
+                    <li key={item.key} class={item.itemClass}>
+                        <div class="lux-marker"></div>
+
+                        <div class="lux-timeline-content">
+                            <div class="lux-timeline-top">
+                                <h3>{item.title}</h3>
+                                <template if:true={item.dateLabel}>
+                                    <span>{item.dateLabel}</span>
+                                </template>
+                            </div>
+
+                            <p>{item.description}</p>
+                        </div>
+                    </li>
+                </template>
+            </ol>
+        </template>
+
+    </section>
+</template>

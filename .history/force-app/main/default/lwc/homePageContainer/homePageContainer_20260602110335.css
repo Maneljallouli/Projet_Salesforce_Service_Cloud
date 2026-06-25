@@ -1,0 +1,16 @@
+/* Fond de page global très léger pour faire ressortir les cartes blanches */
+:host {
+    display: block;
+    background-color: #FCFAF7; 
+    min-height: 100vh;
+}
+
+/* LE SECRET DE L'ALIGNEMENT PARFAIT */
+.lux-main-container {
+    max-width: 1160px; /* Largeur unique et stricte pour toute la page */
+    margin: 0 auto;
+    padding: 24px 24px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Espacement vertical parfait et constant entre CHAQUE bloc */
+}

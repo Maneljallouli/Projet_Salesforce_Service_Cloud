@@ -1,0 +1,111 @@
+/* ============================================
+   LOGIN BRAND BANNER - MAISON LUXE
+   Largeur alignée avec le formulaire : 410px
+   ============================================ */
+
+:host {
+    display: block !important;
+    width: min(410px, calc(100vw - 32px)) !important;
+    max-width: 410px !important;
+    margin: 0 auto -1px !important;
+    box-sizing: border-box !important;
+}
+
+.lux-banner-container {
+    width: 100% !important;
+    min-height: 205px !important;
+    padding: 42px 24px 38px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    border-radius: 18px 18px 0 0 !important;
+    border: 1px solid rgba(196, 163, 90, 0.32) !important;
+    border-bottom: none !important;
+
+    background:
+        radial-gradient(circle at 50% 0%, rgba(196, 163, 90, 0.18), transparent 42%),
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.05), transparent 26%),
+        linear-gradient(135deg, #160C07 0%, #2B1A11 48%, #120906 100%) !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+/* Ligne dorée subtile en haut */
+.lux-banner-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(196, 163, 90, 0.5),
+        #D4B86A,
+        rgba(196, 163, 90, 0.5),
+        transparent
+    ) !important;
+}
+
+/* Texte principal */
+.lux-text-main {
+    display: block !important;
+
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+
+    letter-spacing: 0.21em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}
+
+/* Sous-titre */
+.lux-text-sub {
+    display: block !important;
+
+    margin-top: 22px !important;
+
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+
+    letter-spacing: 0.23em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    :host {
+        width: min(100%, calc(100vw - 24px)) !important;
+        max-width: none !important;
+    }
+
+    .lux-banner-container {
+        min-height: 175px !important;
+        padding: 34px 18px 32px !important;
+        border-radius: 16px 16px 0 0 !important;
+    }
+
+    .lux-text-main {
+        font-size: 24px !important;
+        letter-spacing: 0.16em !important;
+    }
+
+    .lux-text-sub {
+        font-size: 9px !important;
+        letter-spacing: 0.18em !important;
+    }
+}

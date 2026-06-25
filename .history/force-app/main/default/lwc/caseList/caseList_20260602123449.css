@@ -1,0 +1,561 @@
+/* ============================================
+   MES DEMANDES - PREMIUM CLEAN UI
+   ============================================ */
+
+@keyframes luxCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes luxRowEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes luxHeaderLine {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 190px;
+        opacity: 1;
+    }
+}
+
+@keyframes luxPulseDot {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(196, 163, 90, 0.35);
+    }
+    50% {
+        transform: scale(1.12);
+        box-shadow: 0 0 0 6px rgba(196, 163, 90, 0);
+    }
+}
+
+:host {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 24px 64px;
+}
+
+/* ============================================
+   CARTE PRINCIPALE
+   ============================================ */
+
+.lux-card {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%);
+    border: 1px solid rgba(232, 223, 208, 0.8);
+    border-radius: 22px;
+
+    box-shadow:
+        0 1px 2px rgba(46, 36, 22, 0.03),
+        0 12px 28px rgba(46, 36, 22, 0.045),
+        0 26px 60px rgba(46, 36, 22, 0.035);
+
+    animation: luxCardEnter 0.55s ease both;
+}
+
+/* Ligne dorée supérieure */
+.lux-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 4;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(196, 163, 90, 0.45),
+        #D4B86A,
+        rgba(196, 163, 90, 0.45),
+        transparent
+    );
+}
+
+/* Halo subtil */
+.lux-card::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        rgba(196, 163, 90, 0.05) 0%,
+        rgba(196, 163, 90, 0.02) 36%,
+        transparent 68%
+    );
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.lux-card-header {
+    position: relative;
+    z-index: 2;
+
+    padding: 30px 36px 26px;
+    border-bottom: 1px solid rgba(232, 223, 208, 0.75);
+
+    background:
+        radial-gradient(circle at top left, rgba(196, 163, 90, 0.075), transparent 34%),
+        linear-gradient(180deg, #FAF7F2 0%, rgba(250, 247, 242, 0.55) 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.lux-card-header::after {
+    content: '';
+    position: absolute;
+    left: 36px;
+    bottom: -1px;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #C4A35A, transparent);
+    animation: luxHeaderLine 0.75s ease 0.25s forwards;
+}
+
+.lux-title {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2E2416;
+    letter-spacing: 0.02em;
+}
+
+.lux-title::before {
+    content: '';
+    width: 4px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #C4A35A, #D4B86A);
+    box-shadow: 0 3px 10px rgba(196, 163, 90, 0.28);
+}
+
+.lux-count {
+    flex-shrink: 0;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #8F806C;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(196, 163, 90, 0.22);
+    background: rgba(196, 163, 90, 0.07);
+}
+
+/* ============================================
+   BODY
+   ============================================ */
+
+.lux-card-body {
+    position: relative;
+    z-index: 2;
+    padding: 10px 12px 12px;
+    background: #FFFFFF;
+}
+
+/* ============================================
+   LIGNES
+   ============================================ */
+
+.lux-row {
+    position: relative;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    align-items: center;
+    gap: 24px;
+
+    margin: 4px 0;
+    padding: 20px 64px 20px 24px;
+
+    border-radius: 15px;
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    opacity: 0;
+    animation: luxRowEnter 0.42s ease forwards;
+
+    transition:
+        transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.lux-row:nth-child(1) { animation-delay: 0.10s; }
+.lux-row:nth-child(2) { animation-delay: 0.16s; }
+.lux-row:nth-child(3) { animation-delay: 0.22s; }
+.lux-row:nth-child(4) { animation-delay: 0.28s; }
+.lux-row:nth-child(5) { animation-delay: 0.34s; }
+.lux-row:nth-child(6) { animation-delay: 0.40s; }
+.lux-row:nth-child(7) { animation-delay: 0.46s; }
+.lux-row:nth-child(8) { animation-delay: 0.52s; }
+.lux-row:nth-child(9) { animation-delay: 0.58s; }
+.lux-row:nth-child(10) { animation-delay: 0.64s; }
+
+/* Barre dorée gauche au hover */
+.lux-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    transform: translateY(-50%);
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(180deg, #C4A35A, #D4B86A);
+    transition: height 0.28s ease;
+}
+
+/* Flèche discrète à droite */
+.lux-row::after {
+    content: '›';
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C4A35A;
+    font-size: 26px;
+    font-family: Georgia, serif;
+    opacity: 0.45;
+    transition:
+        transform 0.28s ease,
+        opacity 0.28s ease,
+        color 0.28s ease;
+}
+
+.lux-row:hover {
+    transform: translateY(-2px);
+    background:
+        linear-gradient(135deg, rgba(196, 163, 90, 0.06), rgba(196, 163, 90, 0.015)),
+        #FFFEFC;
+    border-color: rgba(196, 163, 90, 0.18);
+    box-shadow:
+        0 6px 16px rgba(196, 163, 90, 0.08),
+        0 10px 24px rgba(46, 36, 22, 0.04);
+}
+
+.lux-row:hover::before {
+    height: 64%;
+}
+
+.lux-row:hover::after {
+    opacity: 1;
+    color: #2E2416;
+    transform: translate(4px, -50%);
+}
+
+/* ============================================
+   CONTENU LIGNE
+   ============================================ */
+
+.lux-row-left {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.lux-row-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.case-num {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #C4A35A;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.case-num::before {
+    content: '# ';
+    color: #9A8A74;
+    font-weight: 600;
+}
+
+.case-subject {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #2E2416;
+    font-weight: 600;
+    line-height: 1.45;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: color 0.25s ease;
+}
+
+.lux-row:hover .case-subject {
+    color: #B88D35;
+}
+
+.case-cat {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: #9A8A74;
+    line-height: 1.3;
+}
+
+.case-date {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #B8AA96;
+    white-space: nowrap;
+}
+
+/* ============================================
+   BADGES STATUT
+   ============================================ */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 7px 13px;
+    border-radius: 999px;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.status-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* New */
+.status-new {
+    background: rgba(40, 116, 58, 0.075);
+    color: #28743A;
+    border: 1px solid rgba(40, 116, 58, 0.24);
+}
+
+.status-new::before {
+    background: #28743A;
+}
+
+/* In Progress */
+.status-progress {
+    background: rgba(196, 163, 90, 0.12);
+    color: #8A6800;
+    border: 1px solid rgba(196, 163, 90, 0.36);
+}
+
+.status-progress::before {
+    background: #C4A35A;
+    animation: luxPulseDot 2.2s ease-in-out infinite;
+}
+
+/* Closed */
+.status-closed {
+    background: rgba(154, 138, 116, 0.09);
+    color: #8F806C;
+    border: 1px solid rgba(154, 138, 116, 0.24);
+}
+
+.status-closed::before {
+    background: #9A8A74;
+}
+
+.lux-row:hover .status-badge {
+    transform: scale(1.035);
+    box-shadow: 0 4px 12px rgba(46, 36, 22, 0.06);
+}
+
+/* ============================================
+   ÉTATS LOADING / EMPTY / ERROR
+   ============================================ */
+
+.lux-loading,
+.lux-empty,
+.lux-error {
+    position: relative;
+    padding: 64px 40px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.lux-loading {
+    color: #9A8A74;
+    font-size: 14px;
+}
+
+.lux-loading::before {
+    content: '';
+    display: block;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(196, 163, 90, 0.18);
+    border-top-color: #C4A35A;
+    animation: luxSpin 0.9s linear infinite;
+}
+
+@keyframes luxSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.lux-empty {
+    color: #9A8A74;
+}
+
+.lux-empty::before {
+    content: '';
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 1px solid rgba(196, 163, 90, 0.28);
+    background:
+        radial-gradient(circle, rgba(196, 163, 90, 0.12), rgba(196, 163, 90, 0.025));
+}
+
+.lux-empty p {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #8F806C;
+}
+
+.lux-error {
+    margin: 16px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    border: 1px solid rgba(160, 57, 43, 0.18);
+    background: rgba(160, 57, 43, 0.055);
+    color: #A0392B;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+    :host {
+        padding: 18px 16px 48px;
+    }
+
+    .lux-card {
+        border-radius: 18px;
+    }
+
+    .lux-card-header {
+        padding: 24px 24px 22px;
+    }
+
+    .lux-card-header::after {
+        left: 24px;
+    }
+
+    .lux-title {
+        font-size: 21px;
+    }
+
+    .lux-row {
+        grid-template-columns: minmax(0, 1fr) 140px;
+        padding: 18px 52px 18px 18px;
+        gap: 16px;
+    }
+
+    .lux-row::after {
+        right: 22px;
+    }
+}
+
+@media (max-width: 640px) {
+    .lux-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .lux-row {
+        grid-template-columns: 1fr;
+        padding: 18px 44px 18px 18px;
+    }
+
+    .lux-row-right {
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .case-subject {
+        white-space: normal;
+    }
+
+    .lux-count {
+        font-size: 10px;
+    }
+}

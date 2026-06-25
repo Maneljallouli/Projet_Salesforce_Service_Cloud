@@ -1,0 +1,147 @@
+<template>
+    <section class="ai-panel slds-card">
+        <!-- HEADER -->
+        <header class="ai-header slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+            <div class="slds-grid slds-grid_vertical-align-center slds-gutters_x-small">
+                <lightning-icon 
+                    icon-name="utility:einstein" 
+                    size="small" 
+                    alternative-text="IA"
+                    class="ai-icon">
+                </lightning-icon>
+
+                <div>
+                    <p class="ai-title">Agent IA — Réponse suggérée</p>
+                    <p class="ai-subtitle">Génération assistée par Einstein / Agentforce</p>
+                </div>
+            </div>
+
+            <template if:true={isDraftReady}>
+                <span class="ai-badge ai-badge_success">Prêt</span>
+            </template>
+        </header>
+
+        <!-- CONTENT -->
+        <template if:true={hasData}>
+            <div class="slds-p-around_medium">
+                
+                <!-- AI INSIGHT -->
+                <div class="ai-insight slds-box slds-m-bottom_medium">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-gutters_small">
+                        <lightning-icon 
+                            icon-name="utility:note" 
+                            size="small" 
+                            alternative-text="Proposition IA">
+                        </lightning-icon>
+
+                        <div>
+                            <p class="slds-text-title_bold">Proposition IA</p>
+                            <p class="ai-insight-text">{analyse}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DRAFT -->
+                <div class="draft-card slds-box">
+                    <div class="draft-head slds-m-bottom_small">
+                        <div>
+                            <span class="slds-text-title_bold">Brouillon</span>
+                            <span class="draft-meta">modifiable avant envoi</span>
+                        </div>
+
+                        <span class="draft-status">Brouillon</span>
+                    </div>
+
+                    <!-- INPUTS -->
+                    <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_medium">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input 
+                                label="À"
+                                type="email"
+                                value={toAddress}
+                                onchange={handleToChange}>
+                            </lightning-input>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <lightning-input 
+                                label="Cc"
+                                type="email"
+                                value={ccAddress}
+                                onchange={handleCcChange}>
+                            </lightning-input>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-input 
+                                label="Objet"
+                                value={subject}
+                                onchange={handleSubjectChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <!-- TOGGLE VIEW -->
+                    <div class="segmented" role="tablist" aria-label="Affichage du message">
+                        <button 
+                            class={previewTabClass}
+                            data-tab="preview"
+                            onclick={handleTab}
+                            type="button">
+                            Aperçu
+                        </button>
+
+                        <button 
+                            class={editTabClass}
+                            data-tab="edit"
+                            onclick={handleTab}
+                            type="button">
+                            Modifier
+                        </button>
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="editor-shell slds-m-top_small">
+                        <template if:true={isPreview}>
+                            <!-- si draftBody contient du HTML -->
+                            <lightning-formatted-rich-text value={draftBody}></lightning-formatted-rich-text>
+                        </template>
+
+                        <template if:true={isEditing}>
+                            <lightning-input-rich-text
+                                value={draftBody}
+                                onchange={handleTextChange}>
+                            </lightning-input-rich-text>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="actions slds-m-top_medium">
+                    <lightning-button 
+                        variant="neutral" 
+                        label="Ignorer"
+                        onclick={handleIgnore}>
+                    </lightning-button>
+
+                    <lightning-button 
+                        variant="brand" 
+                        label="Valider et envoyer"
+                        onclick={handleSend}>
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+
+        <!-- EMPTY STATE -->
+        <template if:false={hasData}>
+            <div class="empty-state slds-p-around_large slds-text-align_center">
+                <lightning-spinner if:true={loading} size="small" variant="brand"></lightning-spinner>
+                <div class="slds-m-top_small">
+                    <lightning-icon icon-name="utility:einstein" size="small"></lightning-icon>
+                </div>
+                <p class="slds-text-body_regular slds-m-top_small">En attente de la réponse IA…</p>
+            </div>
+        </template>
+    </section>
+</template>

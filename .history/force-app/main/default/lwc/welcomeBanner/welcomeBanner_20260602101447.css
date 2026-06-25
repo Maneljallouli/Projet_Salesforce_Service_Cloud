@@ -1,0 +1,254 @@
+/* ============================================
+   🎯 WELCOME BANNER - EFFET WOW
+   ============================================ */
+
+/* --- ANIMATIONS D'ENTRÉE CINÉMATIQUES --- */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+@keyframes shimmerText {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.05); }
+    50% { transform: translate(-10px, -35px) scale(0.95); }
+    75% { transform: translate(-25px, -10px) scale(1.02); }
+}
+
+/* --- CONTENEUR PRINCIPAL --- */
+:host {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lux-welcome-banner {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        #FAF7F2 0%,
+        #F5F0E8 40%,
+        #F0EBE1 100%
+    );
+    padding: 100px 20px 80px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* --- ORBES LUMINEUSES EN ARRIÈRE-PLAN --- */
+.lux-welcome-banner::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(
+        circle,
+        rgba(196, 163, 90, 0.08) 0%,
+        rgba(196, 163, 90, 0.03) 40%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: floatOrb 12s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.lux-welcome-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        rgba(196, 163, 90, 0.06) 0%,
+        rgba(196, 163, 90, 0.02) 40%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: floatOrb 15s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+/* --- CONTENEUR CONTENU --- */
+.lux-welcome-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- SOUS-TITRE (apparaît en premier) --- */
+.lux-subtitle-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #C4A35A;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+/* --- TITRE PRINCIPAL --- */
+.lux-title-banner {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #2E2416;
+    margin: 0 0 32px 0;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    opacity: 0;
+    animation: fadeSlideUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+/* Le nom de l'utilisateur en or shimmer */
+.lux-user-highlight {
+    background: linear-gradient(
+        90deg,
+        #C4A35A 0%,
+        #D4B86A 25%,
+        #E8D5A0 50%,
+        #D4B86A 75%,
+        #C4A35A 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerText 4s linear infinite;
+    font-weight: 600;
+}
+
+/* --- SÉPARATEUR DORÉ ANIMÉ --- */
+.lux-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+}
+
+.lux-divider-line {
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, #C4A35A, transparent);
+    animation: expandWidth 1s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+}
+
+.lux-divider-diamond {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #C4A35A, #D4B86A);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(196, 163, 90, 0.3);
+}
+
+/* --- DESCRIPTION --- */
+.lux-description-banner {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #9A8A74;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    max-width: 550px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+}
+
+/* --- MOTIF DÉCORATIF SUBTIL (coins) --- */
+.lux-corner-ornament {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.lux-corner-ornament.top-left {
+    top: 30px;
+    left: 40px;
+    border-top: 1px solid #C4A35A;
+    border-left: 1px solid #C4A35A;
+}
+
+.lux-corner-ornament.top-right {
+    top: 30px;
+    right: 40px;
+    border-top: 1px solid #C4A35A;
+    border-right: 1px solid #C4A35A;
+}
+
+.lux-corner-ornament.bottom-left {
+    bottom: 30px;
+    left: 40px;
+    border-bottom: 1px solid #C4A35A;
+    border-left: 1px solid #C4A35A;
+}
+
+.lux-corner-ornament.bottom-right {
+    bottom: 30px;
+    right: 40px;
+    border-bottom: 1px solid #C4A35A;
+    border-right: 1px solid #C4A35A;
+}
+
+/* --- GRAIN TEXTURE OVERLAY (ultra subtil) --- */
+.lux-grain-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}

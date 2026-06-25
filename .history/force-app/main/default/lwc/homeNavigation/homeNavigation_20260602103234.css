@@ -1,0 +1,230 @@
+/* ============================================
+   🎯 HOME NAVIGATION CARDS - EFFET WOW
+   ============================================ */
+
+@keyframes cardSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes iconRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.lux-nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 50px auto 60px;
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* --- CARTE PREMIUM --- */
+.lux-card {
+    flex: 1;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 100%);
+    border: 1px solid rgba(232, 223, 208, 0.6);
+    border-radius: 16px;
+    padding: 40px 32px 36px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation: cardSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.lux-card:nth-child(1) { animation-delay: 0.2s; }
+.lux-card:nth-child(2) { animation-delay: 0.35s; }
+.lux-card:nth-child(3) { animation-delay: 0.5s; }
+
+/* Ligne dorée en bas (cachée par défaut) */
+.lux-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #C4A35A, #D4B86A, #C4A35A, transparent);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Halo doré en arrière-plan */
+.lux-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(196,163,90,0.04) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.lux-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(196, 163, 90, 0.4);
+    box-shadow: 
+        0 8px 24px rgba(196, 163, 90, 0.12),
+        0 20px 40px rgba(46, 36, 22, 0.08);
+}
+
+.lux-card:hover::before {
+    width: 60%;
+}
+
+.lux-card:hover::after {
+    opacity: 1;
+}
+
+/* --- ICÔNE CERCLE PREMIUM --- */
+.lux-icon-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(196,163,90,0.08) 0%, rgba(196,163,90,0.03) 100%);
+    border: 2px solid rgba(196, 163, 90, 0.3);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    font-size: 28px;
+    color: #C4A35A;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.lux-card:hover .lux-icon-circle {
+    background: linear-gradient(135deg, #C4A35A 0%, #D4B86A 100%);
+    border-color: #C4A35A;
+    color: #FFFFFF;
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(196, 163, 90, 0.3);
+}
+
+/* Animation rotation au hover pour le "+" */
+.lux-card:hover .lux-icon-circle-text {
+    animation: iconRotate 0.5s ease;
+}
+
+.lux-icon-circle-text {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* Override pour lightning-icon */
+.lux-icon-circle lightning-icon {
+    --slds-c-icon-color-foreground: #C4A35A;
+    transition: all 0.4s ease;
+}
+
+.lux-card:hover .lux-icon-circle lightning-icon {
+    --slds-c-icon-color-foreground: #FFFFFF;
+}
+
+/* --- TITRE --- */
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #2E2416;
+    margin: 0 0 12px 0;
+    letter-spacing: 0.01em;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.lux-card:hover h2 {
+    color: #C4A35A;
+}
+
+/* --- DESCRIPTION --- */
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #9A8A74;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- LIEN + FLÈCHE --- */
+.lux-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #C4A35A;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.lux-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #C4A35A;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-card:hover .lux-link::after {
+    width: 100%;
+}
+
+.lux-arrow {
+    font-size: 16px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.lux-card:hover .lux-arrow {
+    transform: translateX(4px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .lux-nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .lux-card {
+        padding: 32px 28px 28px;
+    }
+}

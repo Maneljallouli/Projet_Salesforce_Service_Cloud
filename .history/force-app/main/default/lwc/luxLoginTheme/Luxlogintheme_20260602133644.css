@@ -1,0 +1,172 @@
+/* ============================================
+   LOGIN BRAND BANNER - VERSION FORCÉE
+   ============================================ */
+
+:host {
+    display: block !important;
+    width: min(480px, calc(100% - 32px)) !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Ton HTML utilise lux-banner-container, pas lux-banner */
+.lux-banner-container {
+    position: relative !important;
+    overflow: hidden !important;
+
+    min-height: 190px !important;
+    padding: 48px 28px 44px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    border-radius: 18px 18px 0 0 !important;
+    border: 1px solid rgba(196, 163, 90, 0.35) !important;
+    border-bottom: none !important;
+
+    background:
+        radial-gradient(circle at 50% 0%, rgba(196, 163, 90, 0.18), transparent 42%),
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.06), transparent 26%),
+        linear-gradient(135deg, #160C07 0%, #2B1A11 48%, #120906 100%) !important;
+
+    box-shadow:
+        0 18px 45px rgba(46, 36, 22, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Ligne dorée en haut */
+.lux-banner-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(196, 163, 90, 0.5),
+        #D4B86A,
+        rgba(196, 163, 90, 0.5),
+        transparent
+    ) !important;
+}
+
+/* Lumière subtile */
+.lux-banner-container::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.055) 45%,
+        transparent 70%
+    ) !important;
+    pointer-events: none !important;
+}
+
+/* Texte principal */
+.lux-text-main {
+    position: relative !important;
+    z-index: 1 !important;
+
+    display: block !important;
+
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+
+    letter-spacing: 0.28em !important;
+    text-transform: uppercase !important;
+
+    color: transparent !important;
+    background: linear-gradient(
+        90deg,
+        #B88D35 0%,
+        #C4A35A 28%,
+        #F0D894 50%,
+        #C4A35A 72%,
+        #B88D35 100%
+    ) !important;
+    background-size: 220% auto !important;
+
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+
+    text-shadow: 0 8px 28px rgba(196, 163, 90, 0.16) !important;
+}
+
+/* Sous-titre */
+.lux-text-sub {
+    position: relative !important;
+    z-index: 1 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+
+    margin-top: 22px !important;
+
+    font-family: 'Lato', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+
+    letter-spacing: 0.28em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}
+
+/* Lignes autour du sous-titre */
+.lux-text-sub::before,
+.lux-text-sub::after {
+    content: '' !important;
+    display: block !important;
+    width: 34px !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(212, 184, 106, 0.85)) !important;
+}
+
+.lux-text-sub::after {
+    background: linear-gradient(90deg, rgba(212, 184, 106, 0.85), transparent) !important;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+    :host {
+        width: min(100%, calc(100% - 24px)) !important;
+    }
+
+    .lux-banner-container {
+        min-height: 165px !important;
+        padding: 38px 20px 36px !important;
+        border-radius: 16px 16px 0 0 !important;
+    }
+
+    .lux-text-main {
+        font-size: 24px !important;
+        letter-spacing: 0.2em !important;
+    }
+
+    .lux-text-sub {
+        margin-top: 18px !important;
+        font-size: 9px !important;
+        letter-spacing: 0.22em !important;
+        gap: 8px !important;
+    }
+
+    .lux-text-sub::before,
+    .lux-text-sub::after {
+        width: 22px !important;
+    }
+}

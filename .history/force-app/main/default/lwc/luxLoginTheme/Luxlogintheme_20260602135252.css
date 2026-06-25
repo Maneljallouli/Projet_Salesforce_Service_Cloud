@@ -1,0 +1,60 @@
+:host {
+    display: block !important;
+    width: min(470px, calc(100vw - 32px)) !important;
+    max-width: 470px !important;
+    margin: 0 auto -1px !important;
+    box-sizing: border-box !important;
+}
+
+.lux-banner-container {
+    width: 100% !important;
+    min-height: 225px !important;
+    padding: 48px 32px 44px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    border-radius: 18px 18px 0 0 !important;
+    border: 1px solid rgba(196, 163, 90, 0.32) !important;
+    border-bottom: none !important;
+
+    background:
+        radial-gradient(circle at 50% 0%, rgba(196, 163, 90, 0.18), transparent 42%),
+        linear-gradient(135deg, #160C07 0%, #2B1A11 48%, #120906 100%) !important;
+
+    box-sizing: border-box !important;
+}
+
+.lux-text-main {
+    display: block !important;
+
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+
+    letter-spacing: 0.24em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}
+
+.lux-text-sub {
+    display: block !important;
+
+    margin-top: 24px !important;
+
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+
+    letter-spacing: 0.28em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}

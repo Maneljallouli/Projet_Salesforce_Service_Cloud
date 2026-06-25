@@ -1,0 +1,501 @@
+/* ============================================
+   🎯 CASE LIST - VERSION WOW MAXIMALE
+   ============================================ */
+
+@keyframes containerReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes rowCascade {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes titleLineExpand {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes shimmerBadge {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes pulseDot {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(196, 163, 90, 0.4);
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(196, 163, 90, 0);
+    }
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL - EFFET CARTE LUXE
+   ============================================ */
+.lux-case-list-container {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    margin: 60px auto;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FDFCFA 50%, #FAF7F2 100%);
+    border: 1px solid rgba(232, 223, 208, 0.4);
+    border-radius: 24px;
+    box-shadow: 
+        0 1px 2px rgba(196, 163, 90, 0.04),
+        0 4px 8px rgba(196, 163, 90, 0.06),
+        0 12px 24px rgba(46, 36, 22, 0.04),
+        0 24px 48px rgba(46, 36, 22, 0.03);
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: containerReveal 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+/* Ligne dorée premium en haut */
+.lux-case-list-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(196, 163, 90, 0.3) 15%,
+        #C4A35A 35%, 
+        #D4B86A 50%, 
+        #C4A35A 65%,
+        rgba(196, 163, 90, 0.3) 85%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmerBadge 4s linear infinite;
+}
+
+/* Halo lumineux en arrière-plan */
+.lux-case-list-container::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        rgba(196, 163, 90, 0.04) 0%,
+        rgba(196, 163, 90, 0.02) 30%,
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+/* ============================================
+   TITRE - EFFET LUXE
+   ============================================ */
+.lux-case-title {
+    position: relative;
+    padding: 32px 40px 28px;
+    margin: 0;
+    color: #2E2416;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FAF7F2 0%, rgba(250, 247, 242, 0.3) 100%);
+    border-bottom: 1px solid rgba(232, 223, 208, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Barre verticale dorée avant le titre */
+.lux-case-title::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(180deg, #C4A35A 0%, #D4B86A 50%, #C4A35A 100%);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(196, 163, 90, 0.3);
+}
+
+/* Ligne animée sous le titre */
+.lux-case-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 40px;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #C4A35A, transparent);
+    animation: titleLineExpand 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+/* ============================================
+   LISTE DES CASES
+   ============================================ */
+.lux-case-items {
+    background-color: #FFFFFF;
+    padding: 12px 16px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   LIGNE DE CASE - EFFET WOW
+   ============================================ */
+.lux-case-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 160px 50px;
+    align-items: center;
+    gap: 20px;
+    border-radius: 16px;
+    padding: 20px 28px;
+    margin: 6px 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation: rowCascade 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Animation séquentielle des lignes */
+.lux-case-row:nth-child(1) { animation-delay: 0.3s; }
+.lux-case-row:nth-child(2) { animation-delay: 0.4s; }
+.lux-case-row:nth-child(3) { animation-delay: 0.5s; }
+.lux-case-row:nth-child(4) { animation-delay: 0.6s; }
+.lux-case-row:nth-child(5) { animation-delay: 0.7s; }
+.lux-case-row:nth-child(6) { animation-delay: 0.8s; }
+.lux-case-row:nth-child(7) { animation-delay: 0.9s; }
+.lux-case-row:nth-child(8) { animation-delay: 1.0s; }
+
+/* Bordure gauche dorée animée */
+.lux-case-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #C4A35A, #D4B86A, #C4A35A);
+    border-radius: 0 4px 4px 0;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 12px rgba(196, 163, 90, 0.4);
+}
+
+/* Halo doré au hover */
+.lux-case-row::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(196, 163, 90, 0.06) 0%,
+        rgba(196, 163, 90, 0.02) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.lux-case-row:hover {
+    background: rgba(250, 247, 242, 0.5);
+    transform: translateX(6px);
+    box-shadow: 
+        0 4px 12px rgba(196, 163, 90, 0.08),
+        0 8px 24px rgba(46, 36, 22, 0.04);
+}
+
+.lux-case-row:hover::before {
+    height: 70%;
+}
+
+.lux-case-row:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   NUMÉRO DE CASE
+   ============================================ */
+.lux-case-id {
+    color: #C4A35A;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
+.lux-case-id::before {
+    content: '#';
+    color: #9A8A74;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.lux-case-row:hover .lux-case-id {
+    color: #2E2416;
+    transform: scale(1.02);
+}
+
+/* ============================================
+   SUJET
+   ============================================ */
+.lux-case-subject {
+    color: #2E2416;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 12px;
+}
+
+.lux-case-row:hover .lux-case-subject {
+    color: #C4A35A;
+    letter-spacing: 0.01em;
+}
+
+/* ============================================
+   BADGES DE STATUT - VERSION PREMIUM
+   ============================================ */
+.lux-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Point indicateur avant le texte */
+.lux-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* NOUVEAU - Vert premium */
+.lux-badge-nouveau {
+    background: linear-gradient(135deg, rgba(45, 122, 45, 0.1) 0%, rgba(45, 122, 45, 0.05) 100%);
+    color: #2D7A2D;
+    border: 1.5px solid rgba(45, 122, 45, 0.25);
+}
+.lux-badge-nouveau::before { 
+    background: linear-gradient(135deg, #2D7A2D, #3D9A3D);
+}
+
+/* EN COURS - Or premium avec pulse */
+.lux-badge-en-cours {
+    background: linear-gradient(135deg, rgba(196, 163, 90, 0.15) 0%, rgba(196, 163, 90, 0.08) 100%);
+    color: #8A6800;
+    border: 1.5px solid rgba(196, 163, 90, 0.35);
+    box-shadow: 
+        0 2px 8px rgba(196, 163, 90, 0.15),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+.lux-badge-en-cours::before { 
+    background: linear-gradient(135deg, #C4A35A, #D4B86A);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* WAITING - Bleu premium */
+.lux-badge-waiting {
+    background: linear-gradient(135deg, rgba(43, 90, 138, 0.1) 0%, rgba(43, 90, 138, 0.05) 100%);
+    color: #2B5A8A;
+    border: 1.5px solid rgba(43, 90, 138, 0.25);
+}
+.lux-badge-waiting::before { 
+    background: linear-gradient(135deg, #2B5A8A, #3B7ABA);
+}
+
+/* RESOLVED - Vert foncé premium */
+.lux-badge-resolved {
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.1) 0%, rgba(27, 94, 32, 0.05) 100%);
+    color: #1B5E20;
+    border: 1.5px solid rgba(27, 94, 32, 0.25);
+}
+.lux-badge-resolved::before { 
+    background: linear-gradient(135deg, #1B5E20, #2B7E30);
+}
+
+/* CLOTURÉ - Gris premium */
+.lux-badge-cloture {
+    background: linear-gradient(135deg, rgba(154, 138, 116, 0.1) 0%, rgba(154, 138, 116, 0.05) 100%);
+    color: #9A8A74;
+    border: 1.5px solid rgba(154, 138, 116, 0.25);
+}
+.lux-badge-cloture::before { 
+    background: linear-gradient(135deg, #9A8A74, #B0A090);
+}
+
+.lux-case-row:hover .lux-badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   FLÈCHE - EFFET WOW
+   ============================================ */
+.lux-case-arrow {
+    text-align: right;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lux-case-arrow lightning-icon {
+    --slds-c-icon-color-foreground: #C4A35A;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-case-row:hover .lux-case-arrow lightning-icon {
+    --slds-c-icon-color-foreground: #2E2416;
+    transform: translateX(6px) scale(1.2);
+    filter: drop-shadow(0 2px 4px rgba(196, 163, 90, 0.3));
+}
+
+/* ============================================
+   ÉTAT VIDE - VERSION LUXE
+   ============================================ */
+.lux-empty-state {
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lux-empty-state::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle,
+        rgba(196, 163, 90, 0.06) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.lux-empty-state p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #9A8A74;
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.lux-empty-state p::before {
+    content: '—';
+    display: block;
+    color: #C4A35A;
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-style: normal;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+    .lux-case-row {
+        grid-template-columns: 1fr 140px 40px;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+    
+    .lux-case-id {
+        grid-column: 1 / -1;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .lux-case-title {
+        padding: 24px 28px 20px;
+        font-size: 13px;
+    }
+    
+    .lux-case-title::after {
+        left: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .lux-case-list-container {
+        margin: 40px 20px;
+        border-radius: 16px;
+    }
+    
+    .lux-case-row {
+        grid-template-columns: 1fr 120px 30px;
+        padding: 14px 16px;
+    }
+    
+    .lux-badge {
+        padding: 6px 12px;
+        font-size: 9px;
+    }
+}

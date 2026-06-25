@@ -1,0 +1,44 @@
+:host {
+    display: block !important;
+    width: min(560px, calc(100vw - 32px)) !important;
+    max-width: 560px !important;
+    margin: 0 auto -1px !important;
+    box-sizing: border-box !important;
+}
+
+.lux-banner-container {
+   .lux-banner-container {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+}
+
+.lux-text-main {
+    display: block !important;
+
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+
+    letter-spacing: 0.24em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}
+
+.lux-text-sub {
+    display: block !important;
+
+    margin-top: 24px !important;
+
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+
+    letter-spacing: 0.28em !important;
+    text-transform: uppercase !important;
+
+    color: #D4B86A !important;
+}

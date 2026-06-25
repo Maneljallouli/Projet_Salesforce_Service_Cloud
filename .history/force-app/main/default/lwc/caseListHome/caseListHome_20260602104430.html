@@ -1,0 +1,66 @@
+<template>
+    <div class="lux-case-list-container">
+        
+        <!-- Header -->
+        <div class="lux-case-header">
+            <h3 class="lux-case-title">Dernières demandes</h3>
+            
+            <template if:true={hasCases}>
+                <span class="lux-case-count">
+                    {caseCount} demande<template if:true={caseCount}>s</template>
+                </span>
+            </template>
+        </div>
+        
+        <!-- Liste des cases -->
+        <template if:true={hasCases}>
+            <div class="lux-case-items">
+                <template for:each={enrichedCases} for:item="c">
+                    <div key={c.Id} 
+                         class="lux-case-row" 
+                         onclick={openDetail} 
+                         data-id={c.Id}>
+                        
+                        <div class="lux-case-id">{c.CaseNumber}</div>
+                        
+                        <div class="lux-case-subject">{c.Subject}</div>
+                        
+                        <div class="lux-case-status">
+                            <span class={c.statusClass}>{c.Status}</span>
+                        </div>
+                        
+                        <div class="lux-case-arrow">
+                            <lightning-icon 
+                                icon-name="utility:chevronright" 
+                                size="xx-small">
+                            </lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Footer -->
+            <div class="lux-case-footer">
+                <a class="lux-view-all-link" onclick={navigateToAllCases}>
+                    Voir toutes les demandes 
+                    <lightning-icon icon-name="utility:chevronright" size="xx-small"></lightning-icon>
+                </a>
+            </div>
+        </template>
+
+        <!-- État vide -->
+        <template if:false={hasCases}>
+            <div class="lux-empty-state">
+                <div class="lux-empty-icon">
+                    <lightning-icon icon-name="utility:inbox" size="medium"></lightning-icon>
+                </div>
+                <p class="lux-empty-title">Aucune demande active</p>
+                <p class="lux-empty-text">
+                    Vous n'avez pas de demande en cours.<br>
+                    Créez une nouvelle demande pour commencer.
+                </p>
+            </div>
+        </template>
+
+    </div>
+</template>
