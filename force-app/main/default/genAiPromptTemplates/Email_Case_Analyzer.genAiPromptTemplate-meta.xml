@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_5</activeVersionIdentifier>
     <developerName>Email_Case_Analyzer</developerName>
     <masterLabel>Email_Case_Analyzer</masterLabel>
+    <overridable>false</overridable>
     <relatedEntity>Case</relatedEntity>
     <relatedField>Case.Description</relatedField>
     <templateVersions>
@@ -43,14 +45,17 @@ SUMMARY RULES:
 - Never mention the client name
 - Focus on the main request only
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>RelatedEntity</apiName>
             <definition>SOBJECT://Case</definition>
             <referenceName>Input:Case</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_1</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>You are analyzing emails for internal case processing, not replying to customers.
@@ -95,14 +100,17 @@ SUMMARY RULES:
 - Neutral and factual tone
 - Focus only on the main issue
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>RelatedEntity</apiName>
             <definition>SOBJECT://Case</definition>
             <referenceName>Input:Case</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_2</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>You are analyzing emails for internal case processing, not replying to customers.
@@ -147,14 +155,17 @@ SUMMARY RULES:
 - Neutral and factual tone
 - Focus only on the main issue
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>RelatedEntity</apiName>
             <definition>SOBJECT://Case</definition>
             <referenceName>Input:Case</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_3</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>You are analyzing emails for internal case processing, not replying to customers.
@@ -199,14 +210,17 @@ SUMMARY RULES:
 - Neutral and factual tone
 - Focus only on the main issue
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>RelatedEntity</apiName>
             <definition>SOBJECT://Case</definition>
             <referenceName>Input:Case</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_4</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>You are analyzing emails for internal case processing, not replying to customers.
@@ -251,14 +265,17 @@ SUMMARY RULES:
 - Neutral and factual tone
 - Focus only on the main issue
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>RelatedEntity</apiName>
             <definition>SOBJECT://Case</definition>
             <referenceName>Input:Case</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_5</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__fieldCompletion</type>
     <visibility>Global</visibility>

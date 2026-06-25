@@ -1,0 +1,35 @@
+{
+  "required" : [ "CaseId", "caseDescription", "caseSubject" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "CaseId" : {
+      "title" : "CaseId",
+      "description" : "The Salesforce Case ID",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "caseDescription" : {
+      "title" : "caseDescription",
+      "description" : "The description of the customer case used to select the appropriate email template",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "caseSubject" : {
+      "title" : "caseSubject",
+      "description" : "The subject of the customer case used to select the appropriate email template",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "varTemplateList" : {
+      "title" : "varTemplateList",
+      "description" : "Internal variable - not used by agent",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

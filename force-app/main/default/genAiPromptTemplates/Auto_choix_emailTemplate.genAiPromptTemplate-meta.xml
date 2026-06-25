@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_24</activeVersionIdentifier>
     <developerName>Auto_choix_emailTemplate</developerName>
     <masterLabel>Auto-choix-emailTemplate</masterLabel>
+    <overridable>false</overridable>
     <templateVersions>
         <content>&quot;Analyse la description du Case {!$Input:Case.Description}.&quot;
 &quot;Si le client demande où est sa commande, utilise le texte du template TMPL_Order_Status et remplace les balises par les données de l&apos;objet {!$Input:Order}.&quot;
 &quot;Si le client veut faire un retour, utilise le texte de TMPL_Return_Process.&quot;
 &quot;Génère la réponse finale dans le champ {!$Input:Case.Draft_Response__c} du Case.&quot;
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -22,8 +25,10 @@
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_1</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client expert.
@@ -80,6 +85,7 @@ Règles :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -94,8 +100,10 @@ Règles :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_2</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client expert.
@@ -154,6 +162,7 @@ IMPORTANT :
 Toute la réponse doit être rédigée uniquement en français.
 Aucun mot en anglais n’est autorisé.
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -168,8 +177,10 @@ Aucun mot en anglais n’est autorisé.
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_3</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -251,6 +262,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -265,8 +277,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_4</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -348,6 +362,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -362,8 +377,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Draft</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_5</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -445,6 +462,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -459,8 +477,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_6</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -542,6 +562,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -556,8 +577,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_7</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -638,6 +661,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -652,105 +676,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
-    </templateVersions>
-    <templateVersions>
-        <content>Tu es un agent service client francophone expert.
-
-Ta mission :
-Choisir UN seul modèle parmi les deux ci-dessous et générer une réponse email prête à envoyer.
-
-Règles obligatoires :
-- Répondre uniquement en français
-- Ne jamais modifier la structure des modèles
-- Ne jamais mélanger les deux modèles
-- Remplacer uniquement les variables dynamiques à partir du Case
-- Adapter uniquement les valeurs (nom, commande, statut)
-
----
-
-DONNÉES CASE :
-- Prénom client : {!$Input:Case.Contact.FirstName}
-- Email client : {!$Input:Case.SuppliedEmail}
-- Numéro de case : {!$Input:Case.CaseNumber}
-- Numéro de commande : {!$Input:Case.Order_number__c}
-- Sous-catégorie : {!$Input:Case.Subcategory__c}
-- Date de commande : {!$Input:Case.Date_d_achat__c}
-
----
-
-### MODÈLE 1 — SUIVI DE COMMANDE
-
-Bonjour {!$Input:Case.Contact.FirstName},
-
-Merci de nous avoir contacté.
-Nous avons bien reçu votre demande concernant le suivi de votre commande.
-
-Voici les informations relatives à votre commande :
-
-📦 Numéro de commande : {!$Input:Case.Order_number__c}
-📅 Date de commande : {!$Input:Case.Date_d_achat__c}
-
-N&apos;hésitez pas à nous recontacter si vous avez d&apos;autres questions.
-
-Cordialement,
-L&apos;équipe Service Client
-{!$Input:Case.SuppliedEmail}
-
-Référence dossier : # {!$Input:Case.CaseNumber}
-
----
-
-### MODÈLE 2 — PROCÉDURE DE RETOUR
-
-Bonjour {!$Input:Case.Contact.FirstName},
-
-Merci de nous avoir contacté concernant votre demande de retour.
-
-Voici la procédure à suivre pour effectuer votre retour :
-
-📋 Connectez-vous à votre espace client
-📦 Allez dans &quot;Mes commandes&quot; et sélectionnez l&apos;article concerné
-🔄 Cliquez sur &quot;Demander un retour&quot;
-🖨️ Imprimez l&apos;étiquette de retour générée automatiquement
-📬 Déposez le colis dans un point relais sous 14 jours
-
-Commande concernée : {!$Input:Case.Order_number__c}
-Délai de remboursement : 5 à 7 jours ouvrés après réception
-
-En cas de difficulté, notre équipe reste disponible.
-
-Cordialement,
-L&apos;équipe Service Client
-
-Référence dossier : # {!$Input:Case.CaseNumber}
-
----
-
-IMPORTANT FINAL :
-- Choisis uniquement le modèle le plus pertinent selon la Sous-catégorie
-- Retourne uniquement le contenu final prêt à envoyer
-- Ne rajoute aucun commentaire
-
-
-</content>
-        <inputs>
-            <apiName>Order</apiName>
-            <definition>SOBJECT://Order</definition>
-            <masterLabel>Order</masterLabel>
-            <referenceName>Input:Order</referenceName>
-            <required>false</required>
-        </inputs>
-        <inputs>
-            <apiName>Case</apiName>
-            <definition>SOBJECT://Case</definition>
-            <masterLabel>Case</masterLabel>
-            <referenceName>Input:Case</referenceName>
-            <required>false</required>
-        </inputs>
-        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
-        <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_10</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -832,6 +761,107 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Order</apiName>
+            <definition>SOBJECT://Order</definition>
+            <masterLabel>Order</masterLabel>
+            <referenceName>Input:Order</referenceName>
+            <required>false</required>
+        </inputs>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>false</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Tu es un agent service client francophone expert.
+
+Ta mission :
+Choisir UN seul modèle parmi les deux ci-dessous et générer une réponse email prête à envoyer.
+
+Règles obligatoires :
+- Répondre uniquement en français
+- Ne jamais modifier la structure des modèles
+- Ne jamais mélanger les deux modèles
+- Remplacer uniquement les variables dynamiques à partir du Case
+- Adapter uniquement les valeurs (nom, commande, statut)
+
+---
+
+DONNÉES CASE :
+- Prénom client : {!$Input:Case.Contact.FirstName}
+- Email client : {!$Input:Case.SuppliedEmail}
+- Numéro de case : {!$Input:Case.CaseNumber}
+- Numéro de commande : {!$Input:Case.Order_number__c}
+- Sous-catégorie : {!$Input:Case.Subcategory__c}
+- Date de commande : {!$Input:Case.Date_d_achat__c}
+
+---
+
+### MODÈLE 1 — SUIVI DE COMMANDE
+
+Bonjour {!$Input:Case.Contact.FirstName},
+
+Merci de nous avoir contacté.
+Nous avons bien reçu votre demande concernant le suivi de votre commande.
+
+Voici les informations relatives à votre commande :
+
+📦 Numéro de commande : {!$Input:Case.Order_number__c}
+📅 Date de commande : {!$Input:Case.Date_d_achat__c}
+
+N&apos;hésitez pas à nous recontacter si vous avez d&apos;autres questions.
+
+Cordialement,
+L&apos;équipe Service Client
+{!$Input:Case.SuppliedEmail}
+
+Référence dossier : # {!$Input:Case.CaseNumber}
+
+---
+
+### MODÈLE 2 — PROCÉDURE DE RETOUR
+
+Bonjour {!$Input:Case.Contact.FirstName},
+
+Merci de nous avoir contacté concernant votre demande de retour.
+
+Voici la procédure à suivre pour effectuer votre retour :
+
+📋 Connectez-vous à votre espace client
+📦 Allez dans &quot;Mes commandes&quot; et sélectionnez l&apos;article concerné
+🔄 Cliquez sur &quot;Demander un retour&quot;
+🖨️ Imprimez l&apos;étiquette de retour générée automatiquement
+📬 Déposez le colis dans un point relais sous 14 jours
+
+Commande concernée : {!$Input:Case.Order_number__c}
+Délai de remboursement : 5 à 7 jours ouvrés après réception
+
+En cas de difficulté, notre équipe reste disponible.
+
+Cordialement,
+L&apos;équipe Service Client
+
+Référence dossier : # {!$Input:Case.CaseNumber}
+
+---
+
+IMPORTANT FINAL :
+- Choisis uniquement le modèle le plus pertinent selon la Sous-catégorie
+- Retourne uniquement le contenu final prêt à envoyer
+- Ne rajoute aucun commentaire
+
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -846,8 +876,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_9</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -928,6 +960,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -942,8 +975,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_11</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1024,6 +1059,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -1038,8 +1074,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_12</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1120,6 +1158,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -1134,8 +1173,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_13</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1216,6 +1257,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -1230,8 +1272,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Case</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_14</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1312,6 +1356,7 @@ IMPORTANT FINAL :
 
 
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Case</apiName>
             <definition>SOBJECT://Case</definition>
@@ -1326,8 +1371,10 @@ IMPORTANT FINAL :
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_15</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1412,6 +1459,7 @@ Référence dossier : #{!$Input:Case.CaseNumber}
 - Ne jamais afficher de variables non résolues
 - Toujours retourner uniquement l&apos;email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -1447,8 +1495,10 @@ Référence dossier : #{!$Input:Case.CaseNumber}
             <referenceName>Input:OrderDate</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_16</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1555,6 +1605,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>OrderDate</apiName>
             <definition>primitive://String</definition>
@@ -1590,8 +1641,10 @@ Service Client
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_17</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1697,6 +1750,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -1732,8 +1786,10 @@ Service Client
             <referenceName>Input:OrderDate</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_18</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1838,6 +1894,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>OrderDate</apiName>
             <definition>primitive://String</definition>
@@ -1873,8 +1930,10 @@ Service Client
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_19</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -1995,6 +2054,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -2030,8 +2090,10 @@ Service Client
             <referenceName>Input:OrderDate</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_20</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -2160,6 +2222,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>OrderDate</apiName>
             <definition>primitive://String</definition>
@@ -2195,8 +2258,10 @@ Service Client
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_21</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -2346,6 +2411,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -2381,8 +2447,10 @@ Service Client
             <referenceName>Input:OrderDate</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_22</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -2540,6 +2608,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>OrderDate</apiName>
             <definition>primitive://String</definition>
@@ -2575,8 +2644,10 @@ Service Client
             <referenceName>Input:Order</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_23</versionIdentifier>
     </templateVersions>
     <templateVersions>
         <content>Tu es un agent service client francophone expert.
@@ -2735,6 +2806,7 @@ Service Client
 - Ne jamais afficher de placeholders
 - Retourner uniquement l’email final
 </content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>Order</apiName>
             <definition>SOBJECT://Order</definition>
@@ -2770,8 +2842,10 @@ Service Client
             <referenceName>Input:OrderDate</referenceName>
             <required>false</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
         <status>Published</status>
+        <versionIdentifier>bVM8BMpSbwKtRXom9hatVYFmWQGtREehrttfdf3cNtA=_24</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

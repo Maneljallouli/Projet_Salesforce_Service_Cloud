@@ -1,0 +1,28 @@
+{
+  "required" : [ "CaseId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "CaseId" : {
+      "title" : "CaseId",
+      "description" : "The Salesforce Case ID",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "EmailBody" : {
+      "title" : "EmailBody",
+      "description" : "The generated email content to save when no template is used.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "TemplateName" : {
+      "title" : "TemplateName",
+      "description" : "The email template developer name to use. Leave empty to use generated content.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

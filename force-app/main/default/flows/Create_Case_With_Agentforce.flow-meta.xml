@@ -41,6 +41,7 @@
         <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <name>Contact_Exists</name>
         <label>Contact Exists?</label>
@@ -105,7 +106,7 @@
         <inputAssignments>
             <field>ContactId</field>
             <value>
-                <elementReference>Find_Contact_by_Email.Email</elementReference>
+                <elementReference>Find_Contact_by_Email.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

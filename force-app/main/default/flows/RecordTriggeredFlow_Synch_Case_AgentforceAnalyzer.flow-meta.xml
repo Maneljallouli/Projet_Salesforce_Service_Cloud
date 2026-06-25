@@ -73,18 +73,22 @@
         <inputParameters>
             <name>recipientAddresses</name>
             <value>
-                <elementReference>$Record.Contact.Email</elementReference>
+                <collectionElements>
+                    <elementReference>$Record.SuppliedEmail</elementReference>
+                </collectionElements>
             </value>
         </inputParameters>
         <inputParameters>
             <name>senderType</name>
             <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
                 <stringValue>OrgWideEmailAddress</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>senderAddress</name>
             <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
                 <stringValue>manel.jallouli@olivesoft.fr</stringValue>
             </value>
         </inputParameters>
@@ -97,6 +101,7 @@
         <inputParameters>
             <name>emailTemplateId</name>
             <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
                 <stringValue>00XAW0000091jif2AA</stringValue>
             </value>
         </inputParameters>
@@ -110,6 +115,7 @@
             <name>relatedRecordId</name>
             <value>
                 <elementReference>$Record.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
             </value>
         </inputParameters>
         <inputParameters>
@@ -123,6 +129,7 @@
         <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <name>AI_Analysis_Successful</name>
         <label>AI Analysis Successful ?</label>
@@ -351,9 +358,9 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
-        <description>Stocke la sortie de l'Apex Invocable Action</description>
+        <description>Stocke la sortie de l’Apex Invocable Action</description>
         <name>Agentforce_Result</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>

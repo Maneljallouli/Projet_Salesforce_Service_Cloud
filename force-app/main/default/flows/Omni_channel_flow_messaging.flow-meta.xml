@@ -105,6 +105,7 @@
         <versionString>2.0.0</versionString>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <environments>Default</environments>
     <interviewLabel>Omni channel flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Omni channel flow messaging</label>

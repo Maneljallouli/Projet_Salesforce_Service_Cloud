@@ -92,6 +92,7 @@
         <offset>0</offset>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Recpient_id</name>
         <label>Assign Recpient id</label>

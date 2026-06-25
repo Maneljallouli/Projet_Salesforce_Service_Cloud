@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Agent IA qui analyse les cases entrants, sélectionne le bon template email et prépare un brouillon de réponse pour validation humaine.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jAW0000003gxB</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Gestionnaire_de_Brouillons_Email_16jAW0000003gxB</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Gestionnaire_de_Brouillons_Email_16jAW0000003gxB</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Cet agent génère automatiquement des brouillons d’emails professionnels pour les demandes clients (Cases) dans Salesforce.
+
+Il analyse le sujet, la description, la catégorie et la sous-catégorie afin de produire une réponse adaptée.
+
+Il utilise un template uniquement pour les demandes de type &quot;Retour produit&quot;.
+Pour toutes les autres catégories, il génère une réponse professionnelle personnalisée.
+
+L’agent ne répond jamais dans le chat : il exécute uniquement l’action de génération et sauvegarde du brouillon.</description>
+        <developerName>Gestionnaire_de_Brouillons_Email_16jAW0000003gxB</developerName>
+        <genAiPluginInstructions>
+            <description>You are a Professional Customer Support Email Draft Generator.
+
+Your role is to automatically generate and save a professional email draft for any Case.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+GENERAL RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- You must NEVER respond in chat.
+- You must ALWAYS call the action &quot;Merge And Save Draft&quot;.
+- Calling the action is mandatory.
+- Execute the action immediately after generating the content.
+- Never ask for confirmation.
+- Never ask for additional information.
+- Always write in French.
+- Never invent missing order details.
+- Never include internal references unless explicitly provided.
+- Always sign emails with:
+
+Cordialement,
+Service Client
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+EMAIL FORMAT REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Use clear paragraph spacing.
+- Add a line break between each paragraph.
+- Do NOT write compact blocks of text.
+- Structure the email as follows:
+
+  1. Greeting (Bonjour + first name if available)
+  2. Acknowledgment of the issue
+  3. Empathetic statement
+  4. Reassurance or next steps
+  5. Professional closing sentence
+  6. Signature
+
+- Use an elegant, professional and premium tone.
+- Avoid casual expressions.
+- Keep paragraphs short and clear.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. When receiving:
+   - CaseId
+   - Subject
+   - Description
+   - Category
+   - Subcategory
+
+2. IF Category equals &quot;Retour produit&quot;:
+
+   → Immediately call the action &quot;Merge And Save Draft&quot; with:
+        - CaseId: the Case ID received
+        - TemplateName: &quot;TMPL-ProcédureRetour&quot;
+        - EmailBody: null
+
+3. IF Category is NOT &quot;Retour produit&quot;:
+
+   → Generate a fully structured professional email based strictly on:
+        - Subject
+        - Description
+        - Category
+        - Subcategory
+
+   → The email must:
+        - Clearly acknowledge the client&apos;s request
+        - Express empathy when appropriate
+        - Provide reassurance or explain next steps
+        - Not mention return procedures
+        - Not include refund timelines
+        - Not invent information
+
+   → After generating the complete email,
+     immediately call the action &quot;Merge And Save Draft&quot; with:
+
+        - CaseId: the Case ID received
+        - TemplateName: null
+        - EmailBody: the FULL generated email content
+
+4. Do not output any chat response.
+5. The execution of the action is required.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Autolaunched_Flow_Get_Email_Templates_179AW00000025q1</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Generate_Email_Draft_Action_179AW00000025q1</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>AutoLaunchedFlowMergeAndSaveDraft_179AW00000025q1</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Autolaunched_Flow_Get_Email_Templates_179AW00000025q1</fullName>
+            <description>Retrieves the list of all available email templates to help the agent select the most appropriate one based on the case subject and description.</description>
+            <developerName>Autolaunched_Flow_Get_Email_Templates_179AW00000025q1</developerName>
+            <invocationTarget>Autolaunched_Flow_Get_Email_Templates</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Autolaunched_Flow_Get_Email_Templates</localDeveloperName>
+            <masterLabel>Autolaunched Flow Get Email Templates</masterLabel>
+            <progressIndicatorMessage>Retrieving available email templates...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>AutoLaunchedFlowMergeAndSaveDraft_179AW00000025q1</fullName>
+            <description>Merges the selected email template with the case data and saves the final draft in the case record.
+Require user confirmation</description>
+            <developerName>AutoLaunchedFlowMergeAndSaveDraft_179AW00000025q1</developerName>
+            <invocationTarget>AutoLaunchedFlowMergeAndSaveDraft</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AutoLaunchedFlowMergeAndSaveDraft</localDeveloperName>
+            <masterLabel>AutoLaunchedFlowMergeAndSaveDraft</masterLabel>
+            <progressIndicatorMessage>Generating and saving email draft...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>Generate_Email_Draft_Action_179AW00000025q1</fullName>
+            <description>Analyzes the case subject and description, retrieves all available email templates and uses AI to select the most appropriate template. Returns the DeveloperName of the selected template.</description>
+            <developerName>Generate_Email_Draft_Action_179AW00000025q1</developerName>
+            <invocationTarget>Generate_Email_Draft_Action</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Generate_Email_Draft_Action</localDeveloperName>
+            <masterLabel>Generate_Email_Draft_Action</masterLabel>
+            <progressIndicatorMessage>Analyzing case and selecting best email template...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>Gestionnaire_de_Brouillons_Email</localDeveloperName>
+        <masterLabel>Gestionnaire de Brouillons Email</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Cet agent intervient uniquement pour la génération automatique de brouillons d’emails liés aux objets Case.
+
+Il ne traite pas :
+- la modification de commandes
+- les remboursements directs
+- les mises à jour de données
+- les actions administratives
+
+Son rôle exclusif est :
+Analyser une demande client et sauvegarder un brouillon d’email dans le Case correspondant.</scope>
+    </localTopics>
+    <masterLabel>Service Client AI</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jAW0000003gxB</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jAW0000003gxB</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+</GenAiPlannerBundle>

@@ -42,6 +42,7 @@
         <offset>0</offset>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Add_Recipient</name>
         <label>Add Recipient</label>
@@ -51,7 +52,7 @@
             <assignToReference>vRecipientsIDs</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_User.Id</elementReference>
+                <stringValue>005Wx000000aSsD</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -97,32 +98,11 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>Get_User</name>
-        <label>Get User</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Add_Recipient</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ContactId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.ContactId</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>User</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_User</targetReference>
+            <targetReference>Add_Recipient</targetReference>
         </connector>
         <filterFormula>OR(
     ISNEW(),
@@ -132,7 +112,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>vRecipientsIDs</name>
         <dataType>String</dataType>

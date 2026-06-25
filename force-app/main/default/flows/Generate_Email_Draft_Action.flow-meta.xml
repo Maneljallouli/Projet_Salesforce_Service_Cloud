@@ -34,6 +34,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>List_Email_Templates</name>
         <label>List_Email_Templates</label>
@@ -119,7 +120,7 @@
             <targetReference>Get_Email_Template</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>caseDescription</name>
         <dataType>String</dataType>

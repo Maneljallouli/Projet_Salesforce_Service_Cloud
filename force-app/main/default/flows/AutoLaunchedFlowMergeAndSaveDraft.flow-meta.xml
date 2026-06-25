@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>Render_Template_Content</name>
-        <label>Render Template Content</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <actionName>EmailTemplateRenderer</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>update_case</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>caseId</name>
-            <value>
-                <elementReference>CaseId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>htmlBody</name>
-            <value>
-                <elementReference>VarTemplate.HtmlValue</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>EmailTemplateRenderer</nameSegment>
-        <offset>0</offset>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
     <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>is_success</name>
         <label>is success</label>
@@ -41,6 +15,31 @@
             </value>
         </assignmentItems>
     </assignments>
+    <decisions>
+        <name>Template_or_Generated</name>
+        <label>Template or Generated</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>update_case2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Use Generated</defaultConnectorLabel>
+        <rules>
+            <name>Use_Template</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TemplateName</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Template</targetReference>
+            </connector>
+            <label>Use Template</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>AutoLaunchedFlowMergeAndSaveDraft {!$Flow.CurrentDateTime}</interviewLabel>
     <label>AutoLaunchedFlowMergeAndSaveDraft</label>
@@ -70,7 +69,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Render_Template_Content</targetReference>
+            <targetReference>update_case</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -112,21 +111,53 @@
         <inputAssignments>
             <field>Draft_Response__c</field>
             <value>
-                <elementReference>Render_Template_Content</elementReference>
+                <elementReference>VarTemplate.HtmlValue</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
     </recordUpdates>
+    <recordUpdates>
+        <name>update_case2</name>
+        <label>update case2</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>is_success</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CaseId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Draft_Response__c</field>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Template</targetReference>
+            <targetReference>Template_or_Generated</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <variables>
         <name>CaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>EmailBody</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

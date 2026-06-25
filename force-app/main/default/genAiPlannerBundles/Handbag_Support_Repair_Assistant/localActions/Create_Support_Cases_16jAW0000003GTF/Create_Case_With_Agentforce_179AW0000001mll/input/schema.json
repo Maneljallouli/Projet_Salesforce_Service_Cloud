@@ -1,0 +1,80 @@
+{
+  "required" : [ "VarCategory", "VarDescription", "VarPriority", "VarSubcategory", "VarSubject", "Var_OrderNumber", "Var_PurchaseDate", "Var_email" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "VarCategory" : {
+      "title" : "VarCategory",
+      "description" : "Identify the category: 'Demande information', 'Echange produit', 'Réclamation', or 'Retour produit'. If damaged, use 'Réclamation'.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VarContactId" : {
+      "title" : "VarContactId",
+      "description" : "Internal ID. Do not ask the user for this value.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VarDescription" : {
+      "title" : "VarDescription",
+      "description" : "A detailed explanation of the issue the customer is facing with their handbag.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VarPriority" : {
+      "title" : "VarPriority",
+      "description" : "Assess urgency: 'High' for severe damage or deadlines, otherwise 'Medium'. Do not ask the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VarSubcategory" : {
+      "title" : "VarSubcategory",
+      "description" : "Based on the selected VarCategory, pick the exact subcategory value.\n\nSi la catégorie est 'Echange produit', la sous-catégorie doit impérativement être l'une de ces valeurs : 'Taille / ajustement', 'Couleur / modèle', 'Produit défectueux' ou 'Produit non conforme à la commande'.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VarSubject" : {
+      "title" : "VarSubject",
+      "description" : "Generate a short, professional subject line based on the description. Do not ask the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Var_OrderNumber" : {
+      "title" : "Var_OrderNumber",
+      "description" : "Ask the user for their order number. It is required to link the case to their purchase history.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Var_PurchaseDate" : {
+      "title" : "Var_PurchaseDate",
+      "description" : "Ask for the purchase date. If the user says 'yesterday' or 'last Monday', convert it to YYYY/MM/DD.",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Var_email" : {
+      "title" : "Var_email",
+      "description" : "Ask the user for their email address. This is required to identify the customer in the system before creating the support case.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "contactRecord" : {
+      "title" : "contactRecord",
+      "description" : "Technical variable for flow processing. Internal use only. Do not ask the user for this value.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Contact"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

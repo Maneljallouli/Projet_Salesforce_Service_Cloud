@@ -1,0 +1,244 @@
+name: Deploy to Sandbox UAT
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Display Salesforce CLI Version
+        run: |
+          sf --version
+          sf plugins --core
+
+      - name: Setup Deployment Configuration
+        run: |
+          sf config set org-metadata-rest-deploy=false --global
+
+      - name: Auth org cible via JWT
+        env:
+          SF_TARGET_PRIVATE_KEY: ${{ secrets.SF_TARGET_PRIVATE_KEY }}
+          SF_TARGET_CLIENT_ID: ${{ secrets.SF_TARGET_CLIENT_ID }}
+          SF_TARGET_USERNAME: ${{ secrets.SF_TARGET_USERNAME }}
+        run: |
+          set -euo pipefail
+
+          echo "Création temporaire de la clé JWT..."
+          printf '%b' "$SF_TARGET_PRIVATE_KEY" | tr -d '\r' > /tmp/server.key
+          chmod 600 /tmp/server.key
+
+          sf org login jwt \
+            --client-id "$SF_TARGET_CLIENT_ID" \
+            --jwt-key-file /tmp/server.key \
+            --username "$SF_TARGET_USERNAME" \
+            --instance-url https://test.salesforce.com \
+            --alias org-cible
+
+          rm -f /tmp/server.key
+
+          sf org display --target-org org-cible
+
+      # -------------------------------------------------------------
+      # HELPER DE DEPLOIEMENT
+      # Accepte des dossiers ET des fichiers précis.
+      # Bloque volontairement les dashboards.
+      # -------------------------------------------------------------
+      - name: Create Deployment Helper
+        run: |
+          cat > deploy_existing_paths.sh <<'BASH'
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          WAIT_TIME="$1"
+          shift
+
+          SOURCE_ARGS=()
+
+          for path in "$@"; do
+            case "$path" in
+              *"/dashboards"*|*"/analyticsDashboards"*)
+                echo "::warning::Déploiement bloqué volontairement pour: $path"
+                continue
+                ;;
+            esac
+
+            if [ -e "$path" ]; then
+              echo "Ajout au déploiement: $path"
+              SOURCE_ARGS+=(--source-dir "$path")
+            else
+              echo "::notice::Chemin absent, ignoré: $path"
+            fi
+          done
+
+          if [ ${#SOURCE_ARGS[@]} -eq 0 ]; then
+            echo "Aucun fichier/dossier existant à déployer pour cette étape."
+            exit 0
+          fi
+
+          sf project deploy start \
+            "${SOURCE_ARGS[@]}" \
+            --target-org org-cible \
+            --api-version 65.0 \
+            --test-level NoTestRun \
+            --concise \
+            --wait "$WAIT_TIME"
+          BASH
+
+          chmod +x deploy_existing_paths.sh
+
+      # -------------------------------------------------------------
+      # 1. METADONNEES DE BASE
+      # -------------------------------------------------------------
+      - name: 1 - Deploy Core Metadata
+        run: |
+          ./deploy_existing_paths.sh 30 \
+            force-app/main/default/standardValueSets \
+            force-app/main/default/globalValueSets \
+            force-app/main/default/objects \
+            force-app/main/default/customMetadata \
+            force-app/main/default/customPermissions \
+            force-app/main/default/queues \
+            force-app/main/default/groups \
+            force-app/main/default/duplicateRules
+
+      # -------------------------------------------------------------
+      # 2. CODE APEX ET INTEGRATIONS
+      # -------------------------------------------------------------
+      - name: 2 - Deploy Apex and Integration Metadata
+        run: |
+          ./deploy_existing_paths.sh 30 \
+            force-app/main/default/classes \
+            force-app/main/default/triggers \
+            force-app/main/default/namedCredentials \
+            force-app/main/default/externalCredentials \
+            force-app/main/default/certificates \
+            force-app/main/default/authproviders \
+            force-app/main/default/remoteSiteSettings \
+            force-app/main/default/externalServices
+
+      # -------------------------------------------------------------
+      # 3. SERVICE_CLIENT_AI UNIQUEMENT
+      # Important:
+      # - On ne déploie PAS tout force-app/main/default/bots
+      # - On déploie uniquement force-app/main/default/bots/Service_Client_AI
+      # - On ne déploie PAS tout force-app/main/default/genAiPlannerBundles
+      # - On déploie uniquement Service_Client_AI
+      # - On ne déploie PAS tous les flows, seulement les flows nécessaires.
+      # -------------------------------------------------------------
+      - name: 3 - Deploy Agentforce Service_Client_AI Only
+        run: |
+          ./deploy_existing_paths.sh 60 \
+            force-app/main/default/classes \
+            force-app/main/default/flows/AutoLaunchedFlowMergeAndSaveDraft.flow-meta.xml \
+            force-app/main/default/flows/Autolaunched_Flow_Get_Email_Templates.flow-meta.xml \
+            force-app/main/default/flows/Generate_Email_Draft_Action.flow-meta.xml \
+            force-app/main/default/genAiPromptTemplates/Auto_choix_emailTemplate.genAiPromptTemplate-meta.xml \
+            force-app/main/default/genAiPromptTemplates/Case_Summary.genAiPromptTemplate-meta.xml \
+            force-app/main/default/genAiPromptTemplates/Choix_Du_Template.genAiPromptTemplate-meta.xml \
+            force-app/main/default/genAiPromptTemplates/Email_Case_Analyzer.genAiPromptTemplate-meta.xml \
+            force-app/main/default/genAiPromptTemplateActivations/Auto_choix_emailTemplate.genAiPromptTemplateActivation-meta.xml \
+            force-app/main/default/genAiPromptTemplateActivations/Case_Summary.genAiPromptTemplateActivation-meta.xml \
+            force-app/main/default/genAiPromptTemplateActivations/Choix_Du_Template.genAiPromptTemplateActivation-meta.xml \
+            force-app/main/default/genAiPromptTemplateActivations/Email_Case_Analyzer.genAiPromptTemplateActivation-meta.xml \
+            force-app/main/default/genAiPlannerBundles/Service_Client_AI \
+            force-app/main/default/bots/Service_Client_AI
+
+      # -------------------------------------------------------------
+      # 4. INTERFACE UTILISATEUR ET EXPERIENCE CLOUD
+      # -------------------------------------------------------------
+      - name: 4 - Deploy UI Components and Experience Cloud
+        run: |
+          ./deploy_existing_paths.sh 30 \
+            force-app/main/default/lwc \
+            force-app/main/default/aura \
+            force-app/main/default/flexipages \
+            force-app/main/default/quickActions \
+            force-app/main/default/layouts \
+            force-app/main/default/tabs \
+            force-app/main/default/applications \
+            force-app/main/default/navigationMenus \
+            force-app/main/default/staticresources \
+            force-app/main/default/contentassets \
+            force-app/main/default/experiences \
+            force-app/main/default/digitalExperiences \
+            force-app/main/default/networks \
+            force-app/main/default/sites \
+            force-app/main/default/siteDotComSites \
+            force-app/main/default/brandingSets
+
+      # -------------------------------------------------------------
+      # 5. LABELS ET TRADUCTIONS
+      # -------------------------------------------------------------
+      - name: 5 - Deploy Labels and Translations
+        run: |
+          ./deploy_existing_paths.sh 20 \
+            force-app/main/default/labels \
+            force-app/main/default/translations \
+            force-app/main/default/objectTranslations \
+            force-app/main/default/globalValueSetTranslations
+
+      # -------------------------------------------------------------
+      # 6. REGLES DE GESTION ET DROITS
+      # -------------------------------------------------------------
+      - name: 6 - Deploy Rules and Permissions
+        run: |
+          ./deploy_existing_paths.sh 30 \
+            force-app/main/default/assignmentRules \
+            force-app/main/default/autoResponseRules \
+            force-app/main/default/escalationRules \
+            force-app/main/default/matchingRules \
+            force-app/main/default/sharingRules \
+            force-app/main/default/workflows \
+            force-app/main/default/permissionsets \
+            force-app/main/default/permissionsetgroups \
+            force-app/main/default/mutingpermissionsets \
+            force-app/main/default/profiles \
+            force-app/main/default/roles
+
+      # -------------------------------------------------------------
+      # 7. RAPPORTS ET TEMPLATES
+      # Dashboards exclus volontairement.
+      # -------------------------------------------------------------
+      - name: 7 - Deploy Reports and Templates Without Dashboards
+        run: |
+          ./deploy_existing_paths.sh 30 \
+            force-app/main/default/email \
+            force-app/main/default/pages \
+            force-app/main/default/reports
+
+      # -------------------------------------------------------------
+      # 8. DEBUG
+      # -------------------------------------------------------------
+      - name: 8 - Display Full Error Report on Failure
+        if: failure()
+        run: |
+          echo "Extraction du rapport de déploiement en cours..."
+          sf project deploy report \
+            --target-org org-cible \
+            --use-most-recent \
+            --json || true
+
+      # -------------------------------------------------------------
+      # 9. NOTIFICATIONS
+      # -------------------------------------------------------------
+      - name: Notify Success
+        if: success()
+        run: echo "Deployment successful!"
+
+      - name: Notify Failure
+        if: failure()
+        run: echo "Deployment failed!"
